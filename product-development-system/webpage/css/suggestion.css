@@ -1,0 +1,182 @@
+/* Global styles */
+ul{
+    float: right;
+  }
+
+.navbar {
+    background-color: rgb(151, 101, 192);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .navbar li {
+    float: left;
+    border-bottom: 2px solid transparent;
+    
+  }
+  
+  .navbar li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .navbar li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .navbar li.active {
+    border-bottom: 2px solid white;
+  }
+  
+body {
+    background-color: rgb(165, 93, 224);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Suggestions table */
+table:nth-of-type(1) {
+    float: left;
+    margin-right: 20px;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  
+  table:nth-of-type(1) th,
+  table:nth-of-type(1) td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  
+  table:nth-of-type(1) th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Research table */
+  table:nth-of-type(2) {
+    float: right;
+    border-collapse: collapse;
+  }
+  
+  table:nth-of-type(2) th,
+  table:nth-of-type(2) td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  
+  table:nth-of-type(2) th {
+    background-color: #f2f2f2;
+  }
+  
+  th{
+    color:black;
+  }
+  
+  /* Buttons */
+  a {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+  }
+  
+  
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(165, 93, 224);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Form label */
+  form label {
+    margin-bottom: 15px;
+  }
+  
+  /* Form input fields */
+  form input[type="text"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Form submit button */
+  form input[type="submit"] {
+    background-color: #6641b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #8d52d1;
+  }
+  h1{
+    text-align: center;
+    padding-top: 80px;
+  } 
+  /* Apply styles to select element */
+select {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: all 1.5s ease-in-out;
+}
+
+/* Apply hover styles to select element */
+select:hover {
+  cursor: pointer;
+  border-color: #aaa;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 1.5s ease-in-out;
+}
+
+/* Apply styles to selected option */
+select option:checked {
+  background-color: #0066cc;
+  color: #fff;
+  transition: all 1.5s ease-in-out;
+}
+
+/* Apply hover styles to option elements */
+select option:hover {
+  background-color: #f2f2f2;
+  transition: all 1.5s ease-in-out;
+}

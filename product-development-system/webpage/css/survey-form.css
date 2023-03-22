@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(151, 101, 192);
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  input[type="text"],
+  input[type="submit"],
+  input[type="radio"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #555;
+    background-color: #f9f9f9;
+  }
+  
+  input[type="submit"] {
+    background-color: rgb(151, 101, 192);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #b373c1;
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+  }
+  
+  fieldset p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  fieldset label {
+    margin-right: 10px;
+    color: #555;
+  }
+  
+  fieldset input[type="radio"] {
+    display: inline-block;
+    width: auto;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
+  fieldset input[type="radio"]:hover {
+    background-color: #f5f5f5;
+  }
+  

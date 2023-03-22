@@ -1,0 +1,200 @@
+/* Default Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+ /* Add a black background color to the top navigation */
+ .topnav {
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/*Place the logo in the left and other links*/
+.topnav .logo{
+  float: left;
+  font-weight: bold;
+  font-size: larger;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: white;
+  color:black;
+  font-size: 20px;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+  
+  body {
+    background-color: rgb(151, 101, 192);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  h1 {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  table {
+    margin: 50px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: rgb(151, 101, 192);
+    color: #fff;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(151, 101, 192);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  a:hover {
+    background-color: #3f51b5;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    table {
+      font-size: 14px;
+    }
+  
+    th,
+    td {
+      padding: 8px;
+    }
+  
+    a {
+      padding: 8px 16px;
+    }
+  }
+h1{
+    color: #fff;
+}  
+
+  /* Form */
+  form {
+    position: relative;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(165, 93, 224);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Form label */
+  form label {
+    margin-bottom: 15px;
+  }
+  
+  /* Form input fields */
+  form input[type="text"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Form submit button */
+  form input[type="submit"] {
+    background-color: #6641b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #8d52d1;
+  }
+  h1{
+    text-align: center;
+    padding-top: 80px;
+  } 
+  /* Apply styles to select element */
+select {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  transition: all 1.5s ease-in-out;
+}
+
+/* Apply hover styles to select element */
+select:hover {
+  cursor: pointer;
+  border-color: #aaa;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: all 1.5s ease-in-out;
+}
+
+/* Apply styles to selected option */
+select option:checked {
+  background-color: #0066cc;
+  color: #fff;
+  transition: all 1.5s ease-in-out;
+}
+
+/* Apply hover styles to option elements */
+select option:hover {
+  background-color: #f2f2f2;
+  transition: all 1.5s ease-in-out;
+}
+
+.chart{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgb(151, 101, 192);
+  margin: 5px;
+  padding: 5px;
+}
