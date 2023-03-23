@@ -134,7 +134,7 @@ session_start();
 							<td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
 							<td><?php echo $row['ingredientID']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-success editbtn"> EDIT </button>
+                                <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn"> EDIT </button>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-danger archivebtn"> ARCHIVE </button>
@@ -161,46 +161,13 @@ session_start();
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Edit Research Data </h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Edit Product Concept Data </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
-                <form action="../webpage/includes/update-product-concept.php" method="POST">
-                    <div class="modal-body">
-					
-                        <input type="text" name="edit_id" id="edit_id">
-						<?php
-						    include_once '../webpage/includes/db-connection.php';
-							$id=$_POST['edit_id'];
-							$query = mysqli_query($conn,"select * from tbl_concept where id='$id'");
-							$row = mysqli_fetch_array($query);
-						?>
-                        <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" name="product_name" id="product_name" class="form-control"
-                                placeholder="Enter Product Name">
-                        </div>
-
-                        <div class="form-group">
-							<img src="<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px" id="image">
-        					<label for="file">Product Concept Image</label><br>
-        					<input type = "file" name = "file">
-                        </div>
-
-						<div class="form-group">
-                            <label> IngredientID </label>
-                            <input type="text" name="ingredientID" id="ingredientID" class="form-control"
-                                placeholder="Enter Introduction">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="submit" class="btn btn-primary">Update Data</button>
-                    </div>
-                </form>
-
+                <div class="modal-body">
+                </div>
             </div>
         </div>
     </div>
@@ -262,6 +229,7 @@ session_start();
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    
 
 	<script>
         $(document).ready(function () {
@@ -302,27 +270,23 @@ session_start();
         });
     </script>
 
-    <script>
-        $(document).ready(function () {
-
-            $('.editbtn').on('click', function () {
-
-                $('#editmodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#edit_id').val(data[0]);
-                $('#product_name').val(data[1]);
-                $('#image').val(data[2]);
-                $('#ingredientID').val(data[3]);
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('.editbtn').click(function(){
+                    var userid = $(this).data('id');
+                    $.ajax(
+                        {
+                            url: 'ajax.php',
+                            type: 'post',
+                            data: {userid: userid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#editmodal').modal('show');
+                            }
+                        }
+                    )
+                });
             });
-        });
     </script>
 
 
@@ -349,5 +313,6 @@ session_start();
             });
         });
     </script>
+
 </body>
 </html>
