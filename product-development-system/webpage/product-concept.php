@@ -26,11 +26,11 @@ session_start();
       <li class="nav-item">
         <a class="nav-link" href="suggestion.php">Suggestion </a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="ingredient.php">Ingredients<span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="product-concept.php">Concept Products</a>
+        <a class="nav-link" href="ingredient.php">Ingredients</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="product-concept.php">Concept Products<span class="sr-only">(current)</span></a>
       </li>
 	  <li class="nav-item">
         <a class="nav-link" href="analysis-report.php">Analysis Report</a>
@@ -40,7 +40,7 @@ session_start();
           Archives
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="retrieve.php">Action</a>
+          <a class="dropdown-item" href="retrieve.php">Archive</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -59,42 +59,6 @@ session_start();
 		header("location: ../index.php");
 	}
 ?>
-<h1>Product Concept</h1>
-    <div>
-		<table border="1">
-			<thead>
-				<th>ID</th>
-				<th>Product Name</th>
-				<th>Image</th>
-                <!--<th>Packaging</th>-->
-				<th>IngredientID</th>
-				<th>Actions</th>
-			</thead>
-			<tbody>
-				<?php
-					include_once '../webpage/includes/db-connection.php';
-					$query=mysqli_query($conn,"SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='false'");
-					while($row=mysqli_fetch_array($query)){
-						?>
-						<tr>
-                            <td><?php echo $row['id']; ?></td>
-							<td><?php echo $row['name']; ?></td>
-							<td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-							<!--<td><img src="../webpage/uploads/<?php echo $row['packaging']; ?>" alt="packaging.jpg" width="100px" height="100px"></td>-->
-							<td><?php echo $row['ingredientID']; ?></td>
-							<td>
-								<a href="#" onClick="MyWindow=window.open('edit-product-concept.php?id=<?php echo $row['id']; ?>','MyWindow','location=0,width=600,height=300,left=400,top=60'); return false;">Edit</a>
-								<a href="#" onClick="MyWindow=window.open('archive-product-concept.php?id=<?php echo $row['id']; ?>','MyWindow','location=0,width=600,height=300,left=400,top=60'); return false;">Archive</a>
-								<a href="#" onClick="window.open('survey-form.php?id=<?php echo $row['id'];?>', '_blank')">Survey Form</a>
-							</td>
-						</tr>
-						<?php
-					}
-				?>
-			</tbody>
-		</table>
-	</div>
-
 	<div class="container">
             <div class="card">
                 <h2>Product Concept</h2>
@@ -137,9 +101,9 @@ session_start();
                                 <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn"> EDIT </button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-danger archivebtn"> ARCHIVE </button>
+                                <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-danger archivebtn"> ARCHIVE </button>
                             </td>
-								<td><a href="product-concept-upload.php?id=<?php echo $row['id']; ?>">Proceed to Step 3</a></td>
+								<td><a href="#" onClick="window.open('survey-form.php?id=<?php echo $row['id'];?>', '_blank')">Survey Form</a></td>
                             </tr>
                         <?php           
                     }
@@ -166,60 +130,24 @@ session_start();
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                </div>
+                <div class="modal-body" style="width: 2000px; height:500px;"></div>
             </div>
         </div>
     </div>
 
-	<!--Archive Ingredient-->
+	<!--Archive Product Concept-->
 	<div class="modal fade" id="archivemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Archive Suggestion Data </h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Archive Concept Data </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <form action="S2_delete.php" method="POST">
-
-                    <div class="modal-body">
-
-                        <input type="hidden" name="archive_id" id="archive_id">
-						<h4> Do you want to archive this data?</h4>
-                        <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" name="archive_name" id="archive_name" class="form-control"
-                                placeholder="Enter Product Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Description </label>
-                            <input type="text" name="archive_description" id="archive_description" class="form-control"
-                                placeholder="Enter Introduction">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Ingredient </label>
-                            <input type="text" name="archive_ingredient" id="archive_ingredient" class="form-control"
-                                placeholder="Enter Phone Number">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Research ID </label>
-                            <input type="text" name="archive_researchID" id="archive_researchID" class="form-control"
-                                placeholder="Enter Phone Number" readonly>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                        <button type="submit" name="updatedata" class="btn btn-primary">YES</button>
-                    </div>
-                </form>
-
+                    <div class="modal-body"></div>
             </div>
         </div>
     </div>
@@ -270,9 +198,10 @@ session_start();
         });
     </script>
 
+    <!--Edit modal function-->
     <script type='text/javascript'>
         $(document).ready(function(){
-            $('.editbtn').click(function(){
+            $('body').on("click", ".editbtn", function(event){
                     var userid = $(this).data('id');
                     $.ajax(
                         {
@@ -289,29 +218,24 @@ session_start();
             });
     </script>
 
-
+    <!--Archive modal function-->
 	<script>
-        $(document).ready(function () {
-
-            $('.archivebtn').on('click', function () {
-
-                $('#archivemodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#archive_id').val(data[0]);
-				$('#archive_name').val(data[1]);
-                $('#archive_description').val(data[2]);
-                $('#archive_ingredient').val(data[3]);
-                $('#archive_researchID').val(data[4]);
+        $(document).ready(function(){
+            $('body').on("click", ".archivebtn", function(event){
+                    var archiveid = $(this).data('id');
+                    $.ajax(
+                        {
+                            url: 'archive-product-concept.php',
+                            type: 'post',
+                            data: {archiveid: archiveid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#archivemodal').modal('show');
+                            }
+                        }
+                    )
+                });
             });
-        });
     </script>
 
 </body>

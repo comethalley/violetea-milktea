@@ -1,13 +1,6 @@
 <?php
 include_once '../webpage/includes/db-connection.php';
-session_start();
-if($_SESSION['username']){
-echo "Welcome" . $_SESSION["username"];
-}else{
-header("location: ../index.php");
-}
-
-$conceptID=$_GET['conceptID'];
+$conceptID=$_POST['conceptID'];
 $response1=mysqli_query($conn,"SELECT conceptID, response1, count(*) from tbl_survey where conceptID = $conceptID group by response1");
 $response2=mysqli_query($conn,"SELECT conceptID, response2, count(*) from tbl_survey where conceptID = $conceptID group by response2");
 $response3=mysqli_query($conn,"SELECT conceptID, response3, count(*) from tbl_survey where conceptID = $conceptID group by response3");
@@ -18,11 +11,9 @@ $row1=mysqli_fetch_array($query);
 //$survey = mysqli_query($connection, "SELECT conceptID, response1, count(*) from tbl_survey where conceptID = 5 group by response1");
 
 ?>
-
-
-<html>
   <head>
-  <link rel="stylesheet" type="text/css" href="css/product-concept.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -110,22 +101,10 @@ chart.draw(data, options);
 
     </script>
   </head>
-  <body>
-    	<!--Navbar-->
-<div class="topnav" id="myTopnav">
-	<a href = "logout.php">Logout</a>
-	<a href="retrieve.php">Archives</a>
-	<a href="analysis-report.php">Analysis Report</a>
-	<a href="product-concept.php">Concept Product</a>
-	<a href="S2_index.php">Ingredients</a>
-	<a href="suggestion.php">Suggestion</a>
-</div>
   <center><h1>Survey Report</h1></center>
-  <center><h1><?php echo $row1['name'];?></h1></center>
+  <center><h1>Product name: <?php echo $row1['name'];?></h1></center>
     <div class="chart">
         <div id="response1" style="width: 900px; height: 500px;"></div>
         <div id="response2" style="width: 900px; height: 500px;"></div>
         <div id="response3" style="width: 900px; height: 500px;"></div>
     </div>
-  </body>
-</html>

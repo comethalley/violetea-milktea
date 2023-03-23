@@ -35,16 +35,8 @@
 	  <li class="nav-item active">
         <a class="nav-link" href="analysis-report.php">Analysis Report<span class="sr-only">(current)</span></a>
       </li>
-	  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Archives
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="retrieve.php">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+	  <li class="nav-item">
+        <a class="nav-link" href="retrieve.php">Archives</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
@@ -95,8 +87,8 @@
 				?>
 			</tbody>
 		</table>
-	</div>
-    <br><br>-->
+	</div>-->
+    <br><br>
 	<div class="container">
             <div class="card">
                 <h2>Survey Report</h2>
@@ -109,8 +101,8 @@
                 include_once '../webpage/includes/db-connection.php';
 
                 $query = "SELECT * FROM tbl_ingredient 
-				INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
-				INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.archive='false'";
+                INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
+                INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.archive='false'";
                 $query_run = mysqli_query($conn, $query);
             ?>
                     <table id="datatableid" class="table table-bordered table-dark">
@@ -139,9 +131,11 @@
 							<td><?php echo $row['name']; ?></td>
                             <td><?php echo $row['conceptID']; ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-danger userbtn"> ARCHIVE </button>
+                                    <button type="button" class="btn btn-danger archivebtn"> ARCHIVE </button>
                                 </td>
-								<td><a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID'];?>">See Report</a></td>
+								<td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID'];?>">See Report</a>-->
+                                <button type="button" data-id='<?php echo $row['conceptID']; ?>' class="btn btn-success editbtn"> See Report </button>
+                                </td>
                             </tr>
                         <?php           
                     }
@@ -156,6 +150,23 @@
                 </div>
             </div>
     </div>
+
+    <!-- Survey Report Modal -->
+	 <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Survey Report</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
 
 	<!--Archive Survey-->
 	<div class="modal fade" id="archivemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -252,7 +263,7 @@
 	<script>
         $(document).ready(function () {
 
-            $('.userbtn').on('click', function () {
+            $('body').on("click", ".archivebtn", function(event) {
 
                 $('#archivemodal').modal('show');
 
@@ -270,6 +281,25 @@
                 $('#conceptID').val(data[3]);
             });
         });
+    </script>
+
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('body').on("click", ".editbtn", function(event){
+                    var conceptID = $(this).data('id');
+                    $.ajax(
+                        {
+                            url: 'analysis-report-chart.php',
+                            type: 'post',
+                            data: {conceptID: conceptID},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#editmodal').modal('show');
+                            }
+                        }
+                    )
+                });
+            });
     </script>
 </body>
 </html>

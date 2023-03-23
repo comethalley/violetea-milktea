@@ -1,4 +1,4 @@
-<?php
+<!--<?php
 		session_start();
 		if($_SESSION['username']){
 			echo "Welcome" . $_SESSION["username"];
@@ -27,4 +27,29 @@
 		<button type="submit" name="submit">Archive</button>
 	</form>
 </body>
-</html>
+</html>-->
+
+<?php
+include_once '../webpage/includes/db-connection.php';
+ 
+$archiveid = $_POST['archiveid'];
+ 
+$sql = "select * from tbl_concept where id=".$archiveid;
+$result = mysqli_query($conn,$sql);
+while( $row = mysqli_fetch_array($result) ){
+?>
+<h5>Are you sure you want to archive this data?</h5><br><br>
+<table border='0' width='100%'>
+<tr>
+    <td><img src="../webpage/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
+    <td><p>IngredientID : <?php echo $row['ingredientID']; ?></p></td>
+</tr>
+</table>
+<form action="../webpage/includes/archive-product.php?id=<?php echo $archiveid; ?>" method="POST" enctype="multipart/form-data">
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="submit" class="btn btn-danger">Archive</button>
+                    </div>
+</form>
+<?php } ?>
