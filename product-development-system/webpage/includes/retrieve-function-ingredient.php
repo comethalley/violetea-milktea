@@ -4,6 +4,6 @@
 
         $sql = "UPDATE tbl_ingredient SET archive = 'false' WHERE id = '$id'";
         mysqli_query($conn, $sql);
-        header("Location: ../retrieve.php?retrieve=success");
+        header("Location: ../retrieve-ingredient.php?retrieve=success");
 
 ?>

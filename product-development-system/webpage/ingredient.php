@@ -35,8 +35,18 @@
 	  <li class="nav-item">
         <a class="nav-link" href="analysis-report.php">Analysis Report</a>
       </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="retrieve.php">Archives</a>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Archives
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<a class="dropdown-item" href="retrieve-user.php">Suggestions</a>
+          	<a class="dropdown-item" href="retrieve-research.php">Research</a>
+          	<a class="dropdown-item" href="retrieve-ingredient.php">Ingredient</a>
+          	<a class="dropdown-item" href="retrieve-product-concept.php">Product Concept</a>
+          	<a class="dropdown-item" href="retrieve-report.php">Survey Report</a>
+          	<div class="dropdown-divider"></div>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>

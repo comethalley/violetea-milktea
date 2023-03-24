@@ -23,7 +23,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="suggestion.php">Suggestion </a>
       </li>
       <li class="nav-item">
@@ -35,8 +35,18 @@
 	  <li class="nav-item active">
         <a class="nav-link" href="analysis-report.php">Analysis Report<span class="sr-only">(current)</span></a>
       </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="retrieve.php">Archives</a>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Archives
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<a class="dropdown-item" href="retrieve-user.php">Suggestions</a>
+          	<a class="dropdown-item" href="retrieve-research.php">Research</a>
+          	<a class="dropdown-item" href="retrieve-ingredient.php">Ingredient</a>
+          	<a class="dropdown-item" href="retrieve-product-concept.php">Product Concept</a>
+          	<a class="dropdown-item" href="retrieve-report.php">Survey Report</a>
+          	<div class="dropdown-divider"></div>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="logout.php">Logout</a>
@@ -174,7 +184,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Archive Suggestion Data </h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Archive Survey Data </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

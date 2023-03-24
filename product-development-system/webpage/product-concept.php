@@ -40,10 +40,12 @@ session_start();
           Archives
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="retrieve.php">Archive</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="retrieve-user.php">Suggestions</a>
+          <a class="dropdown-item" href="retrieve-research.php">Research</a>
+          <a class="dropdown-item" href="retrieve-ingredient.php">Ingredient</a>
+          <a class="dropdown-item" href="retrieve-product-concept.php">Product Concept</a>
+          <a class="dropdown-item" href="retrieve-report.php">Survey Report</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
       <li class="nav-item">

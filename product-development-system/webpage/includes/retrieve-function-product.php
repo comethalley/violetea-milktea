@@ -4,7 +4,6 @@
 
         $sql = "UPDATE tbl_concept SET archive = 'false' WHERE id = '$id'";
         mysqli_query($conn, $sql);
-        echo "<script>window.close();</script>";
-        //header("Location: suggestion.php?submit=success");
+        header("Location: ../retrieve-product-concept.php?submit=success");
 
 ?>
