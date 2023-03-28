@@ -12,11 +12,13 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDIS | Suggestions</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./css/suggestion.css">
+    <script src="https://kit.fontawesome.com/a1366662c0.js" crossorigin="anonymous"></script>
 </head>
+
 <?php
 if ($_SESSION['username']) {
     $username = $_SESSION['username'];
@@ -60,24 +62,24 @@ if ($_SESSION['username']) {
             <div class="cont-left">
                 <nav>
                     <ul class="">
-                        <li class="">
-                            <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
+                    <li class="">
+                        <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                            <a class="" href="ingredient.php">Ingredients</a>
+                        <i class="fa-solid fa-flask" style="color: #b8b8b8;"></i> <a class="" href="ingredient.php">Ingredients</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                            <a class="" href="product-concept.php">Concept Products</a>
+                        <i class="fa-brands fa-product-hunt" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Concept Products</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                            <a class="" href="product-concept.php">Analysis Report</a>
+                        <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Analysis Report</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                            <a class="" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+                        <i class="fa-solid fa-box-archive" style="color: #b8b8b8;"></i> <a class="" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
                                 Archive
 
 
@@ -173,7 +175,7 @@ if ($_SESSION['username']) {
                                                                 <td> <?php echo $row['subject']; ?> </td>
                                                                 <td> <?php echo $row['body']; ?> </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-danger userbtn"> ARCHIVE </button>
+                                                                    <button type="button" class="btn btn-danger userbtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive</button>
                                                                 </td>
                                                             </tr>
                                                     <?php
@@ -198,7 +200,7 @@ if ($_SESSION['username']) {
                                 <div class="card">
                                     <div class="card-body">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentaddmodal">
-                                            Add Research
+                                        <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add Research
                                         </button>
                                     </div>
                                 </div>
@@ -240,10 +242,10 @@ if ($_SESSION['username']) {
                                                                 <td> <?php echo $row['trends']; ?> </td>
                                                                 <td> <?php echo $row['conclusion']; ?> </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-success editbtn"> EDIT </button>
+                                                                    <button type="button" class="btn btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>
                                                                 </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-danger archivebtn"> ARCHIVE </button>
+                                                                    <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                                                 </td>
                                                                 <td><a href="S2_create.php?id=<?php echo $row['id']; ?>">Proceed to Step 2</a></td>
                                                             </tr>
@@ -280,7 +282,7 @@ if ($_SESSION['username']) {
                         </button>
                     </div>
 
-                    <form action="../webpage/includes/add.php" method="POST">
+                    <form id="addForm" method="POST">
 
                         <div class="modal-body">
                             <div class="form-group">
@@ -318,7 +320,7 @@ if ($_SESSION['username']) {
         </div>
 
         <!-- VIEW RESEARCH POP UP FORM-->
-        <div class="modal fade" id="viewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="viewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -365,7 +367,7 @@ if ($_SESSION['username']) {
 
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- EDIT POP UP FORM -->
         <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -378,7 +380,8 @@ if ($_SESSION['username']) {
                         </button>
                     </div>
 
-                    <form action="update.php" method="POST">
+                    <form id="updateForm" method="POST">
+
 
                         <div class="modal-body">
 
@@ -452,7 +455,7 @@ if ($_SESSION['username']) {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                            <button type="submit" name="updatedata" class="btn btn-primary">YES</button>
+                            <button type="submit" name="updatedata" class="btn btn-primary " >YES</button>
                         </div>
                     </form>
 
@@ -563,49 +566,127 @@ if ($_SESSION['username']) {
     </script>
 
     <script>
-        $(document).ready(function() {
+       $(document).ready(function() {
 
-            $('#researchtableid').DataTable({
-                "pagingType": "full_numbers",
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
-                ],
-                responsive: true,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search Your Data",
-                }
-            });
+var table = $('#researchtableid').DataTable({
+    "pagingType": "full_numbers",
+    
+    "lengthMenu": [
+        [10, 25, 50, -1],
+        [10, 25, 50, "All"]
+    ],
+    responsive: true,
+    language: {
+        search: "_INPUT_",
+        searchPlaceholder: "Search Your Data",
+    }
+});
 
-        });
+ 
+});
+
     </script>
 
     <!--Edit research-->
     <script>
-        $(document).ready(function() {
+    $(document).ready(function() {
 
-            $('body').on("click", ".editbtn", function(event) {
+$('body').on("click", ".editbtn", function(event) {
 
-                $('#editmodal').modal('show');
+    $('#editmodal').modal('show');
 
-                $tr = $(this).closest('tr');
+    $tr = $(this).closest('tr');
 
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
+    var data = $tr.children("td").map(function() {
+        return $(this).text();
+    }).get();
 
-                console.log(data);
+    console.log(data);
 
-                $('#edit_id').val(data[0]);
-                $('#title').val(data[1]);
-                $('#introduction').val(data[2]);
-                $('#trend').val(data[3]);
-                $('#conclusion').val(data[4]);
-            });
-        });
+    $('#edit_id').val(data[0]);
+    $('#title').val(data[1]);
+    $('#introduction').val(data[2]);
+    $('#trend').val(data[3]);
+    $('#conclusion').val(data[4]);
+
+   
+   
+});
+});
+ 
     </script>
+    <script>
+$(document).ready(function(){
+    $('#addForm').on('submit', function(e){
+        e.preventDefault();
+        var formData = $('#addForm').serialize();
+        var requiredFields = ['title', 'introduction', 'trends','conclusion']; // List of required field names
+        var emptyFields = [];
+        requiredFields.forEach(function(field) {
+            if ($('[name="' + field + '"]').val() === '') {
+                emptyFields.push(field);
+            }
+        });
+        if (emptyFields.length > 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'The following fields are required: ' + emptyFields.join(', ')
+            });
+            return;
+        }
+        $.ajax({
+            type: 'POST',
+            url: './includes/add.php',
+            data: formData,
+            success: function(response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Research Add Successfully',
+                    didClose: function() {
+                        // Refresh the page
+                        location.reload();
+                    }
+                });
+                $('#modal').modal('hide');
+                // Add code here to update the table with the new data
+            }
+        });
+    });
+ 
 
+});
+
+    </script>
+<script>
+$(document).ready(function(){
+    $('#updateForm').on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: './update.php',
+            data: $('#updateForm').serialize(),
+            success: function(response) {
+  Swal.fire({
+    icon: 'success',
+    title: 'Research Updated Successfully',
+    didClose: function() {
+            // Refresh the page
+            location.reload();
+        }
+  });
+
+  $('#editmodal').modal('hide');
+  
+  // Add code here to update the table with the new data
+
+}
+        });
+        
+    });
+});
+
+    </script>
     <!--Archive researchs-->
     <script>
         $(document).ready(function() {

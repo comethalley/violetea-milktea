@@ -53,6 +53,7 @@ main {
   height: 100%;
 
 
+
 }
 
 nav {
@@ -99,15 +100,17 @@ nav ul li a:hover {
   border: 1px solid white;
 }
 
+
 table {
   width: 100%;
-  height: 420px;
-  font-size: 14px;
+  height: 500px;
+  font-size: 13px;
 }
 .box-card{
   padding: 10px;
   background-color: white;
 }
+ 
 .box-card a{
   text-decoration: none;
   color: #2d2b32;
@@ -127,4 +130,14 @@ table {
   .cont-right {
     width: 100%;
   }
+}
+.editbtn{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.archive{
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
