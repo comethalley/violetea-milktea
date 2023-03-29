@@ -33,10 +33,10 @@ if ($_POST) {
         $stmt->bindParam(":researchID", $research_ID);
         $stmt->execute();
         if ($stmt->rowCount()) {
-            header("Location: S2_index.php?status=created");
+            header("Location: ingredient.php?status=created");
             exit();
         }
-        header("Location: S2_create.php?status=fail_create");
+        header("Location: suggestion.php?status=fail_create");
         exit();
     } catch (Exception $e) {
         echo "Error " . $e->getMessage();

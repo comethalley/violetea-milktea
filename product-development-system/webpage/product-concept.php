@@ -204,7 +204,7 @@ if ($_SESSION['username']) {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" style="width: 2000px; height:500px;"></div>
+                <div class="modal-body"></div>
             </div>
         </div>
     </div>

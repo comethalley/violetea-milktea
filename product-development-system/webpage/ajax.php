@@ -7,7 +7,7 @@ $sql = "select * from tbl_concept where id=".$userid;
 $result = mysqli_query($conn,$sql);
 while( $row = mysqli_fetch_array($result) ){
 ?>
-<table border='0' width='100%'>
+<table border='0'>
 <tr>
     <td><img src="../webpage/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
     <td><p>IngredientID : <?php echo $row['ingredientID']; ?></p></td>

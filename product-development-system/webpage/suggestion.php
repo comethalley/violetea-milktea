@@ -247,7 +247,9 @@ if ($_SESSION['username']) {
                                                                 <td>
                                                                     <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                                                 </td>
-                                                                <td><a href="S2_create.php?id=<?php echo $row['id']; ?>">Proceed to Step 2</a></td>
+                                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn archive">Next Step </button>
+                                                                    <!--<a href="S2_create.php?id=<?php echo $row['id']; ?>">Proceed to Step 2</a>-->
+                                                                </td>
                                                             </tr>
                                                     <?php
                                                         }
@@ -399,10 +401,11 @@ if ($_SESSION['username']) {
 
                             <div class="form-group">
                                 <label>Trends</label>
-                                <select id="trends" name="trends" id="trend">
-                                    <option value="social_media">Social Media</option>
-                                    <option value="online_forum">Online Forum</option>
-                                    <option value="customer_survey">Customer Survey</option>
+                                <select id="myDropdown" name="trends">
+                                    <option value="" id="option" selected></option>
+                                    <option value="Social Media">Social Media</option>
+                                    <option value="Online Forum">Online Forum</option>
+                                    <option value="Customer Survey">Customer Survey</option>
                                 </select>
                             </div>
 
@@ -492,10 +495,11 @@ if ($_SESSION['username']) {
 
                             <div class="form-group">
                                 <label>Trends</label>
-                                <select id="trends" name="archive_trends" id="archive_trend" disbaled>
-                                    <option value="social_media">Social Media</option>
-                                    <option value="online_forum">Online Forum</option>
-                                    <option value="customer_survey">Customer Survey</option>
+                                <select id="trends" name="archive_trends" id="archive_trend" disabled="disabled">
+                                    <option value="" id="options" selected></option>
+                                    <option value="Social Media">Social Media</option>
+                                    <option value="Online Forum">Online Forum</option>
+                                    <option value="Customer Survey">Customer Survey</option>
                                 </select>
                             </div>
 
@@ -510,6 +514,22 @@ if ($_SESSION['username']) {
                         </div>
                     </form>
 
+                </div>
+            </div>
+        </div>
+
+         <!-- NEXT STEP POP UP FORM -->
+         <div class="modal fade" id="nextmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Edit Research Data </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <div class="modal-body">
+                        </div>
                 </div>
             </div>
         </div>
@@ -664,11 +684,9 @@ if ($_SESSION['username']) {
                 $('#edit_id').val(data[0]);
                 $('#title').val(data[1]);
                 $('#introduction').val(data[2]);
-                $('#trend').val(data[3]);
-                $('#conclusion').val(data[4]);
-
-
-
+                $('#option').val(data[3]);
+                $('#option').text((data[3]));
+                $('#conclusion').val(data[4]);                
             });
         });
     </script>
@@ -762,6 +780,7 @@ if ($_SESSION['username']) {
                 $('#archive_title').val(data[1]);
                 $('#archive_introduction').val(data[2]);
                 $('#archive_trend').val(data[3]);
+                $('#options').text((data[3]));
                 $('#archive_conclusion').val(data[4]);
             });
         });
@@ -789,6 +808,26 @@ if ($_SESSION['username']) {
                 $('#body').val(data[3]);
             });
         });
+    </script>
+
+    <!--next step modal function-->
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('body').on("click", ".nextbtn", function(event){
+                    var userid = $(this).data('id');
+                    $.ajax(
+                        {
+                            url: 'S2_create.php',
+                            type: 'post',
+                            data: {userid: userid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#nextmodal').modal('show');
+                            }
+                        }
+                    )
+                });
+            });
     </script>
 
 </body>
