@@ -1,13 +1,13 @@
 <?php
 include_once '../webpage/includes/db-connection.php';
-$conceptID=$_POST['conceptID'];
+$conceptID=$_POST['id'];
 $response1=mysqli_query($conn,"SELECT conceptID, response1, count(*) from tbl_survey where conceptID = $conceptID group by response1");
 $response2=mysqli_query($conn,"SELECT conceptID, response2, count(*) from tbl_survey where conceptID = $conceptID group by response2");
 $response3=mysqli_query($conn,"SELECT conceptID, response3, count(*) from tbl_survey where conceptID = $conceptID group by response3");
-$query=mysqli_query($conn,"SELECT * FROM tbl_ingredient 
+$query = mysqli_query($conn,"SELECT * FROM tbl_ingredient 
                     INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
                     INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.conceptID='$conceptID'");
-$row1=mysqli_fetch_array($query);
+$row1 = mysqli_fetch_array($query);
 //$survey = mysqli_query($connection, "SELECT conceptID, response1, count(*) from tbl_survey where conceptID = 5 group by response1");
 
 ?>

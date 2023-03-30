@@ -523,7 +523,7 @@ if ($_SESSION['username']) {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"> Edit Research Data </h5>
+                        <h5 class="modal-title" id="exampleModalLabel"> Proceed to Step 2 </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

@@ -1,37 +1,30 @@
 <?php
-
-session_start();
-if($_SESSION['username']){
-    echo "Welcome" . $_SESSION["username"];
-}else{
-    header("location: ../index.php");
-}
-
-	include_once '../webpage/includes/db-connection.php';
-	$id=$_GET['id'];
+include_once '../webpage/includes/db-connection.php';
+ 
+$userid = $_POST['userid'];
+ 
+$sql = "select * from tbl_ingredient where id=".$userid;
+$result = mysqli_query($conn,$sql);
+while( $row = mysqli_fetch_array($result) ){
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/product-concept-upload.css">
-</head>
-<body>
-<h2>Product Concept</h2>
-	<form method="POST" action="../webpage/includes/upload.php" enctype="multipart/form-data">
+<form method="POST" action="../webpage/includes/upload.php" enctype="multipart/form-data">
+    <h5>Product Concept Image</h5>
         <label>Ingredient ID:</label><br>
-        <input type="text" value="<?php echo $id?>" name="ingredientID"><br>
+        <input type="text" value="<?php echo $userid?>" name="ingredientID" readonly><br>
 
-        <label for="file">Product Concept Image</label><br>
-        <input type="file" name="file"><br>
+        <label for="file">Image 1</label><br>
+        <input type="file" name="file"><br><br>
 
-        <!--<label for="file">Product Concept Packaging</label><br>-->
-        <!--<input type="file" name="packaging"><br>-->
+        <label for="file">Image 2</label><br>
+        <input type="file" name="packaging"><br><br>
 
-		<button type="submit" name="submit">Upload</button>
-	</form>	
-</body>
-</html>
+        <label for="file">Image 3</label><br>
+        <input type="file" name="file3"><br><br>
+
+		<div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Update Data</button>
+        </div>
+	</form>	    
+<?php } ?>
+	

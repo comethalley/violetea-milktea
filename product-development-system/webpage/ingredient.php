@@ -173,7 +173,8 @@ if ($_SESSION['username']) {
                             <td>
                                 <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                             </td>
-								<td><a href="product-concept-upload.php?id=<?php echo $row['id']; ?>">Proceed to Step 3</a></td>
+								<td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn archive">Next Step </button>
+                                    <!--<a href="product-concept-upload.php?id=<?php echo $row['id']; ?>">Proceed to Step 3</a>--></td>
                             </tr>
                         <?php           
                     }
@@ -302,6 +303,22 @@ if ($_SESSION['username']) {
         </div>
     </div>
 
+    <!-- NEXT STEP POP UP FORM -->
+    <div class="modal fade" id="nextmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> Proceed to Step 3 </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <div class="modal-body">
+                        </div>
+                </div>
+            </div>
+        </div>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
@@ -395,6 +412,26 @@ if ($_SESSION['username']) {
                 $('#archive_researchID').val(data[4]);
             });
         });
+    </script>
+
+    <!--next step modal function-->
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('body').on("click", ".nextbtn", function(event){
+                    var userid = $(this).data('id');
+                    $.ajax(
+                        {
+                            url: 'product-concept-upload.php',
+                            type: 'post',
+                            data: {userid: userid},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#nextmodal').modal('show');
+                            }
+                        }
+                    )
+                });
+            });
     </script>
 </body>
 </html>

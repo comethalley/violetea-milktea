@@ -149,7 +149,6 @@ if ($_SESSION['username']) {
                             <th scope="col">Product Name</th>
                             <th scope="col">Concept ID</th>
                             <th scope="col"> Archive </th>
-                            <th scope="col"> Report </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -167,7 +166,52 @@ if ($_SESSION['username']) {
                                         <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                     </td>
                                     <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
-                                        <button type="button" data-id='<?php echo $row['conceptID']; ?>' class="btn btn-success editbtn"> See Report </button>
+                                        <!--<button type="button" data-id='<?php echo $row['conceptID']; ?>' class="btn btn-success editbtn"> See Report </button>-->
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                        } else {
+                            echo "No Record Found";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+                <?php
+                include_once '../webpage/includes/db-connection.php';
+
+                $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='false'";
+                $query_run = mysqli_query($conn, $query);
+                ?>
+                <table id="datatableid" class="table table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col"> ID</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Image 1</th>
+                            <th scope="col">Image 2</th>
+                            <th scope="col">Image 3</th>
+                            <th scope="col"> Report </th>
+                            <th scope="col"> Add </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if ($query_run) {
+                            foreach ($query_run as $row) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo $row['name']; ?></td>
+                                    <td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                    <td><img src="../webpage/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                    <td><img src="../webpage/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                    <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
+                                        <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn"> See Report </button>
+                                    </td>
+                                    <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
+                                        <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-primary addbtn"> Add to Inventory</button>
                                     </td>
                                 </tr>
                         <?php
@@ -286,6 +330,22 @@ if ($_SESSION['username']) {
         </div>
     </div>
 
+    <!-- ADD POP UP FORM -->
+	 <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Edit Product Concept Data </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
@@ -354,16 +414,36 @@ if ($_SESSION['username']) {
             });
         });
     </script>
-
+    <!--Survey Report Modal-->
     <script type='text/javascript'>
         $(document).ready(function() {
             $('body').on("click", ".editbtn", function(event) {
-                var conceptID = $(this).data('id');
+                var id = $(this).data('id');
                 $.ajax({
                     url: 'analysis-report-chart.php',
                     type: 'post',
                     data: {
-                        conceptID: conceptID
+                        id: id
+                    },
+                    success: function(response) {
+                        $('.modal-body').html(response);
+                        $('#editmodal').modal('show');
+                    }
+                })
+            });
+        });
+    </script>
+
+    <!--Add modal-->
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $('body').on("click", ".addbtn", function(event) {
+                var id = $(this).data('id');
+                $.ajax({
+                    url: 'add-inventory.php',
+                    type: 'post',
+                    data: {
+                        id: id
                     },
                     success: function(response) {
                         $('.modal-body').html(response);

@@ -143,6 +143,8 @@ if ($_SESSION['username']) {
                                 <th scope="col"> ID</th>
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">IngredientID</th>
                                 <th scope="col"> Edit </th>
                                 <th scope="col"> Archive </th>
@@ -160,6 +162,8 @@ if ($_SESSION['username']) {
 							<td><?php echo $row['id']; ?></td>
 							<td><?php echo $row['name']; ?></td>
 							<td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                            <td><img src="../webpage/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                            <td><img src="../webpage/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
 							<td><?php echo $row['ingredientID']; ?></td>
                             <td>
                                 <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>
