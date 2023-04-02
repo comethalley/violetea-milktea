@@ -58,24 +58,24 @@ if ($_SESSION['username']) {
             <div class="cont-left">
                 <nav>
                     <ul class="">
-                    <li class="">
-                        <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
+                        <li class="">
+                            <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                        <i class="fa-solid fa-flask" style="color: #b8b8b8;"></i> <a class="" href="ingredient.php">Ingredients</a>
+                            <i class="fa-solid fa-flask" style="color: #b8b8b8;"></i> <a class="" href="ingredient.php">Ingredients</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                        <i class="fa-brands fa-product-hunt" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Concept Products</a>
+                            <i class="fa-brands fa-product-hunt" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Concept Products</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                        <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                        <i class="fa-solid fa-box-archive" style="color: #b8b8b8;"></i> <a class="" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
+                            <i class="fa-solid fa-box-archive" style="color: #b8b8b8;"></i> <a class="" data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">
                                 Archive
 
 
@@ -122,115 +122,156 @@ if ($_SESSION['username']) {
                 </nav>
             </div>
             <div class="cont-right">
-            <div class="card">
-                                    <div class="card-body">
-                                      <label>Analysis Report</label>
-                                    </div>
-                                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <label>Analysis Report</label>
+                    </div>
+                </div>
+                <div class="accordion " id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Table 1
+                                </button>
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Table 2
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
                                 <div class="container">
-        
-        <div class="card">
-            <div class="card-body">
 
-                <?php
-                include_once '../webpage/includes/db-connection.php';
+                                    <div class="card">
+                                        <div class="card-body">
 
-                $query = "SELECT * FROM tbl_ingredient 
+                                            <?php
+                                            include_once '../webpage/includes/db-connection.php';
+
+                                            $query = "SELECT * FROM tbl_ingredient 
                 INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
                 INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.archive='false'";
-                $query_run = mysqli_query($conn, $query);
-                ?>
-                <table id="datatableid" class="table table-striped table-responsive">
-                    <thead>
-                        <tr>
-                            <th scope="col"> ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Timestamp </th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Concept ID</th>
-                            <th scope="col"> Archive </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if ($query_run) {
-                            foreach ($query_run as $row) {
-                        ?>
-                                <tr>
-                                    <td><?php echo $row['id']; ?></td>
-                                    <td><?php echo $row['username']; ?></td>
-                                    <td><?php echo $row['timestamp']; ?></td>
-                                    <td><?php echo $row['name']; ?></td>
-                                    <td><?php echo $row['conceptID']; ?></td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
-                                    </td>
-                                    <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
-                                        <!--<button type="button" data-id='<?php echo $row['conceptID']; ?>' class="btn btn-success editbtn"> See Report </button>-->
-                                    </td>
-                                </tr>
-                        <?php
-                            }
-                        } else {
-                            echo "No Record Found";
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                                            $query_run = mysqli_query($conn, $query);
+                                            ?>
+                                            <table id="datatableid" class="table table-striped table-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"> ID</th>
+                                                        <th scope="col">Username</th>
+                                                        <th scope="col">Timestamp </th>
+                                                        <th scope="col">Product Name</th>
+                                                        <th scope="col">Concept ID</th>
+                                                        <th scope="col"> Archive </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    if ($query_run) {
+                                                        foreach ($query_run as $row) {
+                                                    ?>
+                                                            <tr>
+                                                                <td><?php echo $row['id']; ?></td>
+                                                                <td><?php echo $row['username']; ?></td>
+                                                                <td><?php echo $row['timestamp']; ?></td>
+                                                                <td><?php echo $row['name']; ?></td>
+                                                                <td><?php echo $row['conceptID']; ?></td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
+                                                                </td>
+                                                                <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
+                                                                    <!--<button type="button" data-id='<?php echo $row['conceptID']; ?>' class="btn btn-success editbtn"> See Report </button>-->
+                                                                </td>
+                                                            </tr>
+                                                    <?php
+                                                        }
+                                                    } else {
+                                                        echo "No Record Found";
+                                                    }
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
 
-                <?php
-                include_once '../webpage/includes/db-connection.php';
 
-                $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='false'";
-                $query_run = mysqli_query($conn, $query);
-                ?>
-                <table id="datatableid" class="table table-striped table-responsive">
-                    <thead>
-                        <tr>
-                            <th scope="col"> ID</th>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Image 1</th>
-                            <th scope="col">Image 2</th>
-                            <th scope="col">Image 3</th>
-                            <th scope="col"> Report </th>
-                            <th scope="col"> Add </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        if ($query_run) {
-                            foreach ($query_run as $row) {
-                        ?>
-                                <tr>
-                                    <td><?php echo $row['id']; ?></td>
-                                    <td><?php echo $row['name']; ?></td>
-                                    <td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                                    <td><img src="../webpage/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                                    <td><img src="../webpage/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                                    <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
-                                        <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn"> See Report </button>
-                                    </td>
-                                    <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
-                                        <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-primary addbtn"> Add to Inventory</button>
-                                    </td>
-                                </tr>
-                        <?php
-                            }
-                        } else {
-                            echo "No Record Found";
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <div class="card-body">
+
+                                <div class="container">
+
+                                    <div class="card">
+                                        <div class="card-body">
+
+
+                                            <?php
+                                            include_once '../webpage/includes/db-connection.php';
+
+                                            $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='false'";
+                                            $query_run = mysqli_query($conn, $query);
+                                            ?>
+                                            <table id="datatableid" class="table table-striped table-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"> ID</th>
+                                                        <th scope="col">Product Name</th>
+                                                        <th scope="col">Image 1</th>
+                                                        <th scope="col">Image 2</th>
+                                                        <th scope="col">Image 3</th>
+                                                        <th scope="col"> Report </th>
+                                                        <th scope="col"> Add </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    if ($query_run) {
+                                                        foreach ($query_run as $row) {
+                                                    ?>
+                                                            <tr>
+                                                                <td><?php echo $row['id']; ?></td>
+                                                                <td><?php echo $row['name']; ?></td>
+                                                                <td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                                <td><img src="../webpage/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                                <td><img src="../webpage/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                                <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
+                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn"> See Report </button>
+                                                                </td>
+                                                                <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
+                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-primary addbtn"> Add to Inventory</button>
+                                                                </td>
+                                                            </tr>
+                                                    <?php
+                                                        }
+                                                    } else {
+                                                        echo "No Record Found";
+                                                    }
+                                                    ?>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
             </div>
         </div>
-    </div>
 
-            </div>
-        </div>
-     
-         
- 
+
+
     </main>
 
     <!--<h1>Survey Report</h1>
@@ -269,8 +310,8 @@ if ($_SESSION['username']) {
 			</tbody>
 		</table>
 	</div>-->
-   
- 
+
+
 
     <!-- Survey Report Modal -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -331,8 +372,7 @@ if ($_SESSION['username']) {
     </div>
 
     <!-- ADD POP UP FORM -->
-	 <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
