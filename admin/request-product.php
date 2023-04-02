@@ -80,8 +80,39 @@ while($row=mysqli_fetch_array($query))
 											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image2']);?>" alt="image.jpg" width="50px" height="50px"></td>
 											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image3']);?>" alt="image.jpg" width="50px" height="50px"></td>
 											<td>
-											<a href="edit-products.php?id=<?php echo $row['id']?>" ><i class="icon-edit"></i></a>
-											<a href="manage-products.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"><i class="icon-remove-sign"></i></a></td>
+											<button type="button" data-id='<?php echo htmlentities($row['id']); ?>' class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Add </button>
+											</td>
+										</tr>
+										<?php $cnt=$cnt+1; } ?>
+										
+								</table>
+								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Product Name</th>
+											<th>Image</th>
+											<th>Image</th>
+											<th>Image</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+
+<?php $query=mysqli_query($con,"Select * from tbl_request where isAccepted='true'");
+$cnt=1;
+while($row=mysqli_fetch_array($query))
+{
+?>									
+										<tr>
+											<td><?php echo htmlentities($cnt);?></td>
+											<td><?php echo htmlentities($row['name']);?></td>
+											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image2']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image3']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td>
+											<button type="button" data-id='<?php echo htmlentities($row['id']); ?>' class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Add </button>
+											</td>
 										</tr>
 										<?php $cnt=$cnt+1; } ?>
 										
@@ -96,6 +127,22 @@ while($row=mysqli_fetch_array($query))
 			</div>
 		</div><!--/.container-->
 	</div><!--/.wrapper-->
+
+	<!-- ADD POP UP FORM -->
+	<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Add this product to the inventory? </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
 
 <?php include('include/footer.php');?>
 
@@ -113,5 +160,25 @@ while($row=mysqli_fetch_array($query))
 			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
 		} );
 	</script>
+
+	<!--Add modal function-->
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            $('body').on("click", ".editbtn", function(event){
+                    var id = $(this).data('id');
+                    $.ajax(
+                        {
+                            url: 'request.php',
+                            type: 'post',
+                            data: {id: id},
+                            success: function(response){
+                                $('.modal-body').html(response);
+                                $('#editmodal').modal('show');
+                            }
+                        }
+                    )
+                });
+            });
+    </script>
 </body>
 <?php } ?>
