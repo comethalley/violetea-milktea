@@ -103,8 +103,8 @@ chart.draw(data, options);
   </head>
   <center><h1>Survey Report</h1></center>
   <center><h1>Product name: <?php echo $row1['name'];?></h1></center>
-    <div class="chart">
-        <div id="response1" style="width: 900px; height: 500px;"></div>
-        <div id="response2" style="width: 900px; height: 500px;"></div>
-        <div id="response3" style="width: 900px; height: 500px;"></div>
+  <div class="chartbox">
+        <div id="response1"  style="width:100%;"></div>
+        <div id="response2" style="width:100%;"></div>
+        <div id="response3" style="width:100%;"></div>
     </div>
