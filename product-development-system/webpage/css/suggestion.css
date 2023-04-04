@@ -141,3 +141,11 @@ table {
   justify-content: center;
   align-items: center;
 }
+
+.chartbox{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+  
+  width: 100%;
+}
