@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDIS | Ingredients</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./css/suggestion.css">
@@ -211,7 +212,7 @@ if ($_SESSION['username']) {
                     </button>
                 </div>
 
-                <form action="S2_update.php" method="POST">
+                <form id="updateForm" method="POST">
 
                     <div class="modal-body">
 
@@ -263,7 +264,7 @@ if ($_SESSION['username']) {
                     </button>
                 </div>
 
-                <form action="S2_delete.php" method="POST">
+                <form  id="myIngredient" method="POST">
 
                     <div class="modal-body">
 
@@ -387,7 +388,35 @@ if ($_SESSION['username']) {
                 $('#researchID').val(data[4]);
             });
         });
+
+        $(document).ready(function() {
+            $('#updateForm').on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'S2_update.php',
+                    data: $('#updateForm').serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Research Updated Successfully',
+                            didClose: function() {
+                                // Refresh the page
+                                location.reload();
+                            }
+                        });
+
+                        $('#editmodal').modal('hide');
+
+                        // Add code here to update the table with the new data
+
+                    }
+                });
+
+            });
+        });
     </script>
+    
 
     <!--Archive function-->
 	<script>
@@ -412,7 +441,36 @@ if ($_SESSION['username']) {
                 $('#archive_researchID').val(data[4]);
             });
         });
+        $(document).ready(function() {
+            $('#myIngredient').submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting normally
+                var form = $(this);
+                var url = form.attr('action');
+                $.ajax({
+                    type: "POST",
+                    url: "./S2_delete.php",
+                    data: form.serialize(), // Serialize the form data
+                    success: function(data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Successfully Archived',
+                            didClose: function() {
+                                // Refresh the page
+                                location.reload();
+                            }
+                        });
+                        console.log(data);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        // Handle any errors that occur during the AJAX request
+                        console.log("Error: ");
+                    }
+                });
+            });
+        });
     </script>
+
+  
 
     <!--next step modal function-->
     <script type='text/javascript'>
@@ -425,9 +483,13 @@ if ($_SESSION['username']) {
                             type: 'post',
                             data: {userid: userid},
                             success: function(response){
-                                $('.modal-body').html(response);
+                                
+                                $('.modal-body').html(response);                               
                                 $('#nextmodal').modal('show');
+                                
+                                
                             }
+                            
                         }
                     )
                 });
