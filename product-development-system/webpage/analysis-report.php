@@ -236,9 +236,9 @@ if ($_SESSION['username']) {
                                                             <tr>
                                                                 <td><?php echo $row['id']; ?></td>
                                                                 <td><?php echo $row['name']; ?></td>
-                                                                <td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                                                                <td><img src="../webpage/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                                                                <td><img src="../webpage/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                                <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                                <td><img src="../../admin/productimages/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                                <td><img src="../../admin/productimages/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
                                                                 <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
                                                                     <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn"> See Report </button>
                                                                 </td>
@@ -323,9 +323,7 @@ if ($_SESSION['username']) {
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-
-
+                <div class="modal-body" id="modal-body">
                 </div>
             </div>
         </div>
@@ -459,23 +457,31 @@ if ($_SESSION['username']) {
     </script>
     <!--Survey Report Modal-->
     <script type='text/javascript'>
-        $(document).ready(function() {
-            $('body').on("click", ".editbtn", function(event) {
-                var id = $(this).data('id');
-                $.ajax({
-                    url: 'analysis-report-chart.php',
-                    type: 'post',
-                    data: {
-                        id: id
-                    },
-                    success: function(response) {
-                        $('.modal-body').html(response);
-                        $('#editmodal').modal('show');
-                    }
-                })
-            });
-        });
-    </script>
+$(document).ready(function() {
+    $('body').on("click", ".editbtn", function(event) {
+        var id = $(this).data('id');
+        $.ajax({
+            url: 'analysis-report-chart.php',
+            type: 'post',
+            data: {
+                id: id
+            },
+            success: function(response) {
+                $('#modal-body').html(response);
+                $('#editmodal').modal('show');
+                
+                // Delay the rendering of the charts until the modal is fully displayed
+                $('#editmodal').on('shown.bs.modal', function () {
+                    google.charts.load('current', {'packages':['corechart, bar']});
+                    google.charts.setOnLoadCallback(response1Chart);
+                    google.charts.setOnLoadCallback(response2Chart);
+                    google.charts.setOnLoadCallback(response3Chart);
+                });
+            }
+        })
+    });
+});
+</script>
 
     <!--Add modal-->
     <script type='text/javascript'>

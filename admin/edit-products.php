@@ -201,7 +201,7 @@ while($rw=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Image1</label>
 <div class="controls">
-<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage1']);?>" width="200" height="100"> <a href="update-image1.php?id=<?php echo $row['id'];?>">Change Image</a>
+<img src="productimages/uploads/<?php echo htmlentities($row['productImage1']);?>" width="200" height="100"> <a href="update-image1.php?id=<?php echo $row['id'];?>">Change Image</a>
 </div>
 </div>
 
@@ -209,7 +209,7 @@ while($rw=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Image2</label>
 <div class="controls">
-<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage2']);?>" width="200" height="100"> <a href="update-image2.php?id=<?php echo $row['id'];?>">Change Image</a>
+<img src="productimages/uploads/<?php echo htmlentities($row['productImage2']);?>" width="200" height="100"> <a href="update-image2.php?id=<?php echo $row['id'];?>">Change Image</a>
 </div>
 </div>
 
@@ -218,7 +218,7 @@ while($rw=mysqli_fetch_array($query))
 <div class="control-group">
 <label class="control-label" for="basicinput">Product Image3</label>
 <div class="controls">
-<img src="productimages/<?php echo htmlentities($pid);?>/<?php echo htmlentities($row['productImage3']);?>" width="200" height="100"> <a href="update-image3.php?id=<?php echo $row['id'];?>">Change Image</a>
+<img src="productimages/uploads/<?php echo htmlentities($row['productImage3']);?>" width="200" height="100"> <a href="update-image3.php?id=<?php echo $row['id'];?>">Change Image</a>
 </div>
 </div>
 <?php } ?>

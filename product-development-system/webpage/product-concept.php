@@ -161,9 +161,9 @@ if ($_SESSION['username']) {
                             <tr>
 							<td><?php echo $row['id']; ?></td>
 							<td><?php echo $row['name']; ?></td>
-							<td><img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                            <td><img src="../webpage/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                            <td><img src="../webpage/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+							<td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                            <td><img src="../../admin/productimages/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                            <td><img src="../../admin/productimages/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
 							<td><?php echo $row['ingredientID']; ?></td>
                             <td>
                                 <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>

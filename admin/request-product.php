@@ -76,9 +76,9 @@ while($row=mysqli_fetch_array($query))
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($row['name']);?></td>
-											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image']);?>" alt="image.jpg" width="50px" height="50px"></td>
-											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image2']);?>" alt="image.jpg" width="50px" height="50px"></td>
-											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image3']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="productimages/uploads/<?php echo htmlentities($row['image']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="productimages/uploads/<?php echo htmlentities($row['image2']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="productimages/uploads/<?php echo htmlentities($row['image3']);?>" alt="image.jpg" width="50px" height="50px"></td>
 											<td>
 											<button type="button" data-id='<?php echo htmlentities($row['id']); ?>' class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Add </button>
 											</td>
@@ -107,9 +107,9 @@ while($row=mysqli_fetch_array($query))
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($row['name']);?></td>
-											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image']);?>" alt="image.jpg" width="50px" height="50px"></td>
-											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image2']);?>" alt="image.jpg" width="50px" height="50px"></td>
-											<td><img src="../product-development-system/webpage/uploads/<?php echo htmlentities($row['image3']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="productimages/uploads/<?php echo htmlentities($row['image']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="productimages/uploads/<?php echo htmlentities($row['image2']);?>" alt="image.jpg" width="50px" height="50px"></td>
+											<td><img src="productimages/uploads/<?php echo htmlentities($row['image3']);?>" alt="image.jpg" width="50px" height="50px"></td>
 											<td>
 											<button type="button" data-id='<?php echo htmlentities($row['id']); ?>' class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Add </button>
 											</td>

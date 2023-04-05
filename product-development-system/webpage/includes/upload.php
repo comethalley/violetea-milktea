@@ -48,9 +48,9 @@ include_once 'db-connection.php';
                     $packagingNameNew = uniqid('', true).".".$packagingActualExt;
                     $file3NameNew = uniqid('', true).".".$file3ActualExt;
 
-                    $fileDestination = '../uploads/'.$fileNameNew;
-                    $packagingDestination = '../uploads/'.$packagingNameNew;
-                    $file3Destination = '../uploads/'.$file3NameNew;
+                    $fileDestination = '../../../admin/productimages/uploads/'.$fileNameNew;
+                    $packagingDestination = '../../../admin/productimages/uploads/'.$packagingNameNew;
+                    $file3Destination = '../../../admin/productimages/uploads/'.$file3NameNew;
 
                     $sql = "INSERT INTO tbl_concept(id, image, image2,image3, archive, ingredientID) VALUES ('','$fileNameNew','$packagingNameNew','$file3NameNew', 'false','$ingredientID')";
                     mysqli_query($conn, $sql);

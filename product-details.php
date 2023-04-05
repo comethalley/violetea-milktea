@@ -166,7 +166,7 @@ while ($rws=mysqli_fetch_array($ret)) {
 					<div class="products">
 						<div class="hot-deal-wrapper">
 							<div class="image">
-								<img src="admin/productimages/<?php echo htmlentities($rws['id']);?>/<?php echo htmlentities($rws['productImage1']);?>"  width="200" height="250" alt="">
+								<img src="admin/productimages/uploads/<?php echo htmlentities($rws['productImage1']);?>"  width="200" height="250" alt="">
 							</div>
 							
 						</div><!-- /.hot-deal-wrapper -->
@@ -221,7 +221,7 @@ while($row=mysqli_fetch_array($ret))
 
  <div class="single-product-gallery-item" id="slide1">
                 <a data-lightbox="image-1" data-title="<?php echo htmlentities($row['productName']);?>" href="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>">
-                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>" width="370" height="350" />
+                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($row['productImage1']);?>" width="370" height="350" />
                 </a>
             </div>
 
@@ -230,19 +230,19 @@ while($row=mysqli_fetch_array($ret))
 
             <div class="single-product-gallery-item" id="slide1">
                 <a data-lightbox="image-1" data-title="<?php echo htmlentities($row['productName']);?>" href="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>">
-                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>" width="370" height="350" />
+                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($row['productImage1']);?>" width="370" height="350" />
                 </a>
             </div><!-- /.single-product-gallery-item -->
 
             <div class="single-product-gallery-item" id="slide2">
                 <a data-lightbox="image-1" data-title="Gallery" href="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage2']);?>">
-                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage2']);?>" />
+                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($row['productImage2']);?>" />
                 </a>
             </div><!-- /.single-product-gallery-item -->
 
             <div class="single-product-gallery-item" id="slide3">
                 <a data-lightbox="image-1" data-title="Gallery" href="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage3']);?>">
-                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage3']);?>" />
+                    <img class="img-responsive" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($row['productImage3']);?>" />
                 </a>
             </div>
 
@@ -254,19 +254,19 @@ while($row=mysqli_fetch_array($ret))
             <div id="owl-single-product-thumbnails">
                 <div class="item">
                     <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#slide1">
-                        <img class="img-responsive"  alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage1']);?>" />
+                        <img class="img-responsive"  alt="" src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($row['productImage1']);?>" />
                     </a>
                 </div>
 
             <div class="item">
                     <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
-                        <img class="img-responsive" width="85" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage2']);?>"/>
+                        <img class="img-responsive" width="85" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($row['productImage2']);?>"/>
                     </a>
                 </div>
                 <div class="item">
 
                     <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide3">
-                        <img class="img-responsive" width="85" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($row['id']);?>/<?php echo htmlentities($row['productImage3']);?>" height="200" />
+                        <img class="img-responsive" width="85" alt="" src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($row['productImage3']);?>" height="200" />
                     </a>
                 </div>
 
@@ -600,7 +600,7 @@ while($rw=mysqli_fetch_array($qry))
 	<div class="product">		
 		<div class="product-image">
 			<div class="image">
-				<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>"><img  src="assets/images/blank.gif" data-echo="admin/productimages/<?php echo htmlentities($rw['id']);?>/<?php echo htmlentities($rw['productImage1']);?>" width="200" height="240" alt=""></a>
+				<a href="product-details.php?pid=<?php echo htmlentities($rw['id']);?>"><img  src="assets/images/blank.gif" data-echo="admin/productimages/uploads/<?php echo htmlentities($rw['productImage1']);?>" width="200" height="240" alt=""></a>
 			</div><!-- /.image -->			
 
 			                   		   

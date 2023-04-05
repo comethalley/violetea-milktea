@@ -13,15 +13,15 @@ while( $row = mysqli_fetch_array($result) ){
         <input type="text" value="<?php echo $row['name']; ?>" name="name" readonly><br>
 
         <label for="file">Image 1</label><br>
-        <img src="../webpage/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
+        <img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
         <input type="hidden" name="image" value="<?php echo $row['image']; ?>" hidden><br><br>
 
         <label for="file">Image 2</label><br>
-        <img src="../webpage/uploads/<?php echo $row['image2']; ?>" width="100px" height="100px">
+        <img src="../../admin/productimages/uploads/<?php echo $row['image2']; ?>" width="100px" height="100px">
         <input type="hidden" name="image2" value="<?php echo $row['image2']; ?>" hidden><br><br>
 
         <label for="file">Image 3</label><br>
-        <img src="../webpage/uploads/<?php echo $row['image3']; ?>" width="100px" height="100px">
+        <img src="../../admin/productimages/uploads/<?php echo $row['image3']; ?>" width="100px" height="100px">
         <input type="hidden" name="image3" value="<?php echo $row['image3']; ?>" hidden><br><br>
 
 		<div class="modal-footer">

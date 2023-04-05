@@ -7,24 +7,17 @@ $response3=mysqli_query($conn,"SELECT conceptID, response3, count(*) from tbl_su
 $query = mysqli_query($conn,"SELECT * FROM tbl_ingredient 
                     INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
                     INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.conceptID='$conceptID'");
-$row1 = mysqli_fetch_array($query);
-//$survey = mysqli_query($connection, "SELECT conceptID, response1, count(*) from tbl_survey where conceptID = 5 group by response1");
 
+//$survey = mysqli_query($connection, "SELECT conceptID, response1, count(*) from tbl_survey where conceptID = 5 group by response1");
+$resultCheck = mysqli_num_rows($query);
+
+if($resultCheck > 0){
+    $row1 = mysqli_fetch_assoc($query);
 ?>
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(response1Chart);
-      google.charts.setOnLoadCallback(response2Chart);
-      google.charts.setOnLoadCallback(response3Chart);
-
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(performanceChart);
-
       function response1Chart() {
+        document.getElementById('response1').innerHTML = '';
 
         var data = google.visualization.arrayToDataTable([
           ['Product', 'Sales per month'],
@@ -50,6 +43,7 @@ $row1 = mysqli_fetch_array($query);
       }
 
       function response2Chart() {
+        document.getElementById('response2').innerHTML = '';
 
         var data = google.visualization.arrayToDataTable([
           ['Product', 'Sales per month'],
@@ -75,6 +69,7 @@ chart.draw(data, options);
 }
 
 function response3Chart() {
+  document.getElementById('response3').innerHTML = '';
 
 var data = google.visualization.arrayToDataTable([
   ['Product', 'Sales per month'],
@@ -100,9 +95,12 @@ chart.draw(data, options);
 }
 
     </script>
-  </head>
   <center><h1>Survey Report</h1></center>
-  <center><h1>Product name: <?php echo $row1['name'];?></h1></center>
+  <center><h1>Product name:<?php     echo $row1['name'];
+}
+else{
+  echo "No data";
+}?> </h1></center>
   <div class="chartbox">
         <div id="response1"  style="width:100%;"></div>
         <div id="response2" style="width:100%;"></div>
