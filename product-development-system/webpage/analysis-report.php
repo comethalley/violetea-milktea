@@ -140,7 +140,7 @@ if ($_SESSION['username']) {
                             </h2>
                         </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                                 <div class="container">
 
@@ -201,7 +201,7 @@ if ($_SESSION['username']) {
                     <div class="card">
 
 
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
 
                                 <div class="container">
@@ -455,8 +455,8 @@ if ($_SESSION['username']) {
             });
         });
     </script>
-    <!--Survey Report Modal-->
-    <script type='text/javascript'>
+   <!--Survey Report Modal-->
+<script type='text/javascript'>
 $(document).ready(function() {
     $('body').on("click", ".editbtn", function(event) {
         var id = $(this).data('id');
@@ -472,13 +472,18 @@ $(document).ready(function() {
                 
                 // Delay the rendering of the charts until the modal is fully displayed
                 $('#editmodal').on('shown.bs.modal', function () {
-                    google.charts.load('current', {'packages':['corechart, bar']});
+                    google.charts.load('current', {'packages':['corechart', 'bar']});
                     google.charts.setOnLoadCallback(response1Chart);
                     google.charts.setOnLoadCallback(response2Chart);
                     google.charts.setOnLoadCallback(response3Chart);
                 });
             }
         })
+    });
+
+    // Clear the chart data when the modal is closed
+    $('#editmodal').on('hidden.bs.modal', function () {        
+        location.reload(); // Reload the page
     });
 });
 </script>
