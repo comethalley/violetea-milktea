@@ -109,20 +109,6 @@ if ($_SESSION['username']) {
                                 </div>
                             </div>
                         </div>
-                        <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Archives
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="retrieve-user.php">Suggestions</a>
-          	<a class="dropdown-item" href="retrieve-research.php">Research</a>
-          	<a class="dropdown-item" href="retrieve-ingredient.php">Ingredient</a>
-          	<a class="dropdown-item" href="retrieve-product-concept.php">Product Concept</a>
-          	<a class="dropdown-item" href="retrieve-report.php">Survey Report</a>
-          	<div class="dropdown-divider"></div>
-        </div>
-      </li> -->
-
 
                         <div class="line"></div>
                     </ul>
@@ -250,8 +236,8 @@ if ($_SESSION['username']) {
                                                                 <td>
                                                                     <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                                                 </td>
-                                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn archive">Next Step </button>
-                                                                    <!--<a href="S2_create.php?id=<?php echo $row['id']; ?>">Proceed to Step 2</a>-->
+                                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn  ">Next Step </button>
+                                                                    
                                                                 </td>
                                                             </tr>
                                                     <?php
@@ -323,56 +309,6 @@ if ($_SESSION['username']) {
                 </div>
             </div>
         </div>
-
-        <!-- VIEW RESEARCH POP UP FORM-->
-        <!-- <div class="modal fade" id="viewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"> View Student Data </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <form action="" method="POST">
-
-                        <div class="modal-body">
-
-                            <input type="hidden" name="view_id" id="view_id">
-
-                            <div class="form-group">
-                                <label> Title </label>
-                                <input type="text" name="title" id="view_title" class="form-control" placeholder="Enter Title">
-                            </div>
-
-                            <div class="form-group">
-                                <label> Introduction </label>
-                                <input type="text" name="introduction" id="view_introduction" class="form-control" placeholder="Enter Introduction">
-                            </div>
-
-                            <div class="form-group">
-                                <label>Trends</label>
-                                <select id="trends" name="trends" id="view_trend">
-                                    <option value="social_media">Social Media</option>
-                                    <option value="online_forum">Online Forum</option>
-                                    <option value="customer_survey">Customer Survey</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label> Conclusion </label>
-                                <input type="text" name="conclusion" id="view_conclusion" class="form-control" placeholder="Enter Phone Number">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div> -->
 
         <!-- EDIT POP UP FORM -->
         <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -521,8 +457,8 @@ if ($_SESSION['username']) {
             </div>
         </div>
 
-         <!-- NEXT STEP POP UP FORM -->
-         <div class="modal fade" id="nextmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- NEXT STEP POP UP FORM -->
+        <div class="modal fade" id="nextmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -531,307 +467,19 @@ if ($_SESSION['username']) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                        <div class="modal-body">
-                        </div>
+                    <div class="modal-body" id="modal-body">
+                    </div>
                 </div>
             </div>
         </div>
     </main>
-
-
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Resarch Archive -->
-    <script>
-        $(document).ready(function() {
-            $('#myResearch').submit(function(event) {
-                event.preventDefault(); // Prevent the form from submitting normally
-                var form = $(this);
-                var url = form.attr('action');
-                $.ajax({
-                    type: "POST",
-                    url: "../webpage/includes/archive-function.php ",
-                    data: form.serialize(), // Serialize the form data
-                    success: function(data) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Successfully Archived',
-                            didClose: function() {
-                                // Refresh the page
-                                location.reload();
-                            }
-                        });
-                        console.log(data);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        // Handle any errors that occur during the AJAX request
-                        console.log("Error: ");
-                    }
-                });
-            });
-        });
-    </script>
-    <!-- Suggestion Archive -->
-    <script>
-        $(document).ready(function() {
-            $('#mySuggestion').submit(function(event) {
-                event.preventDefault(); // Prevent the form from submitting normally
-                var form = $(this);
-                var url = form.attr('action');
-                $.ajax({
-                    type: "POST",
-                    url: "../webpage/includes/archive-user-function.php",
-                    data: form.serialize(), // Serialize the form data
-                    success: function(data) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Successfully Archived',
-                            didClose: function() {
-                                // Refresh the page
-                                location.reload();
-                            }
-                        });
-                        console.log(data);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        // Handle any errors that occur during the AJAX request
-                        console.log("Error: ");
-                    }
-                });
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-
-            $('.viewbtn').on('click', function() {
-                $('#viewmodal').modal('show');
-                $.ajax({ //create an ajax request to suggestion.php
-                    type: "GET",
-                    url: "suggestion.php",
-                    dataType: "html", //expect html to be returned                
-                    success: function(response) {
-                        $("#responsecontainer").html(response);
-                        //alert(response);
-                    }
-                });
-            });
-
-        });
-    </script>
-
-
-    <script>
-        $(document).ready(function() {
-
-            $('#datatableid').DataTable({
-                "pagingType": "full_numbers",
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
-                ],
-                responsive: true,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search Your Data",
-                }
-            });
-
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-
-            var table = $('#researchtableid').DataTable({
-                "pagingType": "full_numbers",
-
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
-                ],
-                responsive: true,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search Your Data",
-                }
-            });
-
-
-        });
-    </script>
-
-    <!--Edit research-->
-    <script>
-        $(document).ready(function() {
-
-            $('body').on("click", ".editbtn", function(event) {
-
-                $('#editmodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#edit_id').val(data[0]);
-                $('#title').val(data[1]);
-                $('#introduction').val(data[2]);
-                $('#option').val(data[3]);
-                $('#option').text((data[3]));
-                $('#conclusion').val(data[4]);                
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#addForm').on('submit', function(e) {
-                e.preventDefault();
-                var formData = $('#addForm').serialize();
-                var requiredFields = ['title', 'introduction', 'trends', 'conclusion']; // List of required field names
-                var emptyFields = [];
-                requiredFields.forEach(function(field) {
-                    if ($('[name="' + field + '"]').val() === '') {
-                        emptyFields.push(field);
-                    }
-                });
-                if (emptyFields.length > 0) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'The following fields are required: ' + emptyFields.join(', ')
-                    });
-                    return;
-                }
-                $.ajax({
-                    type: 'POST',
-                    url: './includes/add.php',
-                    data: formData,
-                    success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Research Add Successfully',
-                            didClose: function() {
-                                // Refresh the page
-                                location.reload();
-                            }
-                        });
-                        $('#modal').modal('hide');
-                        // Add code here to update the table with the new data
-                    }
-                });
-            });
-
-
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#updateForm').on('submit', function(e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: './update.php',
-                    data: $('#updateForm').serialize(),
-                    success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Research Updated Successfully',
-                            didClose: function() {
-                                // Refresh the page
-                                location.reload();
-                            }
-                        });
-
-                        $('#editmodal').modal('hide');
-
-                        // Add code here to update the table with the new data
-
-                    }
-                });
-
-            });
-        });
-    </script>
-    <!--Archive researchs-->
-    <script>
-        $(document).ready(function() {
-
-            $('body').on("click", ".archivebtn", function(event) {
-
-                $('#archivemodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#archive_id').val(data[0]);
-                $('#archive_title').val(data[1]);
-                $('#archive_introduction').val(data[2]);
-                $('#archive_trend').val(data[3]);
-                $('#options').text((data[3]));
-                $('#archive_conclusion').val(data[4]);
-            });
-        });
-    </script>
-
-    <!--Archive user suggestions-->
-    <script>
-        $(document).ready(function() {
-
-            $('body').on("click", ".userbtn", function(event) {
-
-                $('#archiveusermodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#user_id').val(data[0]);
-                $('#username').val(data[1]);
-                $('#subject').val(data[2]);
-                $('#body').val(data[3]);
-            });
-        });
-    </script>
-
-    <!--next step modal function-->
-    <script type='text/javascript'>
-        $(document).ready(function(){
-            $('body').on("click", ".nextbtn", function(event){
-                    var userid = $(this).data('id');
-                    $.ajax(
-                        {
-                            url: 'S2_create.php',
-                            type: 'post',
-                            data: {userid: userid},
-                            success: function(response){
-                                $('.modal-body').html(response);
-                                $('#nextmodal').modal('show');
-                            }
-                        }
-                    )
-                });
-            });
-    </script>
+    <script src="../webpage//js/suggestion.js"></script>
 
 </body>
 

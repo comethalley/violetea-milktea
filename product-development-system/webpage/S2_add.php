@@ -46,4 +46,3 @@ if ($_POST) {
     header("Location: S2_create.php?status=fail_create");
     exit();
 }
-?>
