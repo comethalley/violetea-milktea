@@ -63,7 +63,7 @@ include_once 'db-connection.php';
               $packagingDestination = '../../../admin/productimages/uploads/' . $packagingNameNew;
               $file3Destination = '../../../admin/productimages/uploads/' . $file3NameNew;
           
-              $sql = "INSERT INTO tbl_concept(id, image, image2,image3, archive, ingredientID) VALUES ('','$fileNameNew','$packagingNameNew','$file3NameNew', 'false','$ingredientID')";
+              $sql = "INSERT INTO tbl_concept(id, image, image2,image3, archive, isRejected, ingredientID) VALUES ('','$fileNameNew','$packagingNameNew','$file3NameNew', 'false', 'false','$ingredientID')";
               mysqli_query($conn, $sql);
           
               move_uploaded_file($fileTmpName, $fileDestination); //move the file

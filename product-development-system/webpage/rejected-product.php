@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDIS | Archives</title>
+    <title>PDIS | Rejected Products</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
 </head>
@@ -46,6 +46,7 @@
           	<a class="dropdown-item" href="retrieve-ingredient.php">Ingredient</a>
           	<a class="dropdown-item" href="retrieve-product-concept.php">Product Concept</a>
           	<a class="dropdown-item" href="retrieve-report.php">Survey Report</a>
+              <a href="rejected-product.php">Rejected Products</a>
           	<div class="dropdown-divider"></div>
         </div>
       </li>
@@ -65,7 +66,7 @@
     <!--Concept Product-->
 	<div class="container">
             <div class="card">
-                <h2>Product Concept</h2>
+                <h2>Rejected Products</h2>
             </div>
 
             <div class="card">
@@ -74,7 +75,7 @@
                     <?php
                 include_once '../webpage/includes/db-connection.php';
 
-                $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='true'";
+                $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.isRejected='true'";
                 $query_run = mysqli_query($conn, $query);
             ?>
                     <table id="datatableid" class="table table-bordered table-dark">
@@ -86,7 +87,6 @@
                                 <th scope="col">Image</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">IngredientID</th>
-                                <th scope="col"> Retrieve </th>
                             </tr>
                         </thead>
 						<tbody>
@@ -103,9 +103,6 @@
                             <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
                             <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
 							<td><?php echo $row['ingredientID']; ?></td>
-                            <td>
-                                <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success archivebtn"> Retrieve </button>
-                            </td>
                             </tr>
                         <?php           
                     }

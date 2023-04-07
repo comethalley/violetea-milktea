@@ -98,6 +98,9 @@ if ($_SESSION['username']) {
                                     <div class="box-card card-body">
                                         <a href="retrieve-report.php">Survey Report</a>
                                     </div>
+                                    <div class="box-card card-body">
+                                        <a href="rejected-product.php">Rejected Products</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

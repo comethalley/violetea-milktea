@@ -41,7 +41,7 @@ while( $row = mysqli_fetch_array($result) ){
 <h5>Are you sure you want to archive this data?</h5><br><br>
 <table border='0' width='100%'>
 <tr>
-    <td><img src="../webpage/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
+    <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
     <td><p>IngredientID : <?php echo $row['ingredientID']; ?></p></td>
 </tr>
 </table>
