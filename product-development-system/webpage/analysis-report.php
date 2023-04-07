@@ -99,6 +99,9 @@ if ($_SESSION['username']) {
                                     <div class="box-card card-body">
                                         <a href="retrieve-report.php">Survey Report</a>
                                     </div>
+                                    <div class="box-card card-body">
+                                        <a href="rejected-product.php">Rejected Products</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +216,7 @@ if ($_SESSION['username']) {
                                             <?php
                                             include_once '../webpage/includes/db-connection.php';
 
-                                            $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='false'";
+                                            $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='false' AND tbl_concept.isRejected='false'";
                                             $query_run = mysqli_query($conn, $query);
                                             ?>
                                             <table id="datatableid" class="table table-striped table-responsive">
@@ -226,6 +229,7 @@ if ($_SESSION['username']) {
                                                         <th scope="col">Image 3</th>
                                                         <th scope="col"> Report </th>
                                                         <th scope="col"> Add </th>
+                                                        <th scope="col"> Reject </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -244,6 +248,9 @@ if ($_SESSION['username']) {
                                                                 </td>
                                                                 <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
                                                                     <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-primary addbtn"> Add to Inventory</button>
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-danger rejectbtn"> Reject</button>
                                                                 </td>
                                                             </tr>
                                                     <?php
@@ -372,7 +379,7 @@ if ($_SESSION['username']) {
         </div>
     </div>
 
-    <!-- ADD POP UP FORM -->
+    <!-- EDIT POP UP FORM -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -386,6 +393,22 @@ if ($_SESSION['username']) {
             </div>
         </div>
     </div>
+
+    <!-- REJECT POP UP FORM -->
+    <div class="modal fade" id="rejectmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Reject Product </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="reject-modal-body"></div>
+            </div>
+        </div>
+    </div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -455,6 +478,7 @@ if ($_SESSION['username']) {
             });
         });
     </script>
+
    <!--Survey Report Modal-->
 <script type='text/javascript'>
 $(document).ready(function() {
@@ -481,7 +505,7 @@ $(document).ready(function() {
         })
     });
 
-    // Clear the chart data when the modal is closed
+    // reload the page when the modal is closed
     $('#editmodal').on('hidden.bs.modal', function () {        
         location.reload(); // Reload the page
     });
@@ -506,6 +530,26 @@ $(document).ready(function() {
                 })
             });
         });
+    </script>
+
+    <!--Reject modal function-->
+	<script>
+        $(document).ready(function(){
+            $('body').on("click", ".rejectbtn", function(event){
+                    var id = $(this).data('id');
+                    $.ajax(
+                        {
+                            url: 'reject-product.php',
+                            type: 'post',
+                            data: {id: id},
+                            success: function(response){
+                                $('#reject-modal-body').html(response);
+                                $('#rejectmodal').modal('show');
+                            }
+                        }
+                    )
+                });
+            });
     </script>
 </body>
 
