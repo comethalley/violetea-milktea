@@ -237,7 +237,7 @@ if ($_SESSION['username']) {
                                                                     <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                                                 </td>
                                                                 <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn  ">Next Step </button>
-                                                                    
+
                                                                 </td>
                                                             </tr>
                                                     <?php

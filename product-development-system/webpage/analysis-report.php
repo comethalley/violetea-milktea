@@ -281,42 +281,6 @@ if ($_SESSION['username']) {
 
     </main>
 
-    <!--<h1>Survey Report</h1>
-	<div>
-		<table border="1">
-			<thead>
-				<th>ID</th>
-				<th>Username</th>
-                <th>Timestamp</th>
-				<th>Product Name</th>
-                <th>Concept ID</th>
-				<th></th>
-			</thead>
-			<tbody>
-				<?php
-                include_once '../webpage/includes/db-connection.php';
-                $query = mysqli_query($conn, "SELECT * FROM tbl_ingredient 
-					INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
-					INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.archive='false'");
-                while ($row = mysqli_fetch_array($query)) {
-                ?>
-						<tr>
-                            <td><?php echo $row['id']; ?></td>
-							<td><?php echo $row['username']; ?></td>
-							<td><?php echo $row['timestamp']; ?></td>
-							<td><?php echo $row['name']; ?></td>
-                            <td><?php echo $row['conceptID']; ?></td>
-							<td>
-							<a href="archive-report.php?id=<?php echo $row['id']; ?>">Archive</a>
-                            <a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>
-							</td>
-						</tr>
-						<?php
-                    }
-                        ?>
-			</tbody>
-		</table>
-	</div>-->
 
 
 
@@ -331,6 +295,22 @@ if ($_SESSION['username']) {
                     </button>
                 </div>
                 <div class="modal-body" id="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add inventory -->
+    <div class="modal fade" id="inventory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Add inventory</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="add-inventory-modal-body">
                 </div>
             </div>
         </div>
@@ -408,149 +388,15 @@ if ($_SESSION['username']) {
             </div>
         </div>
     </div>
-    
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../webpage/js/analysis-report.js"></script>
 
-    <script>
-        $(document).ready(function() {
-
-            $('.viewbtn').on('click', function() {
-                $('#viewmodal').modal('show');
-                $.ajax({ //create an ajax request to suggestion.php
-                    type: "GET",
-                    url: "suggestion.php",
-                    dataType: "html", //expect html to be returned                
-                    success: function(response) {
-                        $("#responsecontainer").html(response);
-                        //alert(response);
-                    }
-                });
-            });
-
-        });
-    </script>
-
-
-    <script>
-        $(document).ready(function() {
-
-            $('#datatableid').DataTable({
-                "pagingType": "full_numbers",
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
-                ],
-                responsive: true,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search Your Data",
-                }
-            });
-
-        });
-    </script>
-
-
-    <script>
-        $(document).ready(function() {
-
-            $('body').on("click", ".archivebtn", function(event) {
-
-                $('#archivemodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#user_id').val(data[0]);
-                $('#username').val(data[1]);
-                $('#timestamp').val(data[2]);
-                $('#conceptID').val(data[3]);
-            });
-        });
-    </script>
-
-   <!--Survey Report Modal-->
-<script type='text/javascript'>
-$(document).ready(function() {
-    $('body').on("click", ".editbtn", function(event) {
-        var id = $(this).data('id');
-        $.ajax({
-            url: 'analysis-report-chart.php',
-            type: 'post',
-            data: {
-                id: id
-            },
-            success: function(response) {
-                $('#modal-body').html(response);
-                $('#editmodal').modal('show');
-                
-                // Delay the rendering of the charts until the modal is fully displayed
-                $('#editmodal').on('shown.bs.modal', function () {
-                    google.charts.load('current', {'packages':['corechart', 'bar']});
-                    google.charts.setOnLoadCallback(response1Chart);
-                    google.charts.setOnLoadCallback(response2Chart);
-                    google.charts.setOnLoadCallback(response3Chart);
-                });
-            }
-        })
-    });
-
-    // reload the page when the modal is closed
-    $('#editmodal').on('hidden.bs.modal', function () {        
-        location.reload(); // Reload the page
-    });
-});
-</script>
-
-    <!--Add modal-->
-    <script type='text/javascript'>
-        $(document).ready(function() {
-            $('body').on("click", ".addbtn", function(event) {
-                var id = $(this).data('id');
-                $.ajax({
-                    url: 'add-inventory.php',
-                    type: 'post',
-                    data: {
-                        id: id
-                    },
-                    success: function(response) {
-                        $('.modal-body').html(response);
-                        $('#editmodal').modal('show');
-                    }
-                })
-            });
-        });
-    </script>
-
-    <!--Reject modal function-->
-	<script>
-        $(document).ready(function(){
-            $('body').on("click", ".rejectbtn", function(event){
-                    var id = $(this).data('id');
-                    $.ajax(
-                        {
-                            url: 'reject-product.php',
-                            type: 'post',
-                            data: {id: id},
-                            success: function(response){
-                                $('#reject-modal-body').html(response);
-                                $('#rejectmodal').modal('show');
-                            }
-                        }
-                    )
-                });
-            });
-    </script>
 </body>
 
 </html>

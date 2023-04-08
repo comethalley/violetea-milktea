@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/suggestion.css">
+</head>
+<body>
 <?php
 include_once 'db-connection.php';
 
@@ -60,14 +71,44 @@ include_once 'db-connection.php';
                     move_uploaded_file($packagingTmpName, $packagingDestination); //move the file
                     move_uploaded_file($file3TmpName, $file3Destination); //move the file
 
-                    header("Location: ../product-concept.php?editsuccess");
-
+                    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
+                    <script>
+                      Swal.fire({
+                        icon: 'success',
+                        title: 'Successfully Updated!',
+                       
+                       
+                      }).then(function() {
+                        window.location.href = '../product-concept.php'; // redirect to the page after success message
+                      });
+                    </script>";
+            
+              } else {
+                  echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
+                  <script>
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'There was an error uploading your file',
+                      
+                  }).then(function() {
+                      window.location.href = '../product-concept.php'; // redirect to the page after success message
+                    });
+                  </script>";
+              }
             } else {
-                echo "There was an error uploading your file.";
+              echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
+                  <script>
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'You cannot upload files of this type!',
+                       
+                      
+                  }).then(() => {
+                      window.location.href = '../product-concept.php';
+                    });
+                  </script>";
             }
-
-        } else {
-            echo "You cannot upload files of this type!";
-        }
-    }
+      }  
 ?>
+</body>
+</html>
