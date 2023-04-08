@@ -71,7 +71,7 @@ include_once 'db-connection.php';
               move_uploaded_file($file3TmpName, $file3Destination); //move the file
           
               // SweetAlert2 success message
-               // SweetAlert2 success message
+                
                echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
                <script>
                  Swal.fire({
