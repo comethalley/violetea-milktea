@@ -45,11 +45,43 @@ while( $row = mysqli_fetch_array($result) ){
     <td><p>IngredientID : <?php echo $row['ingredientID']; ?></p></td>
 </tr>
 </table>
-<form action="../webpage/includes/retrieve-function-product.php?id=<?php echo $archiveid; ?>" method="POST" enctype="multipart/form-data">
+<form id="retcon"  method="POST" enctype="multipart/form-data">
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" name="submit" class="btn btn-success">Retrieve</button>
                     </div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	 
+<script>
+	$(function() {
+    $('#retcon').on('submit', function(e) {
+      e.preventDefault(); // prevent default form submission behavior
+      
+      $.ajax({
+        url: '../webpage/includes/retrieve-function-product.php?id=<?php echo $archiveid; ?>',
+        type: 'POST',
+        data: $(this).serialize(), // serialize form data
+        success: function(response) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Retrieved Successfully',
+                didClose: function() {
+                    // Refresh the page
+                    location.reload();
+                }
+            });
+        },
+        error: function(xhr, status, error) {
+          // handle error
+        }
+      });
+    });
+  });
+</script>
+
 <?php } ?>
