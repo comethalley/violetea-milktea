@@ -14,8 +14,24 @@ $resultCheck = mysqli_num_rows($query);
 if($resultCheck > 0){
     $row1 = mysqli_fetch_assoc($query);
 ?>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+
+  <center><h1>Survey Report</h1></center>
+  <center><h1>Product name: <?php echo $row1['name'];
+}
+else{
+  echo "No data";
+}?> </h1></center>
+  <div class="chartbox">
+        <div id="response1"  style="width:100%;"></div>
+        <div id="response2" style="width:100%;"></div>
+        <div id="response3" style="width:100%;"></div>
+    </div>
+
+        <script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart", "bar"] });
+    google.charts.setOnLoadCallback(response1Chart);
+    google.charts.setOnLoadCallback(response2Chart);
+    google.charts.setOnLoadCallback(response3Chart);
       function response1Chart() {
         document.getElementById('response1').innerHTML = '';
 
@@ -95,14 +111,3 @@ chart.draw(data, options);
 }
 
     </script>
-  <center><h1>Survey Report</h1></center>
-  <center><h1>Product name:<?php     echo $row1['name'];
-}
-else{
-  echo "No data";
-}?> </h1></center>
-  <div class="chartbox">
-        <div id="response1"  style="width:100%;"></div>
-        <div id="response2" style="width:100%;"></div>
-        <div id="response3" style="width:100%;"></div>
-    </div>

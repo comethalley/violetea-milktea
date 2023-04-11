@@ -64,20 +64,9 @@ $(document).ready(function () {
         $("#modal-body").html(response);
         $("#editmodal").modal("show");
 
-        // Delay the rendering of the charts until the modal is fully displayed
-        $("#editmodal").on("shown.bs.modal", function () {
-          google.charts.load("current", { packages: ["corechart", "bar"] });
-          google.charts.setOnLoadCallback(response1Chart);
-          google.charts.setOnLoadCallback(response2Chart);
-          google.charts.setOnLoadCallback(response3Chart);
-        });
+        // Delay the rendering of the charts until the modal is fully displayed;
       },
     });
-  });
-
-  // reload the page when the modal is closed
-  $("#editmodal").on("hidden.bs.modal", function () {
-    location.reload(); // Reload the page
   });
 });
 

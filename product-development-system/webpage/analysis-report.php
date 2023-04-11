@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./css/suggestion.css">
     <script src="https://kit.fontawesome.com/a1366662c0.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <?php
 if ($_SESSION['username']) {
