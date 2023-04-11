@@ -39,16 +39,14 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto">
-                    <div class="btn-group">
+                <div class="btn-group">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Hi, <?php echo $username; ?>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="logout.php" class="dropdown-item" type="button">Logout</a>
-
+                            <a href="#" class="dropdown-item logout-btn" type="button">Logout</a>
                         </div>
                     </div>
-
                 </ul>
 
             </form>
@@ -204,86 +202,10 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/logoutajax.js"></script>
+    <script src="./js/rejectedproduct.js"></script>
 
-	<script>
-        $(document).ready(function () {
-
-            $('.viewbtn').on('click', function () {
-                $('#viewmodal').modal('show');
-                $.ajax({ //create an ajax request to suggestion.php
-                    type: "GET",
-                    url: "suggestion.php",
-                    dataType: "html", //expect html to be returned                
-                    success: function (response) {
-                        $("#responsecontainer").html(response);
-                        //alert(response);
-                    }
-                });
-            });
-
-        });
-    </script>
-
-
-<script>
-        $(document).ready(function () {
-
-            $('.viewbtn').on('click', function () {
-                $('#viewmodal').modal('show');
-                $.ajax({ //create an ajax request to suggestion.php
-                    type: "GET",
-                    url: "suggestion.php",
-                    dataType: "html", //expect html to be returned                
-                    success: function (response) {
-                        $("#responsecontainer").html(response);
-                        //alert(response);
-                    }
-                });
-            });
-
-        });
-    </script>
-
-
-    <script>
-        $(document).ready(function () {
-
-            $('#datatableid').DataTable({
-                "pagingType": "full_numbers",
-                "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "All"]
-                ],
-                responsive: true,
-                language: {
-                    search: "_INPUT_",
-                    searchPlaceholder: "Search Your Data",
-                }
-            });
-
-        });
-    </script>
-
-
-    <!--Archive modal function-->
-	<script>
-        $(document).ready(function(){
-            $('body').on("click", ".archivebtn", function(event){
-                    var archiveid = $(this).data('id');
-                    $.ajax(
-                        {
-                            url: 'product-concept-ajax.php',
-                            type: 'post',
-                            data: {archiveid: archiveid},
-                            success: function(response){
-                                $('.modal-body').html(response);
-                                $('#archivemodal').modal('show');
-                            }
-                        }
-                    )
-                });
-            });
-    </script>
+ 
 
 </body>
 </html>

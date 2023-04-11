@@ -11,6 +11,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDIS | Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./css/suggestion.css">
@@ -44,8 +45,7 @@ if ($_SESSION['username']) {
                             Hi, <?php echo $username; ?>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="logout.php" class="dropdown-item" type="button">Logout</a>
-
+                            <a href="#" class="dropdown-item logout-btn" type="button">Logout</a>
                         </div>
                     </div>
 
@@ -106,19 +106,6 @@ if ($_SESSION['username']) {
                                 </div>
                             </div>
                         </div>
-                        <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Archives
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="retrieve-user.php">Suggestions</a>
-          	<a class="dropdown-item" href="retrieve-research.php">Research</a>
-          	<a class="dropdown-item" href="retrieve-ingredient.php">Ingredient</a>
-          	<a class="dropdown-item" href="retrieve-product-concept.php">Product Concept</a>
-          	<a class="dropdown-item" href="retrieve-report.php">Survey Report</a>
-          	<div class="dropdown-divider"></div>
-        </div>
-      </li> -->
 
 
                         <div class="line"></div>
@@ -396,6 +383,7 @@ if ($_SESSION['username']) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/logoutajax.js"></script>
     <script src="../webpage/js/analysis-report.js"></script>
 
 </body>

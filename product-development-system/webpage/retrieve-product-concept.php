@@ -1,28 +1,30 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDIS | Archives</title>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./css/suggestion.css">
     <script src="https://kit.fontawesome.com/a1366662c0.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	
 
 
 
-<?php
+
+    <?php
     if ($_SESSION['username']) {
         $username = $_SESSION['username'];
     } else {
@@ -46,8 +48,7 @@
                             Hi, <?php echo $username; ?>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="logout.php" class="dropdown-item" type="button">Logout</a>
-
+                            <a href="#" class="dropdown-item logout-btn" type="button">Logout</a>
                         </div>
                     </div>
 
@@ -119,82 +120,77 @@
                     <div class="card-body">
                         <label>Product concept Archived</label>
                     </div>
-                     
-                 <!--Concept Product-->
-	<div class="container">
-            
 
-            <div class="card">
-                <div class="card-body">
+                    <!--Concept Product-->
+                    <div class="container">
 
-                    <?php
-                include_once '../webpage/includes/db-connection.php';
 
-                $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='true'";
-                $query_run = mysqli_query($conn, $query);
-            ?>
-                    <table id="datatableid" class="table table-striped table-responsive">
-                        <thead>
-                            <tr>
-                                <th scope="col"> ID</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">IngredientID</th>
-                                <th scope="col"> Retrieve </th>
-                            </tr>
-                        </thead>
-						<tbody>
-                        <?php
-                if($query_run)
-                {
-                    foreach($query_run as $row)
-                    {
-            ?>
-                            <tr>
-							<td><?php echo $row['id']; ?></td>
-							<td><?php echo $row['name']; ?></td>
-							<td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                            <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-                            <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
-							<td><?php echo $row['ingredientID']; ?></td>
-                            <td>
-                                <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success archivebtn"> Retrieve </button>
-                            </td>
-                            </tr>
-                        <?php           
-                    }
-                }
-                else 
-                {
-                    echo "No Record Found";
-                }
-            ?>
-			            </tbody>
-                    </table>
-                </div>
-            </div>
-    </div>
+                        <div class="card">
+                            <div class="card-body">
 
-	<!--RETRIEVE PRODUCT CONCEPT-->
-	<div class="modal fade" id="archivemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Archive Concept Data </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                                <?php
+                                include_once '../webpage/includes/db-connection.php';
 
-                    <div class="modal-body"></div>
-            </div>
-        </div>
-    </div>
+                                $query = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID WHERE tbl_concept.archive='true'";
+                                $query_run = mysqli_query($conn, $query);
+                                ?>
+                                <table id="datatableid" class="table table-striped table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"> ID</th>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">IngredientID</th>
+                                            <th scope="col"> Retrieve </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        if ($query_run) {
+                                            foreach ($query_run as $row) {
+                                        ?>
+                                                <tr>
+                                                    <td><?php echo $row['id']; ?></td>
+                                                    <td><?php echo $row['name']; ?></td>
+                                                    <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                    <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                    <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
+                                                    <td><?php echo $row['ingredientID']; ?></td>
+                                                    <td>
+                                                        <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success archivebtn"> Retrieve </button>
+                                                    </td>
+                                                </tr>
+                                        <?php
+                                            }
+                                        } else {
+                                            echo "No Record Found";
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
- 
+                    <!--RETRIEVE PRODUCT CONCEPT-->
+                    <div class="modal fade" id="archivemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"> Archive Concept Data </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
 
                 </div>
 
@@ -203,12 +199,14 @@
     </main>
 
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/logoutajax.js"></script>
     <script src="./js/retrieveproductconcept.js"></script>
- 
+
 </body>
+
 </html>
