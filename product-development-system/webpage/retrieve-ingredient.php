@@ -42,13 +42,12 @@ session_start();
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <ul class="navbar-nav mr-auto">
-                    <div class="btn-group">
+                <div class="btn-group">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Hi, <?php echo $username; ?>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="logout.php" class="dropdown-item" type="button">Logout</a>
-
+                            <a href="#" class="dropdown-item logout-btn" type="button">Logout</a>
                         </div>
                     </div>
 
@@ -230,6 +229,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/logoutajax.js"></script>
     <script src="./js/retrieveingredient.js"></script>
 
 </body>

@@ -45,8 +45,7 @@ if ($_SESSION['username']) {
                             Hi, <?php echo $username; ?>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="logout.php" class="dropdown-item" type="button">Logout</a>
-
+                            <a href="#" class="dropdown-item logout-btn" type="button">Logout</a>
                         </div>
                     </div>
 
@@ -107,7 +106,7 @@ if ($_SESSION['username']) {
                                 </div>
                             </div>
                         </div>
-                        
+
 
                         <div class="line"></div>
                     </ul>
@@ -304,9 +303,10 @@ if ($_SESSION['username']) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <script src="./js/logoutajax.js"></script>
     <script src="../webpage/js/ingredient.js"></script>
 
-   
+
 </body>
 
 </html>
