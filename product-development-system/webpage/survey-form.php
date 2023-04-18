@@ -27,7 +27,9 @@
   <label>Product Concept Name:</label><br>
   <input type="text" value="<?php echo $row['name']; ?>" name=""><br><br>
   <p>Product Concept Image</p>
-  <img src="../webpage/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px">
+  <img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px">
+  <img src="../../admin/productimages/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px">
+  <img src="../../admin/productimages/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px">
 
   <br><br>
 

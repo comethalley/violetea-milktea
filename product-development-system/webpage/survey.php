@@ -10,7 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDIS | Ingredients</title>
+    <title>PDIS | Survey</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
@@ -57,7 +57,7 @@ if ($_SESSION['username']) {
     <main>
         <div class="container ">
             <div class="cont-left">
-            <nav>
+                <nav>
                     <ul class="">
                         <li class="">
                             <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
@@ -130,27 +130,29 @@ if ($_SESSION['username']) {
 
                     <div class="card">
 
-
+                    <div class="card">
+                                    <div class="card-body">
+                                        <button type="button" class="btn btn-primary addbtn">
+                                            <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add Question
+                                        </button>
+                                    </div>
+                                </div>
 
                         <div class="card-body">
 
                             <?php
                             include_once '../webpage/includes/db-connection.php';
 
-                            $query = "SELECT * FROM tbl_ingredient WHERE archive = 'false'";
+                            $query = "SELECT * FROM tbl_question WHERE archive = 'false'";
                             $query_run = mysqli_query($conn, $query);
                             ?>
                             <table id="datatableid" class="table table-striped table-responsive">
                                 <thead>
                                     <tr>
                                         <th scope="col"> ID</th>
-                                        <th scope="col">Product Name</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Ingredient</th>
-                                        <th scope="col">Research ID</th>
+                                        <th scope="col">Question</th>
                                         <th scope="col"> Edit </th>
                                         <th scope="col"> Archive </th>
-                                        <th scope="col"> Next Step </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -160,18 +162,12 @@ if ($_SESSION['username']) {
                                     ?>
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
-                                                <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['description']; ?></td>
-                                                <td><?php echo $row['ingredient']; ?></td>
-                                                <td><?php echo $row['researchID']; ?></td>
+                                                <td><?php echo $row['question']; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
-                                                </td>
-                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn archive">Next Step </button>
-                                                    <!--<a href="product-concept-upload.php?id=<?php echo $row['id']; ?>">Proceed to Step 3</a>-->
                                                 </td>
                                             </tr>
                                     <?php
@@ -193,14 +189,41 @@ if ($_SESSION['username']) {
 
     </main>
 
+    <!--ADD Question Modal-->
+    <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Research Paper</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
+                    <form id="addQuestion" method="POST">
+
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Question</label>
+                                <input type="text" name="question" class="form-control" placeholder="Enter Question">
+                            </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
 
     <!-- EDIT POP UP FORM -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Edit Research Data </h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Edit Question </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -213,23 +236,8 @@ if ($_SESSION['username']) {
                         <input type="hidden" name="edit_id" id="edit_id">
 
                         <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Product Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Description </label>
-                            <input type="text" name="description" id="description" class="form-control" placeholder="Enter Introduction">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Ingredient </label>
-                            <input type="text" name="ingredient" id="ingredient" class="form-control" placeholder="Enter Phone Number">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Research ID </label>
-                            <input type="text" name="researchID" id="researchID" class="form-control" placeholder="Enter Phone Number" readonly>
+                            <label>Question</label>
+                            <input type="text" name="question" id="question" class="form-control" placeholder="Enter Product Name">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -247,36 +255,21 @@ if ($_SESSION['username']) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Archive Suggestion Data </h5>
+                    <h5 class="modal-title" id="exampleModalLabel"> Archive Question </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <form id="myIngredient" method="POST">
+                <form id="archiveForm" method="POST">
 
                     <div class="modal-body">
 
                         <input type="hidden" name="archive_id" id="archive_id">
-                        <h4> Do you want to archive this data?</h4>
+                        <h4> Do you want to archive this question?</h4>
                         <div class="form-group">
-                            <label>Product Name</label>
-                            <input type="text" name="archive_name" id="archive_name" class="form-control" placeholder="Enter Product Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Description </label>
-                            <input type="text" name="archive_description" id="archive_description" class="form-control" placeholder="Enter Introduction">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Ingredient </label>
-                            <input type="text" name="archive_ingredient" id="archive_ingredient" class="form-control" placeholder="Enter Phone Number">
-                        </div>
-
-                        <div class="form-group">
-                            <label> Research ID </label>
-                            <input type="text" name="archive_researchID" id="archive_researchID" class="form-control" placeholder="Enter Phone Number" readonly>
+                            <label>Question</label>
+                            <input type="text" name="archive_question" id="archive_question" class="form-control" placeholder="Enter Product Name">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -289,21 +282,6 @@ if ($_SESSION['username']) {
         </div>
     </div>
 
-    <!-- NEXT STEP POP UP FORM -->
-    <div class="modal fade" id="nextmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Proceed to Step 3 </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modal-body">
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -311,7 +289,7 @@ if ($_SESSION['username']) {
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/logoutajax.js"></script>
-    <script src="../webpage/js/ingredient.js"></script>
+    <script src="../webpage//js/survey.js"></script>
 
 
 </body>

@@ -4,7 +4,7 @@ $(document).ready(function () {
     $.ajax({
       //create an ajax request to suggestion.php
       type: "GET",
-      url: "suggestion.php",
+      url: "survey.php",
       dataType: "html", //expect html to be returned
       success: function (response) {
         $("#responsecontainer").html(response);
@@ -45,10 +45,7 @@ $(document).ready(function () {
     console.log(data);
 
     $("#edit_id").val(data[0]);
-    $("#name").val(data[1]);
-    $("#description").val(data[2]);
-    $("#ingredient").val(data[3]);
-    $("#researchID").val(data[4]);
+    $("#question").val(data[1]);
   });
 });
 
@@ -57,7 +54,7 @@ $(document).ready(function () {
     e.preventDefault();
     $.ajax({
       type: "POST",
-      url: "S2_update.php",
+      url: "../webpage/includes/update-question.php",
       data: $("#updateForm").serialize(),
       success: function (response) {
         Swal.fire({
@@ -93,20 +90,24 @@ $(document).ready(function () {
     console.log(data);
 
     $("#archive_id").val(data[0]);
-    $("#archive_name").val(data[1]);
-    $("#archive_description").val(data[2]);
-    $("#archive_ingredient").val(data[3]);
-    $("#archive_researchID").val(data[4]);
+    $("#archive_question").val(data[1]);
   });
 });
+
 $(document).ready(function () {
-  $("#myIngredient").submit(function (event) {
+  $(".addbtn").on("click", function () {
+    $("#addmodal").modal("show");
+  });
+});
+
+$(document).ready(function () {
+  $("#archiveForm").submit(function (event) {
     event.preventDefault(); // Prevent the form from submitting normally
     var form = $(this);
     var url = form.attr("action");
     $.ajax({
       type: "POST",
-      url: "./S2_delete.php",
+      url: "../webpage/includes/archive-question.php",
       data: form.serialize(), // Serialize the form data
       success: function (data) {
         Swal.fire({
@@ -127,18 +128,41 @@ $(document).ready(function () {
   });
 });
 
+//Add question
 $(document).ready(function () {
-  $("body").on("click", ".nextbtn", function (event) {
-    var userid = $(this).data("id");
+  $("#addQuestion").on("submit", function (e) {
+    e.preventDefault();
+    var formData = $("#addQuestion").serialize();
+    var requiredFields = ["question"]; // List of required field names
+    var emptyFields = [];
+    requiredFields.forEach(function (field) {
+      if ($('[question="' + field + '"]').val() === "") {
+        emptyFields.push(field);
+      }
+    });
+    if (emptyFields.length > 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "The following fields are required: " + emptyFields.join(", "),
+      });
+      return;
+    }
     $.ajax({
-      url: "product-concept-upload.php",
-      type: "post",
-      data: {
-        userid: userid,
-      },
+      type: "POST",
+      url: "./includes/add-question.php",
+      data: formData,
       success: function (response) {
-        $("#modal-body").html(response);
-        $("#nextmodal").modal("show");
+        Swal.fire({
+          icon: "success",
+          title: "Question Add Successfully",
+          didClose: function () {
+            // Refresh the page
+            location.reload();
+          },
+        });
+        $("#modal").modal("hide");
+        // Add code here to update the table with the new data
       },
     });
   });

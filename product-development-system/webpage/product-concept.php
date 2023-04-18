@@ -57,7 +57,7 @@ if ($_SESSION['username']) {
     <main>
         <div class="container ">
             <div class="cont-left">
-                <nav>
+            <nav>
                     <ul class="">
                         <li class="">
                             <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
@@ -68,11 +68,15 @@ if ($_SESSION['username']) {
                         </li>
                         <div class="line"></div>
                         <li class="">
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="survey.php">Survey</a>
+                        </li>
+                        <div class="line"></div>
+                        <li class="">
                             <i class="fa-brands fa-product-hunt" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Concept Products</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Analysis Report</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
@@ -103,22 +107,12 @@ if ($_SESSION['username']) {
                                     <div class="box-card card-body">
                                         <a href="rejected-product.php">Rejected Products</a>
                                     </div>
+                                    <div class="box-card card-body">
+                                        <a href="retrieve-question.php">Rejected Question</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Archives
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<a class="dropdown-item" href="retrieve-user.php">Suggestions</a>
-          	<a class="dropdown-item" href="retrieve-research.php">Research</a>
-          	<a class="dropdown-item" href="retrieve-ingredient.php">Ingredient</a>
-          	<a class="dropdown-item" href="retrieve-product-concept.php">Product Concept</a>
-          	<a class="dropdown-item" href="retrieve-report.php">Survey Report</a>
-          	<div class="dropdown-divider"></div>
-        </div>
-      </li> -->
 
 
                         <div class="line"></div>

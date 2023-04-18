@@ -129,18 +129,15 @@ session_start();
                                 <?php
                                 include_once '../webpage/includes/db-connection.php';
 
-                                $query = "SELECT * FROM tbl_ingredient WHERE archive = 'true'";
+                                $query = "SELECT * FROM tbl_question WHERE archive = 'true'";
                                 $query_run = mysqli_query($conn, $query);
                                 ?>
                                 <table id="datatableid" class="table table-striped table-responsive">
                                     <thead>
                                         <tr>
                                             <th scope="col"> ID</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Ingredient</th>
-                                            <th scope="col">Research ID</th>
-                                            <th scope="col"> Archive </th>
+                                            <th scope="col">Question</th>
+                                            <th scope="col"> Retrieve </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -150,10 +147,7 @@ session_start();
                                         ?>
                                                 <tr>
                                                     <td><?php echo $row['id']; ?></td>
-                                                    <td><?php echo $row['name']; ?></td>
-                                                    <td><?php echo $row['description']; ?></td>
-                                                    <td><?php echo $row['ingredient']; ?></td>
-                                                    <td><?php echo $row['researchID']; ?></td>
+                                                    <td><?php echo $row['question']; ?></td>
                                                     <td>
                                                         <button type="button" class="btn btn-success retrievebtn3"> RETRIEVE </button>
                                                     </td>
@@ -171,7 +165,7 @@ session_start();
                     </div>
 
 
-                    <!--RETRIEVE INGREDIENT FORM-->
+                    <!--RETRIEVE Question FORM-->
                     <div class="modal fade" id="retrievemodal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -186,26 +180,11 @@ session_start();
 
                                     <div class="modal-body">
 
-                                        <input type="hidden" name="ingredient_id" id="ingredient_id">
-                                        <h4> Do you want to retrieve this data?</h4>
+                                        <input type="hidden" name="retrieve_id" id="retrieve_id">
+                                        <h4> Do you want to archive this question?</h4>
                                         <div class="form-group">
-                                            <label>Product Name</label>
-                                            <input type="text" name="ingredient_name" id="ingredient_name" class="form-control" placeholder="Enter Product Name">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label> Description </label>
-                                            <input type="text" name="ingredient_description" id="ingredient_description" class="form-control" placeholder="Enter Introduction">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label> Ingredient </label>
-                                            <input type="text" name="ingredient_ingredient" id="ingredient_ingredient" class="form-control" placeholder="Enter Phone Number">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label> Research ID </label>
-                                            <input type="text" name="ingredient_researchID" id="ingredient_researchID" class="form-control" placeholder="Enter Phone Number" readonly>
+                                            <label>Question</label>
+                                            <input type="text" name="retrieve_question" id="retrieve_question" class="form-control" placeholder="Enter Product Name">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -230,7 +209,7 @@ session_start();
     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/logoutajax.js"></script>
-    <script src="./js/retrieveingredient.js"></script>
+    <script src="./js/retrievequestion.js"></script>
 
 </body>
 

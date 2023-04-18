@@ -1,4 +1,3 @@
-
 //Get suggestion from suggestion.php
 
 $(document).ready(function () {
@@ -64,7 +63,3 @@ $(document).ready(function () {
     });
   });
 });
-
-
-
-
