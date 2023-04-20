@@ -76,7 +76,7 @@ if ($_SESSION['username']) {
                         </li>
                         <div class="line"></div>
                         <li class="">
-                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Analysis Report</a>
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
@@ -122,7 +122,7 @@ if ($_SESSION['username']) {
             <div class="cont-right">
                 <div class="card">
                     <div class="card-body">
-                        <label>Product Ingredients</label>
+                        <label>Survey Questionnaire</label>
                     </div>
                 </div>
                 <div class="container">
