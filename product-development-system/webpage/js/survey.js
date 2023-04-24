@@ -128,6 +128,7 @@ $(document).ready(function () {
   });
 });
 
+
 //Add question
 $(document).ready(function () {
   $("#addQuestion").on("submit", function (e) {
