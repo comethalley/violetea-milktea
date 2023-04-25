@@ -135,7 +135,9 @@ session_start();
                                             <th scope="col"> ID</th>
                                             <th scope="col">Title</th>
                                             <th scope="col">Introduction </th>
-                                            <th scope="col">Trends</th>
+                                            <th scope="col">Market Research</th>
+                                            <th scope="col">User Research</th>
+                                            <th scope="col">Technical Research</th>
                                             <th scope="col"> Conclusion </th>
                                             <th scope="col"> RETRIEVE </th>
                                         </tr>
@@ -149,7 +151,9 @@ session_start();
                                                     <td> <?php echo $row['id']; ?> </td>
                                                     <td> <?php echo $row['title']; ?> </td>
                                                     <td> <?php echo $row['introduction']; ?> </td>
-                                                    <td> <?php echo $row['trends']; ?> </td>
+                                                    <td> <?php echo $row['market']; ?> </td>
+                                                    <td> <?php echo $row['user']; ?> </td>
+                                                    <td> <?php echo $row['technical']; ?> </td>
                                                     <td> <?php echo $row['conclusion']; ?> </td>
                                                     <td>
                                                         <button type="button" class="btn btn-danger retrievebtn2"> RETRIEVE</button>
@@ -184,30 +188,36 @@ session_start();
 
                                 <div class="modal-body">
 
-                                    <input type="hidden" name="archive_id" id="archive_id">
+                                    <input type="hidden" name="retrieve_id" id="retrieve_id">
                                     <h4> Do you want to retrieve this data?</h4>
                                     <div class="form-group">
                                         <label> Title </label>
-                                        <input type="text" name="archive_title" id="archive_title" class="form-control" placeholder="Enter Title" disabled>
+                                        <input type="text" name="retrieve_title" id="retrieve_title" class="form-control" placeholder="Enter Title" disabled>
                                     </div>
 
                                     <div class="form-group">
                                         <label> Introduction </label>
-                                        <input type="text" name="archive_introduction" id="archive_introduction" class="form-control" placeholder="Enter Introduction" disabled>
+                                        <input type="text" name="retrieve_introduction" id="retrieve_introduction" class="form-control" placeholder="Enter Introduction" disabled>
                                     </div>
 
                                     <div class="form-group">
-                                        <label>Trends</label>
-                                        <select id="trends" name="archive_trends" id="archive_trend" disabled>
-                                            <option value="social_media">Social Media</option>
-                                            <option value="online_forum">Online Forum</option>
-                                            <option value="customer_survey">Customer Survey</option>
-                                        </select>
-                                    </div>
+                                <label>Market Research</label>
+                                <textarea class="form-control" name="retrieve_market" id="retrieve_market" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>User Research</label>
+                                <textarea class="form-control" name="retrieve_user" id="retrieve_user" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Market Research</label>
+                                <textarea class="form-control" name="retrieve_technical" id="retrieve_technical" rows="3"></textarea>
+                            </div>
 
                                     <div class="form-group">
                                         <label> Conclusion </label>
-                                        <input type="text" name="archive_conclusion" id="archive_conclusion" class="form-control" placeholder="Enter Phone Number" disabled>
+                                        <input type="text" name="retrieve_conclusion" id="retrieve_conclusion" class="form-control" placeholder="Enter Phone Number" disabled>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

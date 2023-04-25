@@ -59,7 +59,7 @@ if ($_SESSION['username']) {
     <main>
         <div class="container ">
             <div class="cont-left">
-            <nav>
+                <nav>
                     <ul class="">
                         <li class="">
                             <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
@@ -78,7 +78,7 @@ if ($_SESSION['username']) {
                         </li>
                         <div class="line"></div>
                         <li class="">
-                        <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
@@ -219,7 +219,9 @@ if ($_SESSION['username']) {
                                                         <th scope="col"> ID</th>
                                                         <th scope="col">Title</th>
                                                         <th scope="col">Introduction </th>
-                                                        <th scope="col">Trends</th>
+                                                        <th scope="col">Market Research</th>
+                                                        <th scope="col">User Research</th>
+                                                        <th scope="col">Technical Research</th>
                                                         <th scope="col"> Conclusion </th>
                                                         <th scope="col"> EDIT </th>
                                                         <th scope="col"> ARCHIVE </th>
@@ -235,7 +237,9 @@ if ($_SESSION['username']) {
                                                                 <td> <?php echo $row['id']; ?> </td>
                                                                 <td> <?php echo $row['title']; ?> </td>
                                                                 <td> <?php echo $row['introduction']; ?> </td>
-                                                                <td> <?php echo $row['trends']; ?> </td>
+                                                                <td> <?php echo $row['market']; ?> </td>
+                                                                <td> <?php echo $row['user']; ?> </td>
+                                                                <td> <?php echo $row['technical']; ?> </td>
                                                                 <td> <?php echo $row['conclusion']; ?> </td>
                                                                 <td>
                                                                     <button type="button" class="btn btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>
@@ -269,7 +273,7 @@ if ($_SESSION['username']) {
 
             </div>
         </div>
-        <!--ADD Modal -->
+        <!--ADD Modal research -->
         <div class="modal fade" id="studentaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -294,14 +298,17 @@ if ($_SESSION['username']) {
                             </div>
 
                             <div class="form-group">
-                                <label>Trends</label>
-                                <select id="trends" name="trends">
-                                    <option value="social_media">Social Media</option>
-                                    <option value="online_forum">Online Forum</option>
-                                    <option value="customer_survey">Customer Survey</option>
-                                </select>
+                                <label>Market Research</label>
+                                <textarea class="form-control" name="market" id="market" rows="3"></textarea>
                             </div>
-
+                            <div class="form-group">
+                                <label>User Research</label>
+                                <textarea class="form-control"name="user" id="user" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Technical Research</label>
+                                <textarea class="form-control" name="technical" id="technical" rows="3"></textarea>
+                            </div>
                             <div class="form-group">
                                 <label> Conclusion </label>
                                 <input type="text" name="conclusion" class="form-control" placeholder="Enter Conclusion">
@@ -337,27 +344,29 @@ if ($_SESSION['username']) {
 
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" name="title" id="title" class="form-control" placeholder="Enter Title">
+                                <input type="text" name="title" id="edit_title" class="form-control" placeholder="Enter Title">
                             </div>
 
                             <div class="form-group">
                                 <label> Introduction </label>
-                                <input type="text" name="introduction" id="introduction" class="form-control" placeholder="Enter Introduction">
+                                <input type="text" name="introduction" id="edit_introduction" class="form-control" placeholder="Enter Introduction">
                             </div>
-
                             <div class="form-group">
-                                <label>Trends</label>
-                                <select id="myDropdown" name="trends">
-                                    <option value="" id="option" selected></option>
-                                    <option value="Social Media">Social Media</option>
-                                    <option value="Online Forum">Online Forum</option>
-                                    <option value="Customer Survey">Customer Survey</option>
-                                </select>
+                                <label>Market Research</label>
+                                <textarea class="form-control"name="market" id="edit_market" rows="3"></textarea>
                             </div>
-
+                            <div class="form-group">
+                                <label>User Research</label>
+                                <textarea class="form-control"name="user" id="edit_user" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>User Research</label>
+                                <textarea class="form-control"name="user" id="edit_technical" rows="3"></textarea>
+                            </div>
+                           
                             <div class="form-group">
                                 <label> Conclusion </label>
-                                <input type="text" name="conclusion" id="conclusion" class="form-control" placeholder="Enter Phone Number">
+                                <input type="text" name="conclusion" id="edit_conclusion" class="form-control" placeholder="Enter Phone Number">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -440,14 +449,18 @@ if ($_SESSION['username']) {
                             </div>
 
                             <div class="form-group">
-                                <label>Trends</label>
-                                <select id="trends" name="archive_trends" id="archive_trend" disabled="disabled">
-                                    <option value="" id="options" selected></option>
-                                    <option value="Social Media">Social Media</option>
-                                    <option value="Online Forum">Online Forum</option>
-                                    <option value="Customer Survey">Customer Survey</option>
-                                </select>
+                                <label>Market Research</label>
+                                <textarea class="form-control"name="archive_market" id="archive_market" rows="3"></textarea>
                             </div>
+                            <div class="form-group">
+                                <label>User Research</label>
+                                <textarea class="form-control"name="archive_user" id="archive_user" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Technical Research</label>
+                                <textarea class="form-control"name="archive_technical" id="archive_technical" rows="3"></textarea>
+                            </div>
+
 
                             <div class="form-group">
                                 <label> Conclusion </label>

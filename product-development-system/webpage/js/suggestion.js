@@ -101,6 +101,8 @@ $(document).ready(function () {
     },
   });
 });
+
+
 //Edit research data
 $(document).ready(function () {
   $("body").on("click", ".editbtn", function (event) {
@@ -118,11 +120,12 @@ $(document).ready(function () {
     console.log(data);
 
     $("#edit_id").val(data[0]);
-    $("#title").val(data[1]);
-    $("#introduction").val(data[2]);
-    $("#option").val(data[3]);
-    $("#option").text(data[3]);
-    $("#conclusion").val(data[4]);
+    $("#edit_title").val(data[1]);
+    $("#edit_introduction").val(data[2]);
+    $("#edit_market").val(data[3]);
+    $("#edit_user").val(data[4]);
+    $("#edit_technical").val(data[5]);
+    $("#edit_conclusion").val(data[6]);
   });
 });
 
@@ -131,7 +134,7 @@ $(document).ready(function () {
   $("#addForm").on("submit", function (e) {
     e.preventDefault();
     var formData = $("#addForm").serialize();
-    var requiredFields = ["title", "introduction", "trends", "conclusion"]; // List of required field names
+    var requiredFields = ["title", "introduction", "market","user","technical", "conclusion"]; // List of required field names
     var emptyFields = [];
     requiredFields.forEach(function (field) {
       if ($('[name="' + field + '"]').val() === "") {
@@ -142,7 +145,7 @@ $(document).ready(function () {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "The following fields are required: " + emptyFields.join(", "),
+        text: "The followingss fields are required: " + emptyFields.join(","),
       });
       return;
     }
@@ -170,6 +173,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#updateForm").on("submit", function (e) {
     e.preventDefault();
+    
     $.ajax({
       type: "POST",
       url: "./update.php",
@@ -212,9 +216,10 @@ $(document).ready(function () {
     $("#archive_id").val(data[0]);
     $("#archive_title").val(data[1]);
     $("#archive_introduction").val(data[2]);
-    $("#archive_trend").val(data[3]);
-    $("#options").text(data[3]);
-    $("#archive_conclusion").val(data[4]);
+    $("#archive_market").val(data[3]);
+    $("#archive_user").val(data[4]);
+    $("#archive_technical").val(data[5]);
+    $("#archive_conclusion").val(data[6]);
   });
 });
 
