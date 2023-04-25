@@ -130,13 +130,13 @@ if ($_SESSION['username']) {
 
                     <div class="card">
 
-                    <div class="card">
-                                    <div class="card-body">
-                                        <button type="button" class="btn btn-primary addbtn">
-                                            <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add Question
-                                        </button>
-                                    </div>
-                                </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary addbtn">
+                                    <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add Question
+                                </button>
+                            </div>
+                        </div>
 
                         <div class="card-body">
 
@@ -189,8 +189,8 @@ if ($_SESSION['username']) {
 
     </main>
 
-    
-   
+
+
 
     <!-- EDIT POP UP FORM -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -255,34 +255,34 @@ if ($_SESSION['username']) {
             </div>
         </div>
     </div>
-<!-- add question -->
-<div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Research Paper</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+    <!-- add question -->
+    <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Research Paper</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-                    <form id="addQuestion" method="POST">
+                <form id="addQuestion" method="POST">
 
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>Question</label>
-                                <input type="text" name="question" class="form-control" placeholder="Enter Question">
-                            </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Question</label>
+                            <input type="text" name="question" class="form-control" placeholder="Enter Question">
+                        </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
                         </div>
-                    </form>
+                </form>
 
-                </div>
             </div>
         </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

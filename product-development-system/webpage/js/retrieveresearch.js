@@ -65,11 +65,13 @@ $(document).ready(function () {
 
         console.log(data);
 
-        $('#archive_id').val(data[0]);
-        $('#archive_title').val(data[1]);
-        $('#archive_introduction').val(data[2]);
-        $('#archive_trend').val(data[3]);
-        $('#archive_conclusion').val(data[4]);
+        $('#retrieve_id').val(data[0]);
+        $('#retrieve_title').val(data[1]);
+        $('#retrieve_introduction').val(data[2]);
+        $('#retrieve_market').val(data[3]);
+        $('#retrieve_user').val(data[4]);
+        $('#retrieve_technical').val(data[5]);
+        $('#retrieve_conclusion').val(data[6]);
     });
 });
 
