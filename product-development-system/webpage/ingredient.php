@@ -143,7 +143,7 @@ if ($_SESSION['username']) {
                             <table id="datatableid" class="table table-striped table-responsive">
                                 <thead>
                                     <tr>
-                                        <th scope="col"> ID</th>
+                                        <th scope="col">No</th>
                                         <th scope="col">Product Name</th>
                                         <th scope="col">Description</th>
                                         <th scope="col">Ingredient</th>

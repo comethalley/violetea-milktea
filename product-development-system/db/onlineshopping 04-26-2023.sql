@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2023 at 03:31 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Apr 26, 2023 at 08:44 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `admin` (
   `password` varchar(255) NOT NULL,
   `creationDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin`
@@ -54,7 +54,7 @@ CREATE TABLE `category` (
   `categoryDescription` longtext DEFAULT NULL,
   `creationDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `category`
@@ -80,7 +80,7 @@ CREATE TABLE `orders` (
   `orderDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `paymentMethod` varchar(50) DEFAULT NULL,
   `orderStatus` varchar(55) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `orders`
@@ -104,7 +104,7 @@ CREATE TABLE `ordertrackhistory` (
   `status` varchar(255) DEFAULT NULL,
   `remark` mediumtext DEFAULT NULL,
   `postingDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `ordertrackhistory`
@@ -140,7 +140,7 @@ CREATE TABLE `productreviews` (
   `summary` varchar(255) DEFAULT NULL,
   `review` longtext DEFAULT NULL,
   `reviewDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `productreviews`
@@ -171,7 +171,7 @@ CREATE TABLE `products` (
   `productAvailability` varchar(255) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `products`
@@ -197,7 +197,14 @@ INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `product
 (65, 5, 32, 'Fettuccini Carbonara', 'Violetea', 151, 219, '<span style=\"color: rgba(0, 0, 0, 0.95); font-family: SourceSansPro, Helvetica, sans-serif; font-size: 18px;\">This fettuccine carbonara is a delectable, mouth-watering pile of yummy goodness!</span><br>', 'fettucine.png', 'fettucine.png', 'fettucine.png', 20, 'In Stock', '2022-11-23 11:54:18', NULL),
 (66, 5, 32, 'Creole Pasta', 'Violetea', 151, 219, '<span style=\"color: rgb(82, 82, 82); font-family: &quot;Martel Sans&quot;, sans-serif; font-size: 15px; background-color: rgb(250, 249, 245);\">. This zesty meat spaghetti sauce gets a boost of Spanish flavor from goya. Stuffed olives,</span><span style=\"color: rgb(82, 82, 82); font-family: &quot;Martel Sans&quot;, sans-serif; font-size: 15px; background-color: rgb(250, 249, 245);\">&nbsp;savory sofrito, chopped ham, and an authentic blend of Spanish herbs and spices</span><br>', 'spaghetti.png', 'spaghetti.png', 'spaghetti.png', 20, 'In Stock', '2022-11-23 12:07:22', NULL),
 (67, 2, 33, 'Violetea Fries', 'Violetea', 64, 89, '<span style=\"color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;\">This French fries</span><span style=\"color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;\">&nbsp;recipe is made using a clever, proven cooking method that guarantees crispy fries</span><span style=\"color: rgb(77, 81, 86); font-family: arial, sans-serif; font-size: 14px;\">&nbsp;- and they STAY crispy for ages!</span><br>', 'fries.png', 'fries.png', 'fries.png', 10, 'In Stock', '2022-11-23 12:16:57', NULL),
-(68, 2, 33, 'Cheesy Bacon Fries', 'Violetea', 69, 99, '<span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Our natural-cut, skin-on, sea-salted fries are topped with warm, creamy cheese sauce, shredded cheddar, and crispy Applewood smoked bacon.</span><br>', 'cheesy fries.png', 'cheesy fries.png', 'cheesy fries.png', 10, 'In Stock', '2022-11-23 12:23:51', NULL);
+(68, 2, 33, 'Cheesy Bacon Fries', 'Violetea', 69, 99, '<span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Our natural-cut, skin-on, sea-salted fries are topped with warm, creamy cheese sauce, shredded cheddar, and crispy Applewood smoked bacon.</span><br>', 'cheesy fries.png', 'cheesy fries.png', 'cheesy fries.png', 10, 'In Stock', '2022-11-23 12:23:51', NULL),
+(69, 4, 31, '8', 'Business transaction', 150, 200, 'Good cake', '6425641fdbcaf4.52192629.jpg', '6425641fdbcbc3.47689563.jpg', '6425641fdbcbf0.60276871.jpg', 50, 'In Stock', '2023-04-02 12:43:39', NULL),
+(70, 4, 31, 'Violetea Cake', 'Business transaction', 150, 200, 'Good', 'White-Chocolate-Raspberry-5a.jpg', 'White-Chocolate-Raspberry-5a.jpg', 'White-Chocolate-Raspberry-5a.jpg', 50, 'In Stock', '2023-04-02 12:52:28', NULL),
+(71, 2, 27, '8', 'Violetea', 150, 200, 'Cake', '6425641fdbcaf4.52192629.jpg', '6425641fdbcbc3.47689563.jpg', '6425641fdbcbf0.60276871.jpg', 50, 'In Stock', '2023-04-02 13:06:13', NULL),
+(72, 2, 27, '8', 'Violetea', 150, 200, 'Good', '6425641fdbcaf4.52192629.jpg', '6425641fdbcbc3.47689563.jpg', '6425641fdbcbf0.60276871.jpg', 50, 'In Stock', '2023-04-02 13:28:06', NULL),
+(73, 3, 28, '8', 'Violetea', 150, 200, 'Good', '6425641fdbcaf4.52192629.jpg', '6425641fdbcbc3.47689563.jpg', '6425641fdbcbf0.60276871.jpg', 50, 'In Stock', '2023-04-02 13:32:17', NULL),
+(74, 2, 27, 'Burger', 'Violetea', 150, 200, 'Burger', 'burger2.png', 'burger2.png', 'burger2.png', 50, 'In Stock', '2023-04-05 03:35:32', NULL),
+(75, 3, 28, 'Milktea Taho flavor', 'Violetea', 150, 200, 'Milktea Taho flavor', '642cef37718346.00137062.png', 'okinawa.png', 'okinawa.png', 50, 'In Stock', '2023-04-05 04:47:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -211,7 +218,7 @@ CREATE TABLE `subcategory` (
   `subcategory` varchar(255) DEFAULT NULL,
   `creationDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `subcategory`
@@ -236,25 +243,27 @@ CREATE TABLE `tbl_archive` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `introduction` varchar(255) NOT NULL,
-  `trends` varchar(255) NOT NULL,
+  `market` varchar(1200) NOT NULL,
+  `user` varchar(1200) NOT NULL,
+  `technical` varchar(1200) NOT NULL,
   `conclusion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_archive`
 --
 
-INSERT INTO `tbl_archive` (`id`, `title`, `introduction`, `trends`, `conclusion`) VALUES
-(1, '0', '0', '', '0'),
-(2, '0', '0', '', '0'),
-(3, '0', '0', '', '0'),
-(4, 'milk tea pero hiwalay yung tea', 'pinag hiwalay yung milk saka tea', '', 'malupet'),
-(5, 'Matcha Milktea', 'Matcha with milktea', '', 'masarap pala'),
-(6, 'Matcha Milktea', 'Matcha with milktea', '', 'masarap pala'),
-(7, 'Matcha Milktea', 'Matcha with milktea', '', 'masarap pala'),
-(8, 'milktea taho', 'milktea na may taho', '', 'Di masarap'),
-(9, 'milktea taho', 'Matcha with milktea', '', 'masarap pala'),
-(10, 'Matcha Milktea', 'Matcha with milktea', '', 'masarap pala sulit');
+INSERT INTO `tbl_archive` (`id`, `title`, `introduction`, `market`, `user`, `technical`, `conclusion`) VALUES
+(1, '0', '0', '', '', '', '0'),
+(2, '0', '0', '', '', '', '0'),
+(3, '0', '0', '', '', '', '0'),
+(4, 'milk tea pero hiwalay yung tea', 'pinag hiwalay yung milk saka tea', '', '', '', 'malupet'),
+(5, 'Matcha Milktea', 'Matcha with milktea', '', '', '', 'masarap pala'),
+(6, 'Matcha Milktea', 'Matcha with milktea', '', '', '', 'masarap pala'),
+(7, 'Matcha Milktea', 'Matcha with milktea', '', '', '', 'masarap pala'),
+(8, 'milktea taho', 'milktea na may taho', '', '', '', 'Di masarap'),
+(9, 'milktea taho', 'Matcha with milktea', '', '', '', 'masarap pala'),
+(10, 'Matcha Milktea', 'Matcha with milktea', '', '', '', 'masarap pala sulit');
 
 -- --------------------------------------------------------
 
@@ -268,7 +277,7 @@ CREATE TABLE `tbl_archive_ingredient` (
   `ingredient` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `researchID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_archive_ingredient`
@@ -288,7 +297,7 @@ CREATE TABLE `tbl_archive_user` (
   `username` varchar(255) DEFAULT NULL,
   `subject` varchar(255) DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_archive_user`
@@ -309,36 +318,46 @@ INSERT INTO `tbl_archive_user` (`id`, `username`, `subject`, `body`) VALUES
 CREATE TABLE `tbl_concept` (
   `id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
+  `image2` varchar(255) DEFAULT NULL,
+  `image3` varchar(255) DEFAULT NULL,
   `archive` varchar(255) DEFAULT NULL,
+  `isRejected` varchar(255) DEFAULT NULL,
   `ingredientID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_concept`
 --
 
-INSERT INTO `tbl_concept` (`id`, `image`, `archive`, `ingredientID`) VALUES
-(1, '640c8cddc1faa5.08813736.jpg', 'true', 4),
-(2, '640d9079ccd4f5.70238318.png', 'false', 4),
-(5, '640865aa7845a6.24356517.png', 'false', 4),
-(6, '6408696beac414.36331930.png', 'false', 12),
-(7, '640896143b2704.71234261.png', 'false', 12),
-(8, '64089846047cf1.10459827.png', 'false', 13),
-(9, '64089cffdf6e16.16771529.png', 'false', 14),
-(10, '6408a1084c92a9.04063558.png', 'false', 15),
-(11, '64096da5862138.79391465.jpg', 'false', 16),
-(12, '6409706087d163.04955881.png', 'false', 17),
-(13, '6409b4d75e0bf3.87482759.png', 'false', 18),
-(14, '6409df1c66bba0.94810314.png', 'false', 19),
-(15, '640af7d3839828.67014771.png', 'false', 20),
-(16, '640b0222ea7685.98369262.png', 'false', 21),
-(17, '640d6a9802ba84.22225653.png', 'false', 22),
-(18, '640d89497502a3.19990893.png', 'false', 23),
-(19, '640d8cb754dbd4.17131324.png', 'false', 24),
-(20, '640d921c8ede94.95482525.png', 'false', 24),
-(21, '640d929e90bf99.59890248.jpg', 'false', 24),
-(22, '640d93b5af8238.33444824.png', 'false', 24),
-(23, '640da73cd07816.71494689.png', 'false', 25);
+INSERT INTO `tbl_concept` (`id`, `image`, `image2`, `image3`, `archive`, `isRejected`, `ingredientID`) VALUES
+(1, '6425641fdbcaf4.52192629.jpg', '6425641fdbcbc3.47689563.jpg', '6425641fdbcbf0.60276871.jpg', 'false', 'false', 4),
+(2, '640d9079ccd4f5.70238318.png', '640d9079ccd4f5.70238318.png', '640d9079ccd4f5.70238318.png', 'false', 'true', 4),
+(5, '641aca787ff884.45055882.png', '641aca787ff884.45055882.png', '641aca787ff884.45055882.png', 'false', 'false', 4),
+(6, '641bc8a8e14506.56965454.png', '641bc8a8e14506.56965454.png', '641bc8a8e14506.56965454.png', 'false', 'false', 12),
+(7, '641bc67a6909b5.37465254.png', '641bc67a6909b5.37465254.png', '641bc67a6909b5.37465254.png', 'false', 'false', 12),
+(8, '64089846047cf1.10459827.png', '64089846047cf1.10459827.png', '64089846047cf1.10459827.png', 'false', 'false', 13),
+(9, '64089cffdf6e16.16771529.png', '64089cffdf6e16.16771529.png', '64089cffdf6e16.16771529.png', 'false', 'false', 14),
+(10, '641bcf23afdb42.52497085.png', '641bcf23afdb42.52497085.png', '641bcf23afdb42.52497085.png', 'false', 'false', 15),
+(11, '64096da5862138.79391465.jpg', '64096da5862138.79391465.jpg', '64096da5862138.79391465.jpg', 'false', 'false', 16),
+(12, '6409706087d163.04955881.png', '6409706087d163.04955881.png', '6409706087d163.04955881.png', 'false', 'false', 17),
+(13, '6409b4d75e0bf3.87482759.png', '6409b4d75e0bf3.87482759.png', '6409b4d75e0bf3.87482759.png', 'false', 'false', 18),
+(14, '6409df1c66bba0.94810314.png', '6409df1c66bba0.94810314.png', '6409df1c66bba0.94810314.png', 'false', 'false', 19),
+(15, '640af7d3839828.67014771.png', '640af7d3839828.67014771.png', '640af7d3839828.67014771.png', 'false', 'false', 20),
+(16, '640b0222ea7685.98369262.png', '640b0222ea7685.98369262.png', '640b0222ea7685.98369262.png', 'false', 'false', 21),
+(17, '640d6a9802ba84.22225653.png', '640d6a9802ba84.22225653.png', '640d6a9802ba84.22225653.png', 'false', 'false', 22),
+(18, '640d89497502a3.19990893.png', '640d89497502a3.19990893.png', '640d89497502a3.19990893.png', 'false', 'false', 23),
+(19, '640d8cb754dbd4.17131324.png', '640d8cb754dbd4.17131324.png', '640d8cb754dbd4.17131324.png', 'false', 'false', 24),
+(20, '640d921c8ede94.95482525.png', '640d921c8ede94.95482525.png', '640d921c8ede94.95482525.png', 'false', 'false', 24),
+(21, '640d929e90bf99.59890248.jpg', '640d929e90bf99.59890248.jpg', '640d929e90bf99.59890248.jpg', 'false', 'false', 24),
+(22, '640d93b5af8238.33444824.png', '640d93b5af8238.33444824.png', '640d93b5af8238.33444824.png', 'false', 'false', 24),
+(23, '641bcf7f840692.18255490.png', '641bcf7f840692.18255490.png', '641bcf7f840692.18255490.png', 'false', 'false', 25),
+(24, '642524ef6975d9.55504284.png', '642524ef6975d9.55504284.png', '642524ef6975d9.55504284.png', 'false', 'false', 17),
+(25, '64252f5ee05be1.47277579.png', '64252f5ee05c77.59657168.png', '64252f5ee05c90.03790937.png', 'false', 'false', 9),
+(26, '6425750450f513.57468427.png', '6425750450ff63.86042977.png', '6425750450ffd7.43146742.png', 'false', 'false', 17),
+(27, '642cef37718346.00137062.png', '642cef37718507.52544730.png', '642cef37718531.79390426.png', 'false', 'false', 23),
+(28, '642cf31a878849.11314232.png', '642cf31a878898.18803495.png', '642cf31a8788a6.69821422.png', 'false', 'true', 17),
+(29, '642cf3f47d4006.08044816.png', '642cf3f47d4094.71452067.png', '642cf3f47d40b3.84273000.png', 'false', 'false', 15),
+(30, '642fb4fd57d700.94582301.png', '642fb4fd57d7e6.31517460.png', '642fb4fd57d7f0.52919476.png', 'false', 'false', 19);
 
 -- --------------------------------------------------------
 
@@ -352,7 +371,7 @@ CREATE TABLE `tbl_employee` (
   `lastname` varchar(255) DEFAULT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_employee`
@@ -361,7 +380,9 @@ CREATE TABLE `tbl_employee` (
 INSERT INTO `tbl_employee` (`id`, `firstname`, `lastname`, `username`, `password`) VALUES
 (1, NULL, NULL, 'admin', 'admin'),
 (2, 'Kenneth', 'Bonita', 'kenneth', 'test123'),
-(3, 'kenet', 'bonita', 'test3', 'test3');
+(3, 'kenet', 'bonita', 'test3', 'test3'),
+(4, 'vera', 'rozen', 'vera', 'rozen'),
+(5, 'bianca', 'veritas', 'bianca.veritas', 'admin123');
 
 -- --------------------------------------------------------
 
@@ -375,7 +396,7 @@ CREATE TABLE `tbl_feedback` (
   `subject` varchar(255) DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL,
   `archive` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_feedback`
@@ -383,17 +404,18 @@ CREATE TABLE `tbl_feedback` (
 
 INSERT INTO `tbl_feedback` (`id`, `username`, `subject`, `body`, `archive`) VALUES
 (3, 'test23', 'hakdog', 'gusto ko hakdog malaki', 'false'),
-(4, 'test123', 'Milktea', 'Milktea malamig maganda', 'true'),
+(4, 'test123', 'Milktea', 'Milktea malamig maganda', 'false'),
 (5, 'abc', 'hamburger', 'malatiks', 'false'),
 (7, 'Bonita, Kenneth D.', 'Can\'t login using facebook account', 'malatiks', 'false'),
 (8, 'Bonita, Kenneth D.', 'maganda sana kung malamig', 'palamigin ang pagibig', 'false'),
 (9, 'Bonita, Kenneth D.', 'ko', 'ko', 'false'),
 (10, 'Bonita, Kenneth D.', 'milktea', 'dwasda', 'false'),
-(12, 'kenneth', 'hello', 'hello', 'true'),
+(12, 'kenneth', 'hello', 'hello', 'false'),
 (13, 'Bonita, Kenneth D.', 'milktea malamig', 'malamig na milktea', 'false'),
 (14, 'Bonita, Kenneth D.', 'Milktea', 'Milktea na may taho flavor', 'false'),
 (15, 'Bonita, Kenneth D.', 'dw', 'sdwa', 'false'),
-(16, 'Bonita, Kenneth D.', 'ss', 'ss', 'false');
+(16, 'Bonita, Kenneth D.', 'ss', 'ss', 'false'),
+(17, 'Bonita, Kenneth D.', 'milktea', 'milktea na mapait', 'false');
 
 -- --------------------------------------------------------
 
@@ -408,7 +430,7 @@ CREATE TABLE `tbl_ingredient` (
   `description` varchar(255) NOT NULL,
   `archive` varchar(255) DEFAULT NULL,
   `researchID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_ingredient`
@@ -416,7 +438,7 @@ CREATE TABLE `tbl_ingredient` (
 
 INSERT INTO `tbl_ingredient` (`id`, `name`, `ingredient`, `description`, `archive`, `researchID`) VALUES
 (4, '8', 'sago, taho, pearl', 'sago', 'true', NULL),
-(9, 'dsa', 'dsa', 'dsa', 'false', 8),
+(9, 'Dsa', 'dsa', 'dSa', 'false', 8),
 (10, 'test2 test2 test2', 'dwasdwa', 'jpegdwa', 'false', 13),
 (11, 'matcha', 'sago, pearl', 'dwasd', 'false', 15),
 (12, 'username', 'dasdasd', 'sadsa', 'false', 8),
@@ -425,14 +447,66 @@ INSERT INTO `tbl_ingredient` (`id`, `name`, `ingredient`, `description`, `archiv
 (15, 'test2 prod', 'Strawberry', 'Good', 'false', 18),
 (16, 'test2 prod', 'sss', 'jpeg', 'false', 18),
 (17, 'tes3 prod', 'test ingredients', 'test3 description', 'false', 19),
-(18, 'tes3 prod', 'sago', 'jpeg', 'false', 20),
+(18, 'tes3 prod', 'sago', 'sago', 'false', 20),
 (19, 'survey_db', 'dsadas', 'dsa', 'false', 21),
 (20, 'test3', 'test3', 'test3', 'false', 22),
 (21, 'tes3 prod', 'test', 'test3', 'false', 23),
 (22, 'Milktea malamig', 'sago, taho, strawberry', 'malamig', 'false', 24),
 (23, 'Milktea Taho flavor', 'sago, taho, asukal', 'milktea taho flavor', 'false', 25),
 (24, 'ss', 'ss', 'ss', 'false', 26),
-(25, 'Milktea Sago', 'Milktea Sago', 'Milktea Sago', 'false', 27);
+(25, 'Milktea Sago', 'Milktea Sago', 'Milktea Sago', 'false', 27),
+(26, 'tes3 prod', 'sago', 'sago', 'false', 8),
+(27, 'Milktea Okinawa', 'sago, taho, pearl', 'malamig', 'false', 18),
+(28, 'test1 test1 test1', 'test3', 'test3', 'false', 17);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_question`
+--
+
+CREATE TABLE `tbl_question` (
+  `id` int(11) NOT NULL,
+  `question` varchar(255) DEFAULT NULL,
+  `archive` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_question`
+--
+
+INSERT INTO `tbl_question` (`id`, `question`, `archive`) VALUES
+(1, 'How satisfied are you with our product?', 'true'),
+(2, 'How satisfied are you with our product?', 'false'),
+(3, 'How the taste of product?', 'false'),
+(4, 'How the taste of product?', 'false'),
+(5, 'twice', 'false'),
+(6, 'dasda', 'false'),
+(7, 'dasda', 'false'),
+(8, 'nice', 'false');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_request`
+--
+
+CREATE TABLE `tbl_request` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `image2` varchar(255) NOT NULL,
+  `image3` varchar(255) NOT NULL,
+  `isAccepted` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_request`
+--
+
+INSERT INTO `tbl_request` (`id`, `name`, `image`, `image2`, `image3`, `isAccepted`) VALUES
+(1, '8', '6425641fdbcaf4.52192629.jpg', '6425641fdbcbc3.47689563.jpg', '6425641fdbcbf0.60276871.jpg', 'true'),
+(2, 'Milktea Taho flavor', '642cef37718346.00137062.png', '642cef37718507.52544730.png', '642cef37718531.79390426.png', 'true');
 
 -- --------------------------------------------------------
 
@@ -444,34 +518,41 @@ CREATE TABLE `tbl_research` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `introduction` varchar(255) DEFAULT NULL,
-  `trends` varchar(255) DEFAULT NULL,
+  `market` varchar(1200) NOT NULL,
+  `user` varchar(1200) NOT NULL,
+  `technical` varchar(1200) NOT NULL,
   `conclusion` varchar(255) DEFAULT NULL,
   `archive` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbl_research`
 --
 
-INSERT INTO `tbl_research` (`id`, `title`, `introduction`, `trends`, `conclusion`, `archive`) VALUES
-(8, 'Matcha Milktea', 'Matcha with milktea', 'social_media', 'masarap pala', 'true'),
-(11, 'milktea taho', 'Matcha with milktea', 'online_forum', 'masarap pala', 'false'),
-(12, 'Matcha Milktea and Burgers', 'Malamig na milktea', 'online_forum', 'masarap pala sulit', 'false'),
-(13, 'milk tea pero hiwalay yung tea', 'pinag hiwalay yung milk saka tea', 'online_forum', 'malupet', 'false'),
-(14, 'milk tea pero hiwalay yung tea', 'Malamig na milktea', 'online_forum', 'masarap pala sulit', 'false'),
-(15, 'Matcha Milktea and Burgers', 'pinag hiwalay yung milk saka tea', 'social_media', 'masarap pala sulit', 'false'),
-(16, 'test', 'test', 'customer_survey', 'test', 'false'),
-(17, 'test2', 'test2', 'social_media', 'test2', 'false'),
-(18, 'Milktea matabang Okinawa', 'Matabang daw yung okinawa', 'online_forum', 'ang galing', 'false'),
-(19, 'Matcha Milktea', 'Malamig na milktea', 'customer_survey', 'masarap naman', 'false'),
-(20, 'Matcha Milktea', 'Matcha with milktea', 'online_forum', 'ang galing', 'false'),
-(21, 'Matcha Milktea', 'Matcha with milktea', 'online_forum', 'masarap pala', 'false'),
-(22, 'test3', 'test3', 'social_media', 'test3', 'false'),
-(23, 'Matcha Milktea', 'Matcha with milktea', 'online_forum', 'masarap pala', 'false'),
-(24, 'Milktea na Malamig', 'Malamig na milktea', 'online_forum', 'masarap pala sulit', 'false'),
-(25, 'milktea taho', 'milktea na may taho', 'social_media', 'masarap pala', 'false'),
-(26, 'Krusty crab', 'Crabby patty', 'online_forum', 'good', 'false'),
-(27, 'Milktea Sago', 'Milktea Sago', 'online_forum', 'Milktea Sago', 'false');
+INSERT INTO `tbl_research` (`id`, `title`, `introduction`, `market`, `user`, `technical`, `conclusion`, `archive`) VALUES
+(8, '           Matcha Milktea           ', '           Matcha with milktea           ', 'ASO\r\n', ' S ', 'das', '          All good         ', 'true'),
+(11, ' Milktea Taho    ', ' Matcha with milktea    ', '', '', '', ' Masarap pala    ', 'false'),
+(12, '  Matcha Milktea and Burgers  ', '  Malamig na milktea  ', '', '', '', '  masarap pala sulit nice ', 'false'),
+(13, ' milk tea pero hiwalay yung tea ', ' pinag hiwalay yung milk saka tea ', '', '', '', ' malupet ', 'false'),
+(14, ' milk tea pero hiwalay yung tea ', ' Malamig na milktea ', '', '', '', ' masarap pala sulit ', 'false'),
+(15, ' Matcha Milktea and Burgers ', ' pinag hiwalay yung milk saka tea ', '', '', '', ' masarap pala sulit ', 'false'),
+(16, ' test ', ' test ', '', '', '', ' test ', 'false'),
+(17, ' test2 ', ' test2 ', '', '', '', ' test2 ', 'false'),
+(18, '  Milktea matabang Okinawa  ', '  Matabang daw yung okinawa  ', '', '', '', ' The new flavor is good ', 'false'),
+(19, ' Matcha Milktea ', ' Malamig na milktea ', '', '', '', ' masarap naman ', 'false'),
+(20, ' Matcha Milktea ', ' Matcha with milktea ', '', '', '', ' ang galing ', 'false'),
+(21, ' Matcha Milktea ', ' Matcha with milktea ', '', '', '', ' masarap pala ', 'false'),
+(22, ' test3 ', ' test3 ', '', '', '', ' test3 ', 'false'),
+(23, ' Matcha Milktea ', ' Matcha with milktea ', '', '', '', ' masarap pala ', 'false'),
+(24, ' Milktea na Malamig ', ' Malamig na milktea ', '', '', '', ' masarap pala sulit ', 'false'),
+(25, ' milktea taho ', ' milktea na may taho ', '', '', '', ' masarap pala ', 'false'),
+(26, ' Krusty crab ', ' Crabby patty ', '', '', '', ' good ', 'false'),
+(27, ' Milktea Sago ', ' Milktea Sago ', '', '', '', ' Milktea Sago ', 'false'),
+(28, ' milktea taho ', ' Matcha with milktea ', '', '', '', ' ang galing ', 'false'),
+(29, 'milktea taho', 'Matcha with milktea', '', '', '', 'masarap pala', 'false'),
+(30, 'sample', 'sample', 'sample', 'sample', 'sample', 'sample', 'false'),
+(31, 'HAHAH', 'AHAHAH', 'HAHAHA', 'HAHAH', 'HAHA', 'HAHA', 'false'),
+(32, ' nice ', ' nice ', ' nice ', ' nice s', 'nice', ' nice ', 'false');
 
 -- --------------------------------------------------------
 
@@ -488,14 +569,14 @@ CREATE TABLE `tbl_survey` (
   `response3` int(11) NOT NULL,
   `archive` varchar(255) DEFAULT NULL,
   `conceptID` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_survey`
 --
 
 INSERT INTO `tbl_survey` (`id`, `username`, `timestamp`, `response1`, `response2`, `response3`, `archive`, `conceptID`) VALUES
-(1, 'bonita', '2023-03-11 14:41:39', 2, 3, 4, 'false', 5),
+(1, 'bonita', '2023-03-23 13:01:52', 2, 3, 4, 'false', 5),
 (2, 'vera', '2023-03-11 14:29:41', 4, 4, 3, 'false', 5),
 (3, 'vera', '2023-03-11 14:29:46', 2, 4, 4, 'false', 6),
 (4, 'bonita', '2023-03-11 14:29:48', 5, 4, 4, 'false', 7),
@@ -520,10 +601,19 @@ INSERT INTO `tbl_survey` (`id`, `username`, `timestamp`, `response1`, `response2
 (23, 'kenn', '2023-03-12 06:35:27', 5, 5, 5, 'false', 16),
 (24, '', '2023-03-12 06:37:02', 1, 4, 4, 'false', 16),
 (25, 'KENNETH DELA CRUZ BONITA', '2023-03-12 14:15:57', 2, 5, 4, 'false', 5),
-(26, 'KENNETH DELA CRUZ BONITA', '2023-03-12 08:12:27', 3, 4, 5, NULL, 16),
-(27, '', '2023-03-12 08:27:09', 3, 4, 3, NULL, 16),
+(26, 'KENNETH DELA CRUZ BONITA', '2023-03-30 11:28:05', 3, 4, 5, 'false', 16),
+(27, '', '2023-03-30 11:28:15', 3, 4, 3, 'false', 16),
 (28, 'survey_db', '2023-03-12 08:58:36', 2, 1, 4, 'false', 5),
-(30, '', '2023-03-12 14:16:50', 4, 4, 4, 'true', 23);
+(30, '', '2023-03-24 10:07:46', 4, 4, 4, 'false', 23),
+(31, '', '2023-03-30 05:58:51', 3, 4, 3, 'false', 12),
+(32, '', '2023-04-05 05:12:53', 3, 1, 3, 'true', 1),
+(33, '', '2023-03-30 11:18:56', 5, 3, 2, 'false', 2),
+(34, '', '2023-03-30 11:40:14', 5, 4, 4, 'false', 26),
+(35, '', '2023-03-30 11:41:11', 3, 3, 3, 'false', 26),
+(36, '', '2023-03-30 11:41:44', 2, 5, 4, 'false', 26),
+(37, '', '2023-04-05 05:25:43', 3, 4, 5, 'false', 29),
+(38, '', '2023-04-05 05:25:50', 5, 5, 4, 'false', 29),
+(39, '', '2023-04-05 05:25:56', 2, 1, 2, 'false', 29);
 
 -- --------------------------------------------------------
 
@@ -538,7 +628,7 @@ CREATE TABLE `userlog` (
   `loginTime` timestamp NULL DEFAULT current_timestamp(),
   `logout` varchar(255) DEFAULT NULL,
   `status` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `userlog`
@@ -571,7 +661,12 @@ INSERT INTO `userlog` (`id`, `userEmail`, `userip`, `loginTime`, `logout`, `stat
 (68, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-12 05:53:07', '12-03-2023 01:37:09 PM', 1),
 (69, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-12 08:07:21', '12-03-2023 01:48:49 PM', 1),
 (70, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-12 08:19:35', '12-03-2023 01:54:25 PM', 1),
-(71, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-12 08:24:48', '12-03-2023 01:58:36 PM', 1);
+(71, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-12 08:24:48', '12-03-2023 01:58:36 PM', 1),
+(72, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-12 14:47:35', NULL, 1),
+(73, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-13 01:12:33', '13-03-2023 06:50:44 AM', 1),
+(74, 'kenneth.bonita07@gmail.com', 0x3a3a3100000000000000000000000000, '2023-03-13 01:27:46', '13-03-2023 06:59:17 AM', 1),
+(75, 'mjcariso3@gmail.com', 0x3a3a3100000000000000000000000000, '2023-04-24 01:38:00', NULL, 0),
+(76, 'mjcariso3@gmail.com', 0x3a3a3100000000000000000000000000, '2023-04-24 01:38:21', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -595,7 +690,7 @@ CREATE TABLE `users` (
   `billingPincode` int(11) DEFAULT NULL,
   `regDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
@@ -605,7 +700,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `password`, `shippingAd
 (17, 'john Christian Miniano', 'johnchristian.miniano08@gmail.com', 906549691, '81dc9bdb52d04dc20036dbd8313ed055', '673 Quirino Highway, San Bartolome, Novaliches, Quezon City', 'Manila', 'Quezon City', 1106, '673 Quirino Highway, San Bartolome, Novaliches, Quezon City', 'Manila', 'Quezon City', 1106, '2022-05-19 10:01:46', NULL),
 (18, 'test1', 'test@gmail.com', 955162667, '827ccb0eea8a706c4c34a16891f84e7b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-21 01:07:14', NULL),
 (19, 'eloisa marie baylon', 'test2@gmail.com', 955162667, '827ccb0eea8a706c4c34a16891f84e7b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-21 04:25:41', NULL),
-(20, 'Bonita, Kenneth D.', 'kenneth.bonita07@gmail.com', 909090909, 'cc03e747a6afbbcbf8be7668acfebee5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-07 04:27:05', NULL);
+(20, 'Bonita, Kenneth D.', 'kenneth.bonita07@gmail.com', 909090909, 'cc03e747a6afbbcbf8be7668acfebee5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-03-07 04:27:05', NULL),
+(21, 'dasd', 'mjcariso3@gmail.com', 123, '202cb962ac59075b964b07152d234b70', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-04-24 01:38:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -618,7 +714,7 @@ CREATE TABLE `wishlist` (
   `userId` int(11) DEFAULT NULL,
   `productId` int(11) DEFAULT NULL,
   `postingDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `wishlist`
@@ -720,6 +816,18 @@ ALTER TABLE `tbl_ingredient`
   ADD KEY `researchID` (`researchID`);
 
 --
+-- Indexes for table `tbl_question`
+--
+ALTER TABLE `tbl_question`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_request`
+--
+ALTER TABLE `tbl_request`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_research`
 --
 ALTER TABLE `tbl_research`
@@ -788,7 +896,7 @@ ALTER TABLE `productreviews`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
@@ -818,49 +926,61 @@ ALTER TABLE `tbl_archive_user`
 -- AUTO_INCREMENT for table `tbl_concept`
 --
 ALTER TABLE `tbl_concept`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_employee`
 --
 ALTER TABLE `tbl_employee`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_feedback`
 --
 ALTER TABLE `tbl_feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_ingredient`
 --
 ALTER TABLE `tbl_ingredient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `tbl_question`
+--
+ALTER TABLE `tbl_question`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbl_request`
+--
+ALTER TABLE `tbl_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_research`
 --
 ALTER TABLE `tbl_research`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_survey`
 --
 ALTER TABLE `tbl_survey`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
