@@ -168,7 +168,7 @@ if ($_SESSION['username']) {
                                                 <td>
                                                     <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive</button>
                                                 </td>
-                                                <td><a href="#" onClick="window.open('survey-form.php?id=<?php echo $row['id']; ?>', '_blank')">Survey Form</a></td>
+                                                <td><a href="survey-form.php?id=<?php echo $row['id']; ?>">Survey Form</a></td>
                                             </tr>
                                     <?php
                                         }
