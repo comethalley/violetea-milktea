@@ -145,8 +145,9 @@ if ($_SESSION['username']) {
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Product Name</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Ingredient</th>
+                                        <th scope="col">Product Formulation</th>
+                                        <th scope="col">Ingredient Sourcing</th>
+                                        <th scope="col">Pricing Strategy</th>
                                         <th scope="col">Research ID</th>
                                         <th scope="col"> Edit </th>
                                         <th scope="col"> Archive </th>
@@ -161,11 +162,12 @@ if ($_SESSION['username']) {
                                             <tr>
                                                 <td><?php echo $row['id']; ?></td>
                                                 <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['description']; ?></td>
-                                                <td><?php echo $row['ingredient']; ?></td>
+                                                <td><?php echo $row['product_formulation']; ?></td>
+                                                <td><?php echo $row['ingredient_sourcing']; ?></td>
+                                                <td><?php echo $row['pricing_strategy']; ?></td>
                                                 <td><?php echo $row['researchID']; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
+                                                    <button type="button" class="btn btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
                                                 </td>
                                                 <td>
                                                     <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
@@ -218,13 +220,17 @@ if ($_SESSION['username']) {
                         </div>
 
                         <div class="form-group">
-                            <label> Description </label>
-                            <input type="text" name="description" id="description" class="form-control" placeholder="Enter Introduction">
+                            <label> Product Formulation</label>
+                            <textarea type="text" name="product_formulation" id="product_formulation" class="form-control" placeholder="Enter Introduction" rows="3"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label> Ingredient </label>
-                            <input type="text" name="ingredient" id="ingredient" class="form-control" placeholder="Enter Phone Number">
+                            <label> Ingredient Sourcing </label>
+                            <textarea type="text" name="ingredient_sourcing" id="ingredient_sourcing" class="form-control" placeholder="Enter Phone Number" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Pricing Strategy</label>
+                            <textarea type="text" name="pricing_strategy" id="pricing_strategy" class="form-control" placeholder="Enter Pricing Strategy" rows="3"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -265,13 +271,18 @@ if ($_SESSION['username']) {
                         </div>
 
                         <div class="form-group">
-                            <label> Description </label>
-                            <input type="text" name="archive_description" id="archive_description" class="form-control" placeholder="Enter Introduction">
+                            <label>Product Formulation</label>
+                            <textarea type="text" name="archive_product_formulation" id="archive_product_formulation" class="form-control" placeholder="Enter Introduction" rows="3"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label> Ingredient </label>
-                            <input type="text" name="archive_ingredient" id="archive_ingredient" class="form-control" placeholder="Enter Phone Number">
+                            <label> Ingredient Sourcing </label>
+                            <textarea type="text" name="archive_ingredient_sourcing" id="archive_ingredient_sourcing" class="form-control" placeholder="Enter Ingredient Sourcing" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Pricing Strategy </label>
+                            <textarea type="text" name="archive_pricing_strategy" id="archive_pricing_strategy" class="form-control" placeholder="Enter Pricing Strategy" rows="3"></textarea>
                         </div>
 
                         <div class="form-group">

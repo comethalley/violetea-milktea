@@ -137,8 +137,9 @@ session_start();
                                         <tr>
                                             <th scope="col"> ID</th>
                                             <th scope="col">Product Name</th>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Ingredient</th>
+                                            <th scope="col">Product Formulation</th>
+                                            <th scope="col">Ingredient Sourcing</th>
+                                            <th scope="col">Pricing Strategy</th>
                                             <th scope="col">Research ID</th>
                                             <th scope="col"> Archive </th>
                                         </tr>
@@ -151,8 +152,9 @@ session_start();
                                                 <tr>
                                                     <td><?php echo $row['id']; ?></td>
                                                     <td><?php echo $row['name']; ?></td>
-                                                    <td><?php echo $row['description']; ?></td>
-                                                    <td><?php echo $row['ingredient']; ?></td>
+                                                    <td><?php echo $row['product_formulation']; ?></td>
+                                                    <td><?php echo $row['ingredient_sourcing']; ?></td>
+                                                    <td><?php echo $row['pricing_strategy']; ?></td>
                                                     <td><?php echo $row['researchID']; ?></td>
                                                     <td>
                                                         <button type="button" class="btn btn-success retrievebtn3"> RETRIEVE </button>
@@ -194,13 +196,17 @@ session_start();
                                         </div>
 
                                         <div class="form-group">
-                                            <label> Description </label>
-                                            <input type="text" name="ingredient_description" id="ingredient_description" class="form-control" placeholder="Enter Introduction">
+                                            <label>Product Formulation</label>
+                                            <input type="text" name="ingredient_product_formulation" id="ingredient_product_formulation" class="form-control" placeholder="Enter Introduction">
                                         </div>
 
                                         <div class="form-group">
-                                            <label> Ingredient </label>
-                                            <input type="text" name="ingredient_ingredient" id="ingredient_ingredient" class="form-control" placeholder="Enter Phone Number">
+                                            <label> Ingredient Sourcing</label>
+                                            <input type="text" name="ingredient_ingredient_sourcing" id="ingredient_ingredient_sourcing" class="form-control" placeholder="Enter Phone Number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Pricing Strategy</label>
+                                            <input type="text" name="ingredient_pricing_strategy" id="ingredient_pricing_strategy" class="form-control" placeholder="Enter Phone Number">
                                         </div>
 
                                         <div class="form-group">

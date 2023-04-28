@@ -26,8 +26,10 @@ $(document).ready(function () {
       search: "_INPUT_",
       searchPlaceholder: "Search Your Data",
     },
+    "order": [[ 0, "desc" ]]
   });
 });
+
 
 $(document).ready(function () {
   $(".editbtn").on("click", function () {
@@ -46,9 +48,10 @@ $(document).ready(function () {
 
     $("#edit_id").val(data[0]);
     $("#name").val(data[1]);
-    $("#description").val(data[2]);
-    $("#ingredient").val(data[3]);
-    $("#researchID").val(data[4]);
+    $("#product_formulation").val(data[2]);
+    $("#ingredient_sourcing").val(data[3]);
+    $("#pricing_strategy").val(data[4]);
+    $("#researchID").val(data[5]);
   });
 });
 
@@ -94,9 +97,10 @@ $(document).ready(function () {
 
     $("#archive_id").val(data[0]);
     $("#archive_name").val(data[1]);
-    $("#archive_description").val(data[2]);
-    $("#archive_ingredient").val(data[3]);
-    $("#archive_researchID").val(data[4]);
+    $("#archive_product_formulation").val(data[2]);
+    $("#archive_ingredient_sourcing").val(data[3]);
+    $("#archive_pricing_strategy").val(data[4]);
+    $("#archive_researchID").val(data[5]);
   });
 });
 $(document).ready(function () {

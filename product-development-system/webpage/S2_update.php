@@ -14,12 +14,13 @@ if ($_POST) {
     $name    = trim($_POST['name']);
     // $price   = (float) $_POST['price'];
     // $qty     = (int) $_POST['qty'];
-    $description   = trim($_POST['description']);
-    $ingredient = trim($_POST['ingredient']);
+    $product_formulation   = trim($_POST['product_formulation']);
+    $ingredient_sourcing = trim($_POST['ingredient_sourcing']);
+    $pricing_strategy = trim($_POST['pricing_strategy']);
 
     try {
         $sql = 'UPDATE tbl_ingredient 
-                    SET name = :name, ingredient = :ingredient, description = :description
+                    SET name = :name, ingredient_sourcing = :ingredient_sourcing, product_formulation = :product_formulation, pricing_strategy = :pricing_strategy
                 WHERE id = :id';
 
         $stmt = $conn->prepare($sql);
@@ -27,8 +28,9 @@ if ($_POST) {
         $stmt->bindParam(":name", $name);
         // $stmt->bindParam(":price", $price);
         // $stmt->bindParam(":qty", $qty);
-        $stmt->bindParam(":description", $description);
-        $stmt->bindParam(":ingredient", $ingredient);
+        $stmt->bindParam(":product_formulation", $product_formulation);
+        $stmt->bindParam(":ingredient_sourcing", $ingredient_sourcing);
+        $stmt->bindParam(":pricing_strategy", $pricing_strategy);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         if ($stmt->rowCount()) {
