@@ -26,13 +26,12 @@ $(document).ready(function () {
       search: "_INPUT_",
       searchPlaceholder: "Search Your Data",
     },
-    "order": [[ 0, "desc" ]]
+    order: [[0, "desc"]],
   });
 });
 
-
 $(document).ready(function () {
-  $(".editbtn").on("click", function () {
+  $(document).on("click", ".editbtn", function () {
     $("#editmodal").modal("show");
 
     $tr = $(this).closest("tr");
@@ -81,7 +80,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  $(".archivebtn").on("click", function () {
+  $(document).on("click", ".archivebtn", function () {
     $("#archivemodal").modal("show");
 
     $tr = $(this).closest("tr");
@@ -132,7 +131,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  $("body").on("click", ".nextbtn", function (event) {
+  $(document).on("click", ".nextbtn", function () {
     var userid = $(this).data("id");
     $.ajax({
       url: "product-concept-upload.php",
