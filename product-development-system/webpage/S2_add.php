@@ -15,21 +15,23 @@ if ($_POST) {
     $name    = trim($_POST['name']);
     // $price   = (float) $_POST['price'];
     // $qty     = (int) $_POST['qty'];
-    $description   = trim($_POST['description']);
-    $ingredient = trim($_POST['ingredient']);
+    $product_formulation   = trim($_POST['product_formulation']);
+    $ingredient_sourcing = trim($_POST['ingredient_sourcing']);
+    $pricing_strategy = trim($_POST['pricing_strategy']);
     $research_ID = trim($_POST['researchID']);
 
     try {
-        $sql = 'INSERT INTO tbl_ingredient( id, name, description, ingredient, researchID, archive) 
-                VALUES("",:name, :description, :ingredient, :researchID, "false")';
+        $sql = 'INSERT INTO tbl_ingredient( id, name, product_formulation, ingredient_sourcing, pricing_strategy, researchID, archive) 
+                VALUES("",:name, :product_formulation, :ingredient_sourcing, :pricing_strategy, :researchID, "false")';
 
         $stmt = $conn->prepare($sql);
         // $stmt->bindParam(":barcode", $barcode);
         $stmt->bindParam(":name", $name);
         // $stmt->bindParam(":price", $price);
         // $stmt->bindParam(":qty", $qty);
-        $stmt->bindParam(":description", $description);
-        $stmt->bindParam(":ingredient", $ingredient);
+        $stmt->bindParam(":product_formulation", $product_formulation);
+        $stmt->bindParam(":ingredient_sourcing", $ingredient_sourcing);
+        $stmt->bindParam(":pricing_strategy", $pricing_strategy);
         $stmt->bindParam(":researchID", $research_ID);
         $stmt->execute();
         if ($stmt->rowCount()) {

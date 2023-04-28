@@ -16,15 +16,18 @@ while( $row = mysqli_fetch_array($result) ){
       <input type="text" class="form-control" id="researchID" name="researchID" value="<?php echo $userid?>" required readonly>
     </div>
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="image" class="col-form-label">Description</label>
-      <input type="text" class="form-control" name="description" id="description" placeholder="Description">
+   
+  <div class="form-group">
+  <label for="image" class="col-form-label">Product Formulation</label>
+      <textarea type="text" class="form-control" name="product_formulation" rows="5" id="product_formulation" placeholder="Enter Product Formulation" ></textarea>
     </div>
+  <div class="form-group">
+    <label for="note" class="col-form-label">Ingredients Sourcing</label>
+    <textarea name="ingredient_sourcing" id="ingredient_sourcing" rows="5" class="form-control" placeholder="Enter Ingredient Sourcing" ></textarea>
   </div>
   <div class="form-group">
-    <label for="note" class="col-form-label">Ingredients</label>
-    <textarea name="ingredient" id="ingredient" rows="5" class="form-control" placeholder="Ingredients"></textarea>
+    <label for="note" class="col-form-label">Pricing_strategy</label>
+    <textarea name="pricing_strategy" id="pricing_strategy" rows="5" class="form-control" placeholder="Enter Pricing Strategy" ></textarea>
   </div>
   <button type="submit" class="btn btn-success"><i class="fa fa-check-circle"></i> Save</button>
 </form>

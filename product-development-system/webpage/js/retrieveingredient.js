@@ -67,9 +67,10 @@ $(document).ready(function () {
 
         $('#ingredient_id').val(data[0]);
         $('#ingredient_name').val(data[1]);
-        $('#ingredient_description').val(data[2]);
-        $('#ingredient_ingredient').val(data[3]);
-        $('#ingredient_researchID').val(data[4]);
+        $('#ingredient_product_formulation').val(data[2]);
+        $('#ingredient_ingredient_sourcing').val(data[3]);
+        $('#ingredient_pricing_strategy').val(data[4]);
+        $('#ingredient_researchID').val(data[5]);
     });
 });
 
