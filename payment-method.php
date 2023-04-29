@@ -7,11 +7,15 @@ if(strlen($_SESSION['login'])==0)
 header('location:login.php');
 }
 else{
-	if (isset($_POST['submit'])) {
 
-		mysqli_query($con,"update orders set 	paymentMethod='".$_POST['paymethod']."' where userId='".$_SESSION['id']."' and paymentMethod is null ");
+	if (isset($_POST['submit'])) {
+		
+			mysqli_query($con,"update orders set 	paymentMethod='".$_POST['paymethod']."' where userId='".$_SESSION['id']."' and paymentMethod is null ");
 		unset($_SESSION['cart']);
+
 		header('location:order-history.php');
+			
+		
 
 	}
 ?>
@@ -67,7 +71,7 @@ else{
 	<div class="container">
 		<div class="breadcrumb-inner">
 			<ul class="list-inline list-unstyled">
-				<li><a href="home.html">Home</a></li>
+				<li><a href="index.php">Home</a></li>
 				<li class='active'>Payment Method</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
@@ -100,9 +104,8 @@ else{
 	    <div class="panel-body">
 	    <form name="payment" method="post">
 	    <input type="radio" name="paymethod" value="COD" checked="checked"> COD
-	     <input type="radio" name="paymethod" value="Internet Banking"> Internet Banking
-	     <input type="radio" name="paymethod" value="Debit / Credit card"> Debit / Credit card <br /><br />
-	     <input type="submit" value="submit" name="submit" class="btn btn-primary">
+	    <br /><br />
+	     <input type="submit" value="submit" name="submit"  class="btn btn-primary">
 	    	
 
 	    </form>		
@@ -112,7 +115,22 @@ else{
 	</div><!-- row -->
 </div>
 <!-- checkout-step-01  -->
-					  
+					  <!-- onclick yes no js  onclick="myFunction()"-->
+
+					  <script>
+function myFunction() {
+
+  let text = "Press a button!\nEither OK or Cancel.";
+
+  if (confirm(text) == true) {
+   //do something
+  } else {
+     //do something
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
 					  	
 					</div><!-- /.checkout-steps -->
 				</div>

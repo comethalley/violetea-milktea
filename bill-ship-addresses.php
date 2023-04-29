@@ -124,7 +124,7 @@ echo "<script>alert('Shipping Address has been updated');</script>";
 		<div class="panel-heading">
     	<h4 class="unicase-checkout-title">
 	        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne">
-	          <span>1</span>Billing Address
+	          <span>1</span> Address
 	        </a>
 	     </h4>
     </div>
@@ -145,22 +145,22 @@ while($row=mysqli_fetch_array($query))
 
 					<form class="register-form" role="form" method="post">
 <div class="form-group">
-					    <label class="info-title" for="Billing Address">Billing Address<span>*</span></label>
+					    <label class="info-title" for="Billing Address">House Number/ Street<span>*</span></label>
 					    <textarea class="form-control unicase-form-control text-input"  name="billingaddress" required="required"><?php echo $row['billingAddress'];?></textarea>
 					  </div>
 
 
 
 						<div class="form-group">
-					    <label class="info-title" for="Billing State ">Billing State  <span>*</span></label>
+					    <label class="info-title" for="Billing State ">Barangay  <span>*</span></label>
 			 <input type="text" class="form-control unicase-form-control text-input" id="bilingstate" name="bilingstate" value="<?php echo $row['billingState'];?>" required>
 					  </div>
 					  <div class="form-group">
-					    <label class="info-title" for="Billing City">Billing City <span>*</span></label>
+					    <label class="info-title" for="Billing City">City <span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" id="billingcity" name="billingcity" required="required" value="<?php echo $row['billingCity'];?>" >
 					  </div>
  <div class="form-group">
-					    <label class="info-title" for="Billing Pincode">Billing Pincode <span>*</span></label>
+					    <label class="info-title" for="Billing Pincode">Zip Code<span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" id="billingpincode" name="billingpincode" required="required" value="<?php echo $row['billingPincode'];?>" >
 					  </div>
 
@@ -179,7 +179,7 @@ while($row=mysqli_fetch_array($query))
 </div>
 <!-- checkout-step-01  -->
 					    <!-- checkout-step-02  -->
-					  	<div class="panel panel-default checkout-step-02">
+					  <!-- 	<div class="panel panel-default checkout-step-02">
 						    <div class="panel-heading">
 						      <h4 class="unicase-checkout-title">
 						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
@@ -227,7 +227,7 @@ while($row=mysqli_fetch_array($query))
 
 						      </div>
 						    </div>
-					  	</div>
+					  	</div> -->
 					  	<!-- checkout-step-02  -->
 					  	
 					</div><!-- /.checkout-steps -->
@@ -235,7 +235,7 @@ while($row=mysqli_fetch_array($query))
 			<?php include('includes/myaccount-sidebar.php');?>
 			</div><!-- /.row -->
 		</div><!-- /.checkout-box -->
-	<?php include('includes/brands-slider.php');?>
+	<!--<?php include('includes/brands-slider.php');?>-->
 
 </div>
 </div>

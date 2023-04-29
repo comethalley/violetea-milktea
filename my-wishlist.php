@@ -104,7 +104,7 @@ header('location:my-wishlist.php');
 	<div class="container">
 		<div class="breadcrumb-inner">
 			<ul class="list-inline list-unstyled">
-				<li><a href="home.html">Home</a></li>
+				<li><a href="index.php">Home</a></li>
 				<li class='active'>Wishlish</li>
 			</ul>
 		</div><!-- /.breadcrumb-inner -->
