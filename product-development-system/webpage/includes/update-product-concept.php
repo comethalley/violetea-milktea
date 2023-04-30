@@ -60,9 +60,9 @@ include_once 'db-connection.php';
                     $packagingNameNew = uniqid('', true).".".$packagingActualExt;
                     $file3NameNew = uniqid('', true).".".$file3ActualExt;
 
-                    $fileDestination = '../uploads/'.$fileNameNew;
-                    $packagingDestination = '../uploads/'.$packagingNameNew;
-                    $file3Destination = '../uploads/'.$file3NameNew;
+                    $fileDestination = '../../../admin/productimages/uploads/'.$fileNameNew;
+                    $packagingDestination = '../../../admin/productimages/uploads/'.$packagingNameNew;
+                    $file3Destination = '../../../admin/productimages/uploads/'.$file3NameNew;
 
                     $sql = "UPDATE tbl_concept SET image = '$fileNameNew', image2 = '$packagingNameNew', image3 = '$file3NameNew' WHERE id = '$id'";
                     mysqli_query($conn, $sql);
@@ -87,7 +87,7 @@ include_once 'db-connection.php';
                   echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
                   <script>
                     Swal.fire({
-                      icon: 'success',
+                      icon: 'error',
                       title: 'There was an error uploading your file',
                       
                   }).then(function() {
@@ -99,7 +99,7 @@ include_once 'db-connection.php';
               echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@10'></script>
                   <script>
                     Swal.fire({
-                      icon: 'success',
+                      icon: 'warning',
                       title: 'You cannot upload files of this type!',
                        
                       
