@@ -14,6 +14,10 @@ while ($row = mysqli_fetch_array($result)) {
                 <input type="text" value="<?php echo $userid ?>" name="ingredientID" class="form-control" readonly>
             </div>
             <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" value="<?php echo $row["name"] ?>" name="name" class="form-control" readonly>
+            </div>
+            <div class="form-group">
                 <div class="custom-file">
                     <input type="file" name="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose Image 1</label>
