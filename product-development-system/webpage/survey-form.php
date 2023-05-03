@@ -58,8 +58,11 @@
                                     }
                                     ?>
   <input type="submit" name="submit" value="Submit">
+  
    </div>
+   
 </form>
+<button onclick="window.print()">Print</button>
 </body>
 </html>
 

@@ -20,7 +20,7 @@ while ($row = mysqli_fetch_array($result)) {
             <div class="form-group">
                 <div class="custom-file">
 
-                    <input type="file" name="packaging" class="custom-file-input" id="customFile">
+                    <input type="file" name="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose Image 1</label>
 
                 </div>
