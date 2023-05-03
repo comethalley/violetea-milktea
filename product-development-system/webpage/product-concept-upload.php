@@ -9,34 +9,26 @@ while ($row = mysqli_fetch_array($result)) {
 ?> <div class="form-group">
         <form action="../webpage/includes/upload.php" method="POST" enctype="multipart/form-data">
             <h5>Product Concept Image</h5>
-
             <div class="form-group">
                 <label>ID</label>
-
-                <input type="text" value="<?php echo $userid ?>" name="ingredientID" class="form-control" readonly><br>
+                <input type="text" value="<?php echo $userid ?>" name="ingredientID" class="form-control" readonly>
             </div>
-
-
             <div class="form-group">
                 <div class="custom-file">
-
                     <input type="file" name="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose Image 1</label>
-
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-file">
                     <input type="file" name="packaging" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose Image 2</label>
-
                 </div>
             </div>
             <div class="form-group">
                 <div class="custom-file">
                     <input type="file" name="file3" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose Image 3</label>
-
                 </div>
             </div>
             <div class="modal-footer">

@@ -83,6 +83,7 @@ $(document).ready(function () {
       search: "_INPUT_",
       searchPlaceholder: "Search Your Data",
     },
+    order: [[0, "desc"]],
   });
 });
 //research customazation pagination and search
@@ -99,6 +100,7 @@ $(document).ready(function () {
       search: "_INPUT_",
       searchPlaceholder: "Search Your Data",
     },
+    order: [[0, "desc"]],
   });
 });
 

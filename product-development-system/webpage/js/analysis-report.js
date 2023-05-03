@@ -14,6 +14,8 @@ $(document).ready(function () {
   });
 });
 
+
+ 
 $(document).ready(function () {
   $("#datatableid").DataTable({
     pagingType: "full_numbers",
@@ -26,6 +28,24 @@ $(document).ready(function () {
       search: "_INPUT_",
       searchPlaceholder: "Search Your Data",
     },
+    order: [[0, "desc"]],
+  });
+});
+
+//surveys
+$(document).ready(function () {
+  $("#surveyid").DataTable({
+    pagingType: "full_numbers",
+    lengthMenu: [
+      [10, 25, 50, -1],
+      [10, 25, 50, "All"],
+    ],
+    responsive: true,
+    language: {
+      search: "_INPUT_",
+      searchPlaceholder: "Search Your Data",
+    },
+    order: [[0, "desc"]],
   });
 });
 

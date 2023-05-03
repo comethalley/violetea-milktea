@@ -9,7 +9,7 @@ while( $row = mysqli_fetch_array($result) ){
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="name" class="col-form-label">Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+      <input type="text" class="form-control" id="name" name="name" value="<?php echo $row['title']; ?>" placeholder="Name" required readonly>
     </div>
     <div class="form-group col-md-6">
       <label for="name" class="col-form-label">Research ID:</label>
