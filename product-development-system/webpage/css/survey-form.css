@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   outline: none;
 }
 
@@ -12,7 +12,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-
 }
 
 form {
@@ -24,7 +23,6 @@ form {
 }
 
 label {
-
   margin-bottom: 5px;
   font-weight: bold;
   justify-content: start;
@@ -42,12 +40,8 @@ input[type="radio"] {
   margin-bottom: 10px;
   border: 1px solid white;
   border-bottom: 1px solid #ccc;
-  ;
-
-
   font-size: 16px;
   color: #555;
-
 }
 
 input[type="submit"] {
@@ -74,14 +68,12 @@ fieldset {
   display: block;
 
   font-size: 20px;
-
 }
 
 fieldset p {
   margin-bottom: 10px;
   font-weight: bold;
   color: #555;
-
 }
 
 fieldset label {
@@ -95,7 +87,6 @@ fieldset input[type="radio"] {
   width: auto;
   margin-right: 5px;
   vertical-align: middle;
-
 }
 
 fieldset input[type="radio"]:hover {
@@ -103,7 +94,6 @@ fieldset input[type="radio"]:hover {
 }
 
 @media print {
-
   /*hide every other element*/
   body *,
   input[type="submit"] {
@@ -118,7 +108,6 @@ fieldset input[type="radio"]:hover {
 
   /*Customize the form for printing**/
   form {
-
     position: absolute;
     left: 0px;
     top: 0px;
@@ -153,7 +142,6 @@ fieldset input[type="radio"]:hover {
 .cont-information-1 {
   display: flex;
 
-
   align-items: center;
 }
 
@@ -175,12 +163,10 @@ fieldset input[type="radio"]:hover {
   background-color: rgb(151, 101, 192);
   color: white;
   margin: 30px 0 30px 0;
-  ;
 }
 
 .ins-desc p {
   padding: 10px 0 10px 0;
-
 }
 
 .product-details .product-box {
@@ -189,14 +175,12 @@ fieldset input[type="radio"]:hover {
 }
 
 .container-question {
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .container-question .question-card {
-
   width: 50%;
 }
 
@@ -209,14 +193,12 @@ fieldset input[type="radio"]:hover {
   font-weight: 600;
   color: white;
   gap: 40px;
-
 }
 
 .header-question .question {
   width: 100%;
   text-align: center;
   background-color: rgb(151, 101, 192);
-
 }
 
 .header-question .rating {
@@ -227,7 +209,6 @@ fieldset input[type="radio"]:hover {
   background-color: rgb(151, 101, 192);
 }
 
-
 .print-btn {
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -237,5 +218,4 @@ fieldset input[type="radio"]:hover {
   border: none;
   margin: 20px;
   padding: 6px 15px 6px 15px;
-
 }
