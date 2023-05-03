@@ -1,74 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: rgb(151, 101, 192);
-  }
-  
-  form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  input[type="text"],
-  input[type="submit"],
-  input[type="radio"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #555;
-    background-color: #f9f9f9;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+}
+
+form {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 20px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
+}
+
+label {
+
+  margin-bottom: 5px;
+  font-weight: bold;
+  justify-content: start;
+  color: #555;
+
+  width: auto;
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="radio"] {
+  display: block;
+  width: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid white;
+  border-bottom: 1px solid #ccc;
+  ;
+
+
+  font-size: 16px;
+  color: #555;
+
+}
+
+input[type="submit"] {
+  background-color: rgb(151, 101, 192);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button {
+  background-color: whitesmoke;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #b373c1;
+}
+
+fieldset {
+  margin-bottom: 20px;
+  border: none;
+  display: block;
+
+  font-size: 20px;
+
+}
+
+fieldset p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #555;
+
+}
+
+fieldset label {
+  margin-right: 10px;
+
+  color: #555;
+}
+
+fieldset input[type="radio"] {
+  display: inline-block;
+  width: auto;
+  margin-right: 5px;
+  vertical-align: middle;
+
+}
+
+fieldset input[type="radio"]:hover {
+  background-color: #f5f5f5;
+}
+
+@media print {
+
+  /*hide every other element*/
+  body *,
   input[type="submit"] {
-    background-color: rgb(151, 101, 192);
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    display: none;
   }
-  
-  input[type="submit"]:hover {
-    background-color: #b373c1;
+
+  /* Then display the print container*/
+  form,
+  form * {
+    display: block;
   }
-  
-  fieldset {
-    margin-bottom: 20px;
+
+  /*Customize the form for printing**/
+  form {
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: auto;
+    border-radius: none;
+    box-shadow: none;
   }
-  
-  fieldset p {
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  fieldset label {
-    margin-right: 10px;
-    color: #555;
-  }
-  
-  fieldset input[type="radio"] {
-    display: inline-block;
-    width: auto;
-    margin-right: 5px;
-    vertical-align: middle;
-  }
-  
-  fieldset input[type="radio"]:hover {
-    background-color: #f5f5f5;
-  }
-  
+}
+
+.header {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(151, 101, 192);
+}
+
+.header .cont-perso {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(151, 101, 192);
+  width: 100%;
+  color: white;
+}
+
+.parent-cont {
+  padding: 30px 0 30px 0;
+}
+
+.cont-information-1 {
+  display: flex;
+
+
+  align-items: center;
+}
+
+.cont-information-1 .gender {
+  display: flex;
+  gap: 20px;
+}
+
+.cont-information-2 {
+  display: flex;
+
+  align-items: center;
+}
+
+.instruction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(151, 101, 192);
+  color: white;
+  margin: 30px 0 30px 0;
+  ;
+}
+
+.ins-desc p {
+  padding: 10px 0 10px 0;
+
+}
+
+.product-details .product-box {
+  display: flex;
+  align-items: center;
+}
+
+.container-question {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-question .question-card {
+
+  width: 50%;
+}
+
+.header-question {
+  padding: 30px 0 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+  gap: 40px;
+
+}
+
+.header-question .question {
+  width: 100%;
+  text-align: center;
+  background-color: rgb(151, 101, 192);
+
+}
+
+.header-question .rating {
+  width: 100%;
+
+  text-align: center;
+
+  background-color: rgb(151, 101, 192);
+}
+
+
+.print-btn {
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  font-weight: 400;
+  font-size: 17px;
+  border: none;
+  border: none;
+  margin: 20px;
+  padding: 6px 15px 6px 15px;
+
+}

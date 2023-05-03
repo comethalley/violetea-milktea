@@ -1,3 +1,15 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="./css/suggestion.css">
+</head>
+<body>
 <?php
 // Connect to the database
 include_once '../webpage/includes/db-connection.php';
@@ -28,8 +40,22 @@ mysqli_close($conn);
 // Set success message
 $message = "Submitted successfully.";
 
-// Redirect back to index page with success message
-header("Location: success-submit.php?message=" . urlencode($message));
-exit;
+// Alert the user with SweetAlert2
+echo "<script>
+Swal.fire({
+  title: 'Success!',
+  text: '$message',
+  icon: 'success',
+  confirmButtonText: 'OK'
+}).then((result) => {
+  if (result.isConfirmed) {
+    // Redirect back to index page with success message
+    window.location.href = 'product-concept.php?message=' + encodeURIComponent('$message');
+  }
+});
+</script>";
 
 ?>
+
+</body>
+</html>

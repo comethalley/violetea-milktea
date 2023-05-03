@@ -21,9 +21,9 @@ if($resultCheck > 0){
   <center><h1>Product name: <?php echo $row1['name'];
 }
 else{
-  echo "No data";
+  // echo "No data";
 }?> </h1></center>
-<div class="chartbox">
+<div class="">
   <?php
   $i = 1;
   while ($i <= $numQuestions) {
@@ -31,9 +31,9 @@ else{
     $responseData = mysqli_query($conn, "SELECT conceptID, question_id, response, count(*) FROM tbl_surveys WHERE question_id = $questionID and conceptID = $conceptID AND response BETWEEN 1 AND 5 GROUP BY conceptID, question_id, response");
     $chartDivID = "response" . $i;
   ?>
-
+<div >
     <div id="<?php echo $chartDivID; ?>" style="width:100%;"></div>
-
+</div>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart<?php echo $i; ?>);
