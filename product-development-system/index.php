@@ -37,7 +37,6 @@ $con = mysqli_connect('localhost', 'root', '', 'onlineshopping') or die('unable 
       <!--<div class="pass">Forgot Password?</div>-->
       <input type="submit" value="Login" name="Login">
       <div class="signup_link">
-        Don't have an account? <a href="webpage/sign-up.php">Sign up</a>
       </div>
     </form>
   </div>

@@ -61,6 +61,12 @@ $num1 = mysqli_num_rows($rt);
 									Manage users
 								</a>
 							</li>
+							<li>
+								<a href="employee.php">
+									<i class="menu-icon icon-group"></i>
+									Add employee
+								</a>
+							</li>
 						</ul>
 
 
