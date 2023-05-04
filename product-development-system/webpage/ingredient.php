@@ -29,7 +29,9 @@ if ($_SESSION['username']) {
 <body>
     <!--Navbar-->
     <div class="navbar navbar-expand-lg navbar-light    ">
-        <a class="navbar-brand" href="#">Product Development </a>
+        <a class="navbar-brand" href="#">
+            <h5>Product Development </h5>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,7 +59,7 @@ if ($_SESSION['username']) {
     <main>
         <div class="container ">
             <div class="cont-left">
-            <nav>
+                <nav>
                     <ul class="">
                         <li class="">
                             <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
@@ -76,7 +78,7 @@ if ($_SESSION['username']) {
                         </li>
                         <div class="line"></div>
                         <li class="">
-                        <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
@@ -120,10 +122,10 @@ if ($_SESSION['username']) {
                 </nav>
             </div>
             <div class="cont-right">
-                <div class="card">
-                    <div class="card-body">
-                        <label>Product Ingredients</label>
-                    </div>
+                <div class="card card-header">
+
+                    <h6>Product Ingredients</h6>
+
                 </div>
                 <div class="container">
 
@@ -166,12 +168,12 @@ if ($_SESSION['username']) {
                                                 <td><?php echo $row['pricing_strategy']; ?></td>
                                                 <td><?php echo $row['researchID']; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
+                                                    <button type="button" class="btn  btn-function btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
+                                                    <button type="button" class="btn btn-function btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                                 </td>
-                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn archive">Next Step </button>
+                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-dark nextbtn archive"><i class="fa-sharp fa-solid fa-arrow-right" style="color: #ffffff;"></i> Next Step </button>
                                                 </td>
                                             </tr>
                                     <?php
@@ -225,13 +227,12 @@ if ($_SESSION['username']) {
                         <div class="form-group">
                             <label> Ingredient Sourcing </label>
                             <!--<textarea type="text" name="ingredient_sourcing" id="ingredient_sourcing" class="form-control" placeholder="Enter Phone Number" rows="3"></textarea>-->
-                            <select name="ingredient_sourcing" id="ingredient_sourcing" class="span8 tip" onChange="getSubcat(this.value);"  required>
-                                <option value="">Select Ingredient</option> 
-                                    <?php $query=mysqli_query($conn,"select * from ingredients");
-                                        while($row=mysqli_fetch_array($query))
-                                    {?>
+                            <select name="ingredient_sourcing" id="ingredient_sourcing" class="span8 tip" onChange="getSubcat(this.value);" required>
+                                <option value="">Select Ingredient</option>
+                                <?php $query = mysqli_query($conn, "select * from ingredients");
+                                while ($row = mysqli_fetch_array($query)) { ?>
 
-                                <option value="<?php echo $row['name'];?>"><?php echo $row['name'];?></option>
+                                    <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -286,7 +287,7 @@ if ($_SESSION['username']) {
                             <label> Ingredient Sourcing </label>
                             <textarea type="text" name="archive_ingredient_sourcing" id="archive_ingredient_sourcing" class="form-control" placeholder="Enter Ingredient Sourcing" rows="3"></textarea>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Pricing Strategy </label>
                             <textarea type="text" name="archive_pricing_strategy" id="archive_pricing_strategy" class="form-control" placeholder="Enter Pricing Strategy" rows="3"></textarea>
@@ -321,6 +322,11 @@ if ($_SESSION['username']) {
                 </div>
             </div>
         </div>
+    </div>
+    <div class="footer-cont">
+        <footer>
+            © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

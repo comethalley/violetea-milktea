@@ -18,60 +18,59 @@ $con = mysqli_connect('localhost', 'root', '', 'onlineshopping') or die('unable 
 </head>
 
 <body>
-<section class="vh-100" style="background-color: #ebaffc;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
-        <div class="card" style="border-radius: 1rem;  ">
-          <div class="row g-0">
-            <div class="left-img col-md-6 col-lg-5 d-none d-md-block">
-              <img src="./webpage/img/milktea.jpg"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
-            </div>
-            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-              <div class="card-body p-4 p-lg-5 text-black">
+  <section class="vh-100" style="background-color: #ebaffc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;  ">
+            <div class="row g-0">
+              <div class="left-img col-md-6 col-lg-5 d-none d-md-block">
+                <img src="./webpage/img/milktea.jpg" alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
 
-              <form id="login-form" method="POST">
+                  <form id="login-form" method="POST">
 
-                  <div class="logo-img flex align-items-center  ">
-                    
-                    <img src="./webpage/img/violet.png"/> 
-                  </div>
-  <div class="employee-sign">
-                  <h5 class="  mb-3 pb-3" >Employee Sign in</h5>
-  </div>
+                    <div class="logo-img flex align-items-center  ">
 
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example17">Employee username</label>
-                    <input type="text"  name="username" required class="form-control form-control-lg" />
-                   
-                  </div>
+                      <img src="./webpage/img/violet.png" />
+                    </div>
+                    <div class="employee-sign">
+                      <h5 class="  mb-3 pb-3">Employee Sign in</h5>
+                    </div>
 
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="form2Example27">Password</label>
-                    <input type="password"name="password"   class="form-control form-control-lg" />
-                   
-                  </div>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example17">Employee username</label>
+                      <input type="text" name="username" required class="form-control form-control-lg" />
 
-                  <div class="button pt-1 mb-4">
-                  <button class="btn btn-lg btn-block" type="submit"  name="Login">
-                    Sign in
-                  </button>
-                  </div>
+                    </div>
 
-                  
-                  <a href="#!" class="small text-muted">Terms of use.</a>
-                  <a href="#!" class="small text-muted">Privacy policy</a>
-                </form>
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example27">Password</label>
+                      <input type="password" name="password" class="form-control form-control-lg" />
 
+                    </div>
+
+                    <div class="button pt-1 mb-4">
+                      <button class="btn btn-lg btn-block" type="submit" name="Login">
+                        Sign in
+                      </button>
+                    </div>
+
+
+                    <a href="#!" class="small text-muted">Terms of use.</a>
+                    <a href="#!" class="small text-muted">Privacy policy</a>
+                  </form>
+
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
@@ -109,12 +108,17 @@ $con = mysqli_connect('localhost', 'root', '', 'onlineshopping') or die('unable 
     if (is_array($row)) {
       $_SESSION["username"] = $row['username'];
       $_SESSION["password"] = $row['password'];
-      echo '<script type = "text/javascript">';
+      echo '<script type="text/javascript">';
       echo 'Swal.fire({
           icon: "success",
-          title: "Identity Confirmed",
-          
-          confirmButtonText: "OK"
+          title: "Identity Confirmed!",  
+          text: "You have successfully logged in.", 
+          confirmButtonText: "OK",
+          customClass: {
+              confirmButton: "my-confirm-button-class"
+          },
+          focusCancel: true
+      
       }).then(function() {
           window.location.href = "webpage/suggestion.php";
       });';
@@ -125,9 +129,13 @@ $con = mysqli_connect('localhost', 'root', '', 'onlineshopping') or die('unable 
       echo '<script type = "text/javascript">';
       echo 'Swal.fire({
         icon: "error",
-        title: "Wrong Username or Password",
+        title: "Login Failed", 
+    text: "Invalid username or password. Please try again.",
         
-        confirmButtonText: "Try Again"
+        confirmButtonText: "Try Again",
+        customClass: {
+          confirmButton: "my-confirm-button-class"
+      },
     }).then(function() {
          
     });';

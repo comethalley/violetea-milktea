@@ -9,6 +9,10 @@ $(function() {
             Swal.fire({
                 icon: 'success',
                 title: 'Access Revoked',
+                text: 'You have been logged out successfully.',
+               
+                confirmButtonText: "OK",
+          
                 didClose: function() {
                     // Refresh the page
                     window.location.href = '../index.php';

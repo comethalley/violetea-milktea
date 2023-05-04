@@ -6,22 +6,30 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
+ 
+ 
+ 
 body {
   background-color: #f1f1f1;
 }
-
+ 
 .navbar {
   display: flex;
-  background-color: white;
+  background-color: #2d2b32;
   justify-content: space-between;
   border-bottom: 1px solid #c2c2c2;
-
+ 
   padding: 10px 25px 10px 25px;
+}
+.navbar h5{
+  color: white;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
 
 main {
-
+height: 100%;
+ 
   padding: 18px 0 18px 0;
   display: flex;
   justify-content: center;
@@ -132,17 +140,18 @@ table {
     width: 100%;
   }
 }
-.editbtn{
+.fa-pen-to-square,.fa-box-archive,.fa-arrow-right{
+  margin-right: 4px;
+}
+.editbtn,.archive ,.nextbtn {
   display:flex;
   justify-content: center;
   align-items: center;
 }
-.archive{
-  display:flex;
-  justify-content: center;
-  align-items: center;
+ 
+.btn-function{
+  width:120px;
 }
-
 .chartbox{
  display: flex;
  justify-content: center;
@@ -150,4 +159,41 @@ table {
   
   width: 100%;
 }
+.card-header{
+  background-color: #2d2b32;
+}
+.card-header .btn-click{
+  color:#e69cfb;
+  font-weight: 600;
+  text-decoration: none;
+}
+.card-header h6{
+  padding: 7px;
+  color:#e69cfb;
+  font-weight: 600;
+}
+.footer-cont{
+  position:relative ;
+  bottom: 0;
+  border: 1px solid;
+
+}
+footer{
  
+  
+   
+  
+  padding:6px 0 6px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d2b32;
+   color: white;
+   font-size: 12px;
+}
+.my-confirm-button-class{
+  background-color: #c92bf6 !important; 
+  outline: none !important;
+  border: none !important;
+  
+}

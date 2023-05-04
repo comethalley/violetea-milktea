@@ -52,3 +52,10 @@ input[type=text], input[type=password] {
   font-weight: 700;
   font-size: 25px;
 }
+ 
+.my-confirm-button-class{
+  background-color: #c92bf6 !important; 
+  outline: none !important;
+  border: none !important;
+  
+}
