@@ -14,32 +14,64 @@ $con = mysqli_connect('localhost', 'root', '', 'onlineshopping') or die('unable 
   <title>PDIS | Login</title>
   <link rel="stylesheet" type="text/css" href="webpage/css/login.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div class="center">
-    <br>
-    <center><a href=""><img src="webpage/img/violet.png" id="logo" height="100" width="100"></a></center>
-    <h1>Login</h1>
+<section class="vh-100" style="background-color: #ebaffc;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;  ">
+          <div class="row g-0">
+            <div class="left-img col-md-6 col-lg-5 d-none d-md-block">
+              <img src="./webpage/img/milktea.jpg"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
 
+              <form id="login-form" method="POST">
 
-    <form id="login-form" method="POST">
-      <div class="txt_field">
-        <input type="text" name="username" required>
-        <span></span>
-        <label>Username</label>
-      </div>
-      <div class="txt_field">
-        <input type="password" name="password" required>
-        <span></span>
-        <label>Password</label>
-      </div>
-      <!--<div class="pass">Forgot Password?</div>-->
-      <input type="submit" value="Login" name="Login">
-      <div class="signup_link">
-      </div>
-    </form>
+                  <div class="logo-img flex align-items-center  ">
+                    
+                    <img src="./webpage/img/violet.png"/> 
+                  </div>
+  <div class="employee-sign">
+                  <h5 class="  mb-3 pb-3" >Employee Sign in</h5>
   </div>
+
+                  <div class="form-outline mb-4">
+                  <label class="form-label" for="form2Example17">Employee username</label>
+                    <input type="text"  name="username" required class="form-control form-control-lg" />
+                   
+                  </div>
+
+                  <div class="form-outline mb-4">
+                  <label class="form-label" for="form2Example27">Password</label>
+                    <input type="password"name="password"   class="form-control form-control-lg" />
+                   
+                  </div>
+
+                  <div class="button pt-1 mb-4">
+                  <button class="btn btn-lg btn-block" type="submit"  name="Login">
+                    Sign in
+                  </button>
+                  </div>
+
+                  
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
