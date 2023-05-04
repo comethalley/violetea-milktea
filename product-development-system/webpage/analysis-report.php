@@ -213,15 +213,19 @@ if ($_SESSION['username']) {
                                             include_once '../webpage/includes/db-connection.php';
 
                                             $query = "SELECT * FROM tbl_ingredient 
-                INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
-                INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.archive='false'";
+                                            INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
+                                            INNER JOIN tbl_surveys ON tbl_concept.id = tbl_surveys.conceptID WHERE tbl_surveys.archive='false'";
                                             $query_run = mysqli_query($conn, $query);
                                             ?>
                                             <table id="surveyid" class="table table-striped table-responsive">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col"> ID</th>
-                                                        <th scope="col">Username</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Civil Status</th>
+                                                        <th scope="col">Gender</th>
+                                                        <th scope="col">Address</th>
+                                                        <th scope="col">Age</th>
                                                         <th scope="col">Timestamp </th>
                                                         <th scope="col">Product Name</th>
                                                         <th scope="col">Concept ID</th>
@@ -236,6 +240,10 @@ if ($_SESSION['username']) {
                                                             <tr>
                                                                 <td><?php echo $row['id']; ?></td>
                                                                 <td><?php echo $row['username']; ?></td>
+                                                                <td><?php echo $row['civilStatus']; ?></td>
+                                                                <td><?php echo $row['gender']; ?></td>
+                                                                <td><?php echo $row['address']; ?></td>
+                                                                <td><?php echo $row['age']; ?></td>
                                                                 <td><?php echo $row['timestamp']; ?></td>
                                                                 <td><?php echo $row['name']; ?></td>
                                                                 <td><?php echo $row['conceptID']; ?></td>

@@ -16,17 +16,22 @@ include_once '../webpage/includes/db-connection.php';
 
 // Get the survey response and name from the form submission
 $name = mysqli_real_escape_string($conn, $_POST["name"]);
+$civilStatus = mysqli_real_escape_string($conn, $_POST["civilStatus"]);
+$gender = mysqli_real_escape_string($conn, $_POST["gender"]);
+$address = mysqli_real_escape_string($conn, $_POST["address"]);
+$age = mysqli_real_escape_string($conn, $_POST["age"]);
 $conceptID = mysqli_real_escape_string($conn, $_POST["conceptID"]);
 
 // Loop through all the question IDs and insert the responses into the database
 foreach ($_POST as $key => $value) {
-  if ($key != "name" && $key != "conceptID" && $key != "submit") {
+  if ($key != "name" && $key != "civilStatus" && $key != "gender" && $key != "address" && $key != "age" && $key != "conceptID" && $key != "submit") {
     if (is_numeric($key) && $key > 0) { // Check if $key is numeric and greater than 0
       $question_id = mysqli_real_escape_string($conn, $key);
       $response = mysqli_real_escape_string($conn, $value);
 
       // Insert the response and name into the database
-      $sql = "INSERT INTO tbl_surveys (id, username, question_id, response, archive, conceptID) VALUES ('', '$name', '$question_id', '$response', 'false', '$conceptID')";
+      $sql = "INSERT INTO tbl_surveys (id, username, civilStatus, gender, address, age, question_id, response, archive, conceptID) 
+      VALUES ('', '$name', '$civilStatus', '$gender', '$address', '$age','$question_id', '$response', 'false', '$conceptID')";
       if (!mysqli_query($conn, $sql)) {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }

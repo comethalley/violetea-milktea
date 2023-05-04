@@ -34,19 +34,20 @@ $row = mysqli_fetch_array($query);
     <input type="text" name="name"> 
 
     <label>Civil Status</label>
-    <input type="text" name="name"> 
+    <input type="text" name="civilStatus">
+
     <div class="gender">
-    <label>Gender</label> 
-    <p>Male</p><input type="radio" id="css" name="fav_language" value="CSS">
-    <p>Female</p><input type="radio" id="css" name="fav_language" value="CSS">
+      <label>Gender</label>
+          <p>Male</p><input type="radio" id="css" name="gender" value="male">
+          <p>Female</p><input type="radio" id="css" name="gender" value="female">
     </div>
     
     </div>
     <div class="cont-information-2">
     <label>Address:</label>
-    <input type="text" name="name">
+    <input type="text" name="address">
     <label>Age:</label>
-    <input type="text" name="name">
+    <input type="text" name="age">
     </div>
     </div>
   <div class="instruction">
