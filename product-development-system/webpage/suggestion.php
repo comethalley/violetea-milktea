@@ -29,8 +29,9 @@ if ($_SESSION['username']) {
 
 <body>
     <!--Navbar-->
+    
     <div class="navbar navbar-expand-lg navbar-light    ">
-        <a class="navbar-brand" href="#">Product Development </a>
+        <a class="navbar-brand" href="#"><h5>Product Development </h5></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -125,16 +126,17 @@ if ($_SESSION['username']) {
 
                 <div class="accordion " id="accordionExample">
                     <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Suggestions
-                                </button>
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Research
-                                </button>
-                            </h2>
-                        </div>
+                    <div class="card-header" id="headingOne">
+  <h2 class="mb-0">
+    <button class="btn-click btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      Suggestions
+    </button>
+    <button class="btn-click btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      Research
+    </button>
+  </h2>
+</div>
+
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
@@ -242,12 +244,12 @@ if ($_SESSION['username']) {
                                                                 <td> <?php echo $row['technical']; ?> </td>
                                                                 <td> <?php echo $row['conclusion']; ?> </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>
+                                                                    <button type="button" class="btn btn-function btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>
                                                                 </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
+                                                                    <button type="button" class="btn btn-function btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                                                 </td>
-                                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success nextbtn  ">Next Step </button>
+                                                                <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-dark nextbtn  "><i class="fa-sharp fa-solid fa-arrow-right" style="color: #ffffff;"></i>Next Step </button>
 
                                                                 </td>
                                                             </tr>
@@ -493,6 +495,11 @@ if ($_SESSION['username']) {
             </div>
         </div>
     </main>
+    <div class="footer-cont">
+    <footer>
+    © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
+</footer>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
@@ -501,9 +508,7 @@ if ($_SESSION['username']) {
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/logoutajax.js"></script>
     <script src="../webpage//js/suggestion.js"></script>
-
-
-
+ 
 
 
 </body>
