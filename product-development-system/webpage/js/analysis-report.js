@@ -14,8 +14,6 @@ $(document).ready(function () {
   });
 });
 
-
- 
 $(document).ready(function () {
   $("#datatableid").DataTable({
     pagingType: "full_numbers",
@@ -66,8 +64,12 @@ $(document).ready(function () {
 
     $("#user_id").val(data[0]);
     $("#username").val(data[1]);
-    $("#timestamp").val(data[2]);
-    $("#conceptID").val(data[3]);
+    $("#civilStatus").val(data[2]);
+    $("#gender").val(data[3]);
+    $("#address").val(data[4]);
+    $("#age").val(data[5]);
+    $("#timestamp").val(data[6]);
+    $("#conceptID").val(data[7]);
   });
 });
 
