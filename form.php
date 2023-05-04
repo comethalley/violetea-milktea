@@ -78,7 +78,16 @@ header('location:login.php');
       <p>Please use the form below to share your feedback or comments with us.</p>
       <form action="includes/form-function.php" method="POST">
     <input type="text" name="user" placeholder="Username" value="<?php echo $_SESSION['username']; ?>"required readonly><br>
-    <input type="text" name="subject" placeholder="Subject" required><br>
+    <label>Subject</label>
+    <select name="subject" class="span8 tip" onChange="getSubcat(this.value);"  required>
+<option value="">Select Category</option> 
+<?php $query=mysqli_query($con,"select * from category");
+while($row=mysqli_fetch_array($query))
+{?>
+
+<option value="<?php echo $row['categoryName'];?>"><?php echo $row['categoryName'];?></option>
+<?php } ?>
+</select><br>
     <textarea name="body" placeholder="Body" required></textarea><br>
     <button type="submit" name="submit">Submit</button>
     <a href="index.php">Back</a>
