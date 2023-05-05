@@ -45,6 +45,7 @@ height: 100%;
   flex-direction: row;
   gap: 20px;
   margin: 0;
+ 
   padding: 0;
 
 }
@@ -140,7 +141,7 @@ table {
     width: 100%;
   }
 }
-.fa-pen-to-square,.fa-box-archive,.fa-arrow-right{
+.fa-pen-to-square,.fa-box-archive,.fa-arrow-right,.fa-chart-pie,.fa-plus,.fa-trash{
   margin-right: 4px;
 }
 .editbtn,.archive ,.nextbtn {
@@ -151,6 +152,7 @@ table {
  
 .btn-function{
   width:120px;
+  font-size: 14px;
 }
 .chartbox{
  display: flex;
@@ -191,9 +193,15 @@ footer{
    color: white;
    font-size: 12px;
 }
-.my-confirm-button-class{
+.my-confirm-butt-class{
   background-color: #c92bf6 !important; 
   outline: none !important;
   border: none !important;
   
+}
+.container .card-body-cont{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  width: 100%;
 }

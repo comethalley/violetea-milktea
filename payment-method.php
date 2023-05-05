@@ -105,7 +105,7 @@ else{
 	    <form name="payment" method="post">
 	    <input type="radio" name="paymethod" value="COD" checked="checked"> COD
 	    <br /><br />
-	     <input type="submit" value="submit" name="submit"  class="btn btn-primary">
+	     <input type="submit" value="submit" name="submit"  class="btn btn-primary" onclick="if(!confirm('Are you sure?')) return false;">
 	    	
 
 	    </form>		
@@ -117,7 +117,7 @@ else{
 <!-- checkout-step-01  -->
 					  <!-- onclick yes no js  onclick="myFunction()"-->
 
-					  <script>
+		 <!--			  <script>
 function myFunction() {
 
   let text = "Press a button!\nEither OK or Cancel.";
@@ -129,7 +129,7 @@ function myFunction() {
   }
   document.getElementById("demo").innerHTML = text;
 }
-</script>
+</script>-->
 
 					  	
 					</div><!-- /.checkout-steps -->

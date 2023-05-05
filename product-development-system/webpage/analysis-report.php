@@ -29,7 +29,7 @@ if ($_SESSION['username']) {
 <body style="background-color: whitesmoke;">
     <!--Navbar-->
     <div class="navbar navbar-expand-lg navbar-light    ">
-        <a class="navbar-brand" href="#">Product Development </a>
+        <a class="navbar-brand" href="#"><h5>Product Development</h5> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -125,10 +125,10 @@ if ($_SESSION['username']) {
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-click btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Report
                                 </button>
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="btn btn-click btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     Surveys
                                 </button>
                             </h2>
@@ -174,13 +174,13 @@ if ($_SESSION['username']) {
                                                                 <td><img src="../../admin/productimages/uploads/<?php echo $row['image2']; ?>" alt="image.jpg" width="100px" height="100px"></td>
                                                                 <td><img src="../../admin/productimages/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
                                                                 <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
-                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn"> See Report </button>
+                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-success editbtn"><i class="fa-solid fa-chart-pie" style="color: #ffffff;"></i>Report </button>
                                                                 </td>
                                                                 <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
-                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-primary addbtn"> Add to Inventory</button>
+                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-primary addbtn"> <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Inventory</button>
                                                                 </td>
                                                                 <td>
-                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-danger rejectbtn"> Reject</button>
+                                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-danger rejectbtn"><i class="fa-solid fa-trash" style="color: #ffffff;"></i> Reject</button>
                                                                 </td>
                                                             </tr>
                                                     <?php
@@ -252,7 +252,7 @@ $counter = 1;
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['conceptID']; ?></td>
                     <td>
-                        <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
+                        <button type="button" class="btn btn-function btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                     </td>
                     <td><!--<a href="analysis-report-chart.php?conceptID=<?php echo $row['conceptID']; ?>">See Report</a>-->
                         <!--<button type="button" data-id='<?php echo $row['conceptID']; ?>' class="btn btn-success editbtn"> See Report </button>-->
@@ -416,7 +416,10 @@ $counter = 1;
         </div>
     </div>
 
-
+    <footer>
+    © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
+</footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

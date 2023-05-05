@@ -275,12 +275,15 @@ $_SESSION['pid']=$pdtid;
 		</table><!-- /table -->
 		
 	</div>
-</div><!-- /.shopping-cart-table -->			<div class="col-md-4 col-sm-12 estimate-ship-tax">
+</div><!-- /.shopping-cart-table -->	
+		
+			<div class="col-md-2"></div>
+			<div class="col-md-6 col-sm-12 estimate-ship-tax">
 	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>
-					<span class="estimate-title">Shipping Address</span>
+					<span class="estimate-title" style="font-size:32px">Shipping Address</span>
 				</th>
 			</tr>
 		</thead>
@@ -295,22 +298,22 @@ while($row=mysqli_fetch_array($query))
 ?>
 
 <div class="form-group">
-					    <label class="info-title" for="Billing Address">Billing Address<span>*</span></label>
+					    <label class="info-title" for="Billing Address" style="font-size:20px">House Number/ Street<span>*</span></label>
 					    <textarea class="form-control unicase-form-control text-input"  name="billingaddress" required="required"><?php echo $row['billingAddress'];?></textarea>
 					  </div>
 
 
 
 						<div class="form-group">
-					    <label class="info-title" for="Billing State ">Billing State  <span>*</span></label>
+					    <label class="info-title" for="Billing State " style="font-size:20px">Barangay  <span>*</span></label>
 			 <input type="text" class="form-control unicase-form-control text-input" id="bilingstate" name="bilingstate" value="<?php echo $row['billingState'];?>" required>
 					  </div>
 					  <div class="form-group">
-					    <label class="info-title" for="Billing City">Billing City <span>*</span></label>
+					    <label class="info-title" for="Billing City" style="font-size:20px">City <span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" id="billingcity" name="billingcity" required="required" value="<?php echo $row['billingCity'];?>" >
 					  </div>
  <div class="form-group">
-					    <label class="info-title" for="Billing Pincode">Billing Pincode <span>*</span></label>
+					    <label class="info-title" for="Billing Pincode" style="font-size:20px">Zip Code <span>*</span></label>
 					    <input type="text" class="form-control unicase-form-control text-input" id="billingpincode" name="billingpincode" required="required" value="<?php echo $row['billingPincode'];?>" >
 					  </div>
 
@@ -323,11 +326,12 @@ while($row=mysqli_fetch_array($query))
 					
 					</td>
 				</tr>
-		</tbody><!-- /tbody -->
-	</table><!-- /table -->
+		</tbody>
+	</table>
 </div>
+		
 
-<div class="col-md-4 col-sm-12 estimate-ship-tax">
+<!-- <div class="col-md-4 col-sm-12 estimate-ship-tax">
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -346,7 +350,7 @@ while($row=mysqli_fetch_array($query))
 {
 ?>
 
-<div class="form-group">
+				<div class="form-group">
 					    <label class="info-title" for="Shipping Address">Shipping Address<span>*</span></label>
 					    <textarea class="form-control unicase-form-control text-input"  name="shippingaddress" required="required"><?php echo $row['shippingAddress'];?></textarea>
 					  </div>
@@ -375,9 +379,11 @@ while($row=mysqli_fetch_array($query))
 					
 					</td>
 				</tr>
-		</tbody><!-- /tbody -->
-	</table><!-- /table -->
-</div>
+		</tbody>
+	</table>
+</div> -->
+
+
 <div class="col-md-4 col-sm-12 cart-shopping-total">
 	<table class="table table-bordered">
 		<thead>

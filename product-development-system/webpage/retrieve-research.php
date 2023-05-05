@@ -30,7 +30,7 @@ session_start();
     }
     ?>
     <div class="navbar navbar-expand-lg navbar-light    ">
-        <a class="navbar-brand" href="#">Product Development </a>
+    <a class="navbar-brand" href="#"><h5>Product Development </h5></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,7 +59,7 @@ session_start();
     <main>
         <div class="container ">
             <div class="cont-left">
-                <nav>
+            <nav>
                     <ul class="">
                         <li class="">
                             <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
@@ -70,11 +70,15 @@ session_start();
                         </li>
                         <div class="line"></div>
                         <li class="">
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="survey.php">Survey</a>
+                        </li>
+                        <div class="line"></div>
+                        <li class="">
                             <i class="fa-brands fa-product-hunt" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Concept Products</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
-                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Analysis Report</a>
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
@@ -105,19 +109,24 @@ session_start();
                                     <div class="box-card card-body">
                                         <a href="rejected-product.php">Rejected Products</a>
                                     </div>
+                                    <div class="box-card card-body">
+                                        <a href="retrieve-question.php">Rejected Question</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="line"></div>
                     </ul>
                 </nav>
             </div>
             <div class="cont-right">
-                <div class="card">
-                    <div class="card-body">
-                        <label>Research Archived</label>
-                    </div>
+            <div class="card card-header">
+
+<h6>Research Archived</h6>
+
+</div>
                     <div class="container">
 
                         <div class="card">
@@ -156,7 +165,7 @@ session_start();
                                                     <td> <?php echo $row['technical']; ?> </td>
                                                     <td> <?php echo $row['conclusion']; ?> </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-danger retrievebtn2"> RETRIEVE</button>
+                                                        <button type="button" class="btn btn-function btn-danger retrievebtn2"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> RETRIEVE</button>
                                                     </td>
                                                 </tr>
                                         <?php
@@ -232,7 +241,11 @@ session_start();
 
 
     </main>
-
+    <div class="footer-cont">
+        <footer>
+            © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
+        </footer>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

@@ -173,7 +173,7 @@ if ($_SESSION['username']) {
                                                                 <td> <?php echo $row['subject']; ?> </td>
                                                                 <td> <?php echo $row['body']; ?> </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-danger userbtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive</button>
+                                                                    <button type="button" class="btn btn-function btn-danger userbtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive</button>
                                                                 </td>
                                                             </tr>
                                                     <?php

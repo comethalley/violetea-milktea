@@ -12,6 +12,9 @@ $(function() {
                 text: 'You have been logged out successfully.',
                
                 confirmButtonText: "OK",
+                customClass: {
+                  confirmButton: "my-confirm-button-class"
+              },
           
                 didClose: function() {
                     // Refresh the page

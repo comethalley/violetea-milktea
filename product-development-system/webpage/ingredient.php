@@ -171,7 +171,7 @@ if ($_SESSION['username']) {
                                                     <button type="button" class="btn  btn-function btn-success editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-function btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
+                                                    <button type="button" class="btn btn-function btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> Archive </button>
                                                 </td>
                                                 <td><button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-dark nextbtn archive"><i class="fa-sharp fa-solid fa-arrow-right" style="color: #ffffff;"></i> Next Step </button>
                                                 </td>

@@ -28,7 +28,9 @@ if ($_SESSION['username']) {
 <body>
     <!--Navbar-->
     <div class="navbar navbar-expand-lg navbar-light    ">
-        <a class="navbar-brand" href="#">Product Development </a>
+    <a class="navbar-brand" href="#">
+            <h5>Product Development </h5>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -120,11 +122,11 @@ if ($_SESSION['username']) {
                 </nav>
             </div>
             <div class="cont-right">
-                <div class="card">
-                    <div class="card-body">
-                        <label>Product Concept</label>
-                    </div>
-                </div>
+            <div class="card card-header">
+
+<h6>Product Concept</h6>
+
+</div>
                 <div class="container">
 
                     <div class="card">
@@ -163,10 +165,10 @@ if ($_SESSION['username']) {
                                                 <td><img src="../../admin/productimages/uploads/<?php echo $row['image3']; ?>" alt="image.jpg" width="100px" height="100px"></td>
                                                 <td><?php echo $row['ingredientID']; ?></td>
                                                 <td>
-                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>
+                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit </button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive</button>
+                                                    <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive</button>
                                                 </td>
                                                 <td><a href="survey-form.php?id=<?php echo $row['id']; ?>">Survey Form</a></td>
                                             </tr>
@@ -222,7 +224,11 @@ if ($_SESSION['username']) {
             </div>
         </div>
     </div>
-
+    <div class="footer-cont">
+        <footer>
+            © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
+        </footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

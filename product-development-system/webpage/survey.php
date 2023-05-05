@@ -29,7 +29,7 @@ if ($_SESSION['username']) {
 <body>
     <!--Navbar-->
     <div class="navbar navbar-expand-lg navbar-light    ">
-        <a class="navbar-brand" href="#">Product Development </a>
+        <a class="navbar-brand" href="#"> <h5>Product Development </h5></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,6 +44,7 @@ if ($_SESSION['username']) {
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Hi, <?php echo $username; ?>
                         </button>
+                        
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="#" class="dropdown-item logout-btn" type="button">Logout</a>
                         </div>
@@ -120,25 +121,26 @@ if ($_SESSION['username']) {
                 </nav>
             </div>
             <div class="cont-right">
-                <div class="card">
-                    <div class="card-body">
-                        <label>Survey Questionnaire</label>
-                    </div>
-                </div>
+            <div class="card card-header">
+
+<h6>Survey Questionnaire</h6>
+
+</div>
                 <div class="container">
 
 
-                    <div class="card">
+                    <div class="card card-body-cont">
 
-                        <div class="card">
-                            <div class="card-body">
-                                <button type="button" class="btn btn-primary addbtn">
+                    <div class="card-body">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <button type="button" class="btn btn-primary addbtn">
                                     <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add Question
                                 </button>
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="card-body">
+                        <div class="card-body ">
 
                             <?php
                             include_once '../webpage/includes/db-connection.php';
@@ -164,10 +166,10 @@ if ($_SESSION['username']) {
                                                 <td><?php echo $row['id']; ?></td>
                                                 <td><?php echo $row['question']; ?></td>
                                                 <td>
-                                                    <button type="button" class="btn btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
+                                                    <button type="button" class="btn btn-function btn-success editbtn editbtn"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit</button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
+                                                    <button type="button" class="btn btn-function btn-danger archivebtn archive"><i class="fa-solid fa-box-archive" style="color: #ffffff;"></i> Archive </button>
                                                 </td>
                                             </tr>
                                     <?php
@@ -181,6 +183,7 @@ if ($_SESSION['username']) {
                         </div>
                     </div>
                 </div>
+            </div>
 
             </div>
         </div>
@@ -255,6 +258,11 @@ if ($_SESSION['username']) {
             </div>
         </div>
     </div>
+    <div class="footer-cont">
+        <footer>
+            © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
+        </footer>
+    </div>
     <!-- add question -->
     <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -281,8 +289,11 @@ if ($_SESSION['username']) {
                 </form>
 
             </div>
+            
         </div>
+        
     </div>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
