@@ -11,7 +11,7 @@ $responses=mysqli_query($conn,"SELECT conceptID, question_id, response, count(*)
 
 $query = mysqli_query($conn,"SELECT * FROM tbl_ingredient 
                     INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
-                    INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.conceptID='$conceptID'");
+                    INNER JOIN tbl_surveys ON tbl_concept.id = tbl_surveys.conceptID WHERE tbl_surveys.conceptID='$conceptID'");
 
 $resultCheck = mysqli_num_rows($query);
 if($resultCheck > 0){
@@ -21,7 +21,7 @@ if($resultCheck > 0){
   <center><h1>Product name: <?php echo $row1['name'];
 }
 else{
-  // echo "No data";
+  echo "No data";
 }?> </h1></center>
 <div class="">
   <?php
