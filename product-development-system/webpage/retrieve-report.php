@@ -134,48 +134,62 @@ session_start();
                         <div class="card card-body-cont">
                             <div class="card-body ">
 
-                                <?php
-                                include_once '../webpage/includes/db-connection.php';
+                            <?php
+include_once '../webpage/includes/db-connection.php';
 
-                                $query = "SELECT * FROM tbl_ingredient 
-				INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID
-				INNER JOIN tbl_survey ON tbl_concept.id = tbl_survey.conceptID WHERE tbl_survey.archive='true'";
-                                $query_run = mysqli_query($conn, $query);
-                                ?>
-                                <table id="datatableid" class="table table-striped table-responsive">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"> ID</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Timestamp </th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Concept ID</th>
-                                            <th scope="col"> Retrieve </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        if ($query_run) {
-                                            foreach ($query_run as $row) {
-                                        ?>
-                                                <tr>
-                                                    <td><?php echo $row['id']; ?></td>
-                                                    <td><?php echo $row['username']; ?></td>
-                                                    <td><?php echo $row['timestamp']; ?></td>
-                                                    <td><?php echo $row['name']; ?></td>
-                                                    <td><?php echo $row['conceptID']; ?></td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-function btn-success archivebtn"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> RETRIEVE </button>
-                                                    </td>
-                                                </tr>
-                                        <?php
-                                            }
-                                        } else {
-                                            echo "No Record Found";
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
+$query = "SELECT DISTINCT tbl_ingredient.name, tbl_surveys.username, tbl_surveys.civilStatus, tbl_surveys.gender, 
+tbl_surveys.address, tbl_surveys.age,tbl_surveys.timestamp, tbl_surveys.conceptID FROM tbl_ingredient 
+INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID INNER JOIN tbl_surveys 
+ON tbl_concept.id = tbl_surveys.conceptID WHERE tbl_surveys.archive = 'true'";
+$query_run = mysqli_query($conn, $query);
+
+// add a counter variable to keep track of the row number
+$counter = 1;
+?>
+<table id="surveyid" class="table table-striped table-responsive">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Civil Status</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Address</th>
+            <th scope="col">Age</th>
+            <th scope="col">Date</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Concept ID</th>
+            <th scope="col">Retrieve</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        if ($query_run) {
+            foreach ($query_run as $row) {
+        ?>
+                <tr>
+                    <td><?php echo $counter; ?></td> <!-- add the counter variable here -->
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['civilStatus']; ?></td>
+                    <td><?php echo $row['gender']; ?></td>
+                    <td><?php echo $row['address']; ?></td>
+                    <td><?php echo $row['age']; ?></td>
+                    <td><?php echo $row['timestamp']; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['conceptID']; ?></td>
+                    <td>
+                    <button type="button" class="btn btn-function btn-success archivebtn"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> RETRIEVE </button>
+                    </td>
+                </tr>
+        <?php
+                // increment the counter variable for the next row
+                $counter++;
+            }
+        } else {
+            echo "No Record Found";
+        }
+        ?>
+    </tbody>
+</table>
                             </div>
                         </div>
                     </div>
@@ -193,25 +207,45 @@ session_start();
 
                                 <form id="retsurvey" method="POST">
 
-                                    <div class="modal-body">
+                                <div class="modal-body">
 
-                                        <input type="hidden" name="user_id" id="user_id">
-                                        <h4> Do you want to retrieve this data?</h4>
-                                        <div class="form-group">
-                                            <label> Username </label>
-                                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" disabled>
-                                        </div>
+<input type="hidden" name="user_id" id="user_id">
+<h4> Do you want to archive this data?</h4>
+<div class="form-group">
+                            <label> Name </label>
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" readonly>
+                        </div>
 
-                                        <div class="form-group">
-                                            <label> Timestamp </label>
-                                            <input type="text" name="timestamp" id="timestamp" class="form-control" placeholder="Subject" disabled>
-                                        </div>
+                        <div class="form-group">
+                            <label> Civil Status </label>
+                            <input type="text" name="civilStatus" id="civilStatus" class="form-control" placeholder="Civil Status" readonly>
+                        </div>
 
-                                        <div class="form-group">
-                                            <label> ConceptID </label>
-                                            <input type="text" name="conceptID" id="conceptID" class="form-control" placeholder="Body" disabled>
-                                        </div>
-                                    </div>
+                        <div class="form-group">
+                            <label> Gender </label>
+                            <input type="text" name="gender" id="gender" class="form-control" placeholder="Gender" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Address </label>
+                            <input type="text" name="address" id="address" class="form-control" placeholder="Address" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Age </label>
+                            <input type="text" name="age" id="age" class="form-control" placeholder="Age" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Timestamp </label>
+                            <input type="text" name="timestamp" id="timestamp" class="form-control" placeholder="Timestamp" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Product Name </label>
+                            <input type="text" name="conceptID" id="conceptID" class="form-control" placeholder="Product Name" readonly>
+                        </div>
+</div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
                                         <button type="submit" name="updatedata" class="btn btn-primary">YES</button>

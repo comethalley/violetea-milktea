@@ -198,12 +198,18 @@ if ($_SESSION['username']) {
                             </div>
                         </div>
                     </div>
+
                     <div class="card">
 
 
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                 <div class="container">
-
+                                <div class="card">
+                                    <div class="card-body">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentaddmodal">
+                                            <i class="fa-solid fa-plus" style="color: #ffffff;"></i> Add Research
+                                        </button>
+                                    </div>
 
 
                                 <div class="card">
@@ -343,37 +349,37 @@ $counter = 1;
                         <h4> Do you want to archive this data?</h4>
                         <div class="form-group">
                             <label> Name </label>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" readonly>
                         </div>
 
                         <div class="form-group">
                             <label> Civil Status </label>
-                            <input type="text" name="civilStatus" id="civilStatus" class="form-control" placeholder="Username">
+                            <input type="text" name="civilStatus" id="civilStatus" class="form-control" placeholder="Civil Status" readonly>
                         </div>
 
                         <div class="form-group">
                             <label> Gender </label>
-                            <input type="text" name="gender" id="gender" class="form-control" placeholder="Username">
+                            <input type="text" name="gender" id="gender" class="form-control" placeholder="Gender" readonly>
                         </div>
 
                         <div class="form-group">
                             <label> Address </label>
-                            <input type="text" name="address" id="address" class="form-control" placeholder="Username">
+                            <input type="text" name="address" id="address" class="form-control" placeholder="Address" readonly>
                         </div>
 
                         <div class="form-group">
                             <label> Age </label>
-                            <input type="text" name="age" id="age" class="form-control" placeholder="Username">
+                            <input type="text" name="age" id="age" class="form-control" placeholder="Age" readonly>
                         </div>
 
                         <div class="form-group">
                             <label> Timestamp </label>
-                            <input type="text" name="timestamp" id="timestamp" class="form-control" placeholder="Subject">
+                            <input type="text" name="timestamp" id="timestamp" class="form-control" placeholder="Timestamp" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label> ConceptID </label>
-                            <input type="text" name="conceptID" id="conceptID" class="form-control" placeholder="Body">
+                            <label> Product Name </label>
+                            <input type="text" name="conceptID" id="conceptID" class="form-control" placeholder="Product Name" readonly>
                         </div>
                     </div>
                     <div class="modal-footer">
