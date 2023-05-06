@@ -102,7 +102,7 @@ $con = mysqli_connect('localhost', 'root', '', 'onlineshopping') or die('unable 
   if (isset($_POST['Login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $select = mysqli_query($con, " SELECT * FROM tbl_employee WHERE username = '$username' AND password = '$password' ");
+    $select = mysqli_query($con, " SELECT * FROM tbl_employee WHERE username = '$username' AND password = '$password' AND isArchived ='false'");
     $row = mysqli_fetch_array($select);
 
     if (is_array($row)) {

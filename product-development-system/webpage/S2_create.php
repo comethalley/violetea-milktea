@@ -23,16 +23,7 @@ while( $row = mysqli_fetch_array($result) ){
     </div>
   <div class="form-group">
     <label for="note" class="col-form-label">Ingredients Sourcing</label>
-    <!--<textarea name="ingredient_sourcing" id="ingredient_sourcing" rows="5" class="form-control" placeholder="Enter Ingredient Sourcing" ></textarea>-->
-    <select name="ingredient_sourcing" id="ingredient_sourcing" class="span8 tip" onChange="getSubcat(this.value);"  required>
-      <option value="">Select Ingredient</option> 
-          <?php $query=mysqli_query($conn,"select * from ingredients");
-            while($row=mysqli_fetch_array($query))
-          {?>
-
-      <option value="<?php echo $row['name'];?>"><?php echo $row['name'];?></option>
-      <?php } ?>
-    </select>
+    <textarea name="ingredient_sourcing" id="ingredient_sourcing" rows="5" class="form-control" placeholder="Enter Ingredient Sourcing" ></textarea>
   </div>
   <div class="form-group">
     <label for="note" class="col-form-label">Pricing_strategy</label>

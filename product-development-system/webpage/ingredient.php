@@ -226,15 +226,7 @@ if ($_SESSION['username']) {
 
                         <div class="form-group">
                             <label> Ingredient Sourcing </label>
-                            <!--<textarea type="text" name="ingredient_sourcing" id="ingredient_sourcing" class="form-control" placeholder="Enter Phone Number" rows="3"></textarea>-->
-                            <select name="ingredient_sourcing" id="ingredient_sourcing" class="span8 tip" onChange="getSubcat(this.value);" required>
-                                <option value="">Select Ingredient</option>
-                                <?php $query = mysqli_query($conn, "select * from ingredients");
-                                while ($row = mysqli_fetch_array($query)) { ?>
-
-                                    <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
-                                <?php } ?>
-                            </select>
+                            <textarea type="text" name="ingredient_sourcing" id="ingredient_sourcing" class="form-control" placeholder="Enter Phone Number" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Pricing Strategy</label>

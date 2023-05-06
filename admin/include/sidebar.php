@@ -67,6 +67,12 @@ $num1 = mysqli_num_rows($rt);
 									Add employee
 								</a>
 							</li>
+							<li>
+								<a href="employee-list.php">
+									<i class="menu-icon icon-group"></i>
+									Employee list
+								</a>
+							</li>
 						</ul>
 
 
@@ -81,6 +87,7 @@ $num1 = mysqli_num_rows($rt);
                             </ul><!--/.widget-nav-->
 
 						<ul class="widget widget-menu unstyled">
+							<li><a href="recover-employee.php"><i class="menu-icon icon-tasks"></i>Recover Employee Accounts </a></li>
 							<li><a href="user-logs.php"><i class="menu-icon icon-tasks"></i>User Login Log </a></li>
 							
 							<li>

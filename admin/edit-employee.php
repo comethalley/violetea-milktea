@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 include('include/config.php');
@@ -7,35 +6,26 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:index.php');
 }
 else{
-	
+	$pid=intval($_GET['id']);// product id
 if(isset($_POST['submit']))
 {
-	$firstname = mysqli_real_escape_String($con, $_POST["firstname"]);
-    $lastname = mysqli_real_escape_String($con, $_POST["lastname"]);
-    $username = mysqli_real_escape_String($con, $_POST["username"]);
-    $password = mysqli_real_escape_String($con, $_POST["password"]);
-    $confirmPassword = mysqli_real_escape_String($con, $_POST["confirmPassword"]);
+	$firstName=$_POST['firstname'];
+	$lastName=$_POST['lastname'];
+	$userName=$_POST['username'];
 
-    $confirmUser = mysqli_query($con,"SELECT * FROM tbl_employee WHERE username='$username'");
+    $confirmUser = mysqli_query($con,"SELECT * FROM tbl_employee WHERE username='$userName'");
     $resultCheck = mysqli_num_rows($confirmUser);
 
     //verify if the username is already taken
     if($resultCheck >= 1){
 		echo "<script>alert('Username is already taken')</script>";
-        header("Location: employee.php?username_is_already_taken");
     }
-    //verify the password
-    else if ($password != $confirmPassword){
-		echo "<script>alert('Password doesn't match')</script>";
-        header("Location: employee.php?wrongpassword");
-    }
-    
     else{
-        $sql = "INSERT INTO tbl_employee(id, firstname, lastname, username, password) VALUES ('','$firstname','$lastname','$username','$password')";
-        mysqli_query($con, $sql);
-		$_SESSION['msg']="Added Successfully !!";
-        header("Location: employee.php?submit=success");
+        $sql=mysqli_query($con,"update  tbl_employee set firstname ='$firstName',lastname='$lastName',username='$userName' where id='$pid' ");
+        $_SESSION['msg']="Account Updated Successfully !!";
     }
+	
+
 }
 
 
@@ -45,7 +35,7 @@ if(isset($_POST['submit']))
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Admin| Employee</title>
+	<title>Admin| Insert Product</title>
 	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -85,7 +75,7 @@ $("#suggesstion-box").hide();
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Add Employee</h3>
+								<h3>Edit Information</h3>
 							</div>
 							<div class="module-body">
 
@@ -108,46 +98,44 @@ $("#suggesstion-box").hide();
 
 									<br />
 
-			<form class="form-horizontal row-fluid" name="employee" method="post">
+			<form class="form-horizontal row-fluid" name="insertproduct" method="post" enctype="multipart/form-data">
+
+<?php 
+
+$query=mysqli_query($con,"Select * From tbl_employee where id='$pid'");
+$cnt=1;
+while($row=mysqli_fetch_array($query))
+{
+  
+
+
+?>
 
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Firstname</label>
 <div class="controls">
-<input type="text"    name="firstname"  placeholder="Enter Firstname" class="span8 tip" required>
+<input type="text"    name="firstname"  placeholder="Enter Firstname" value="<?php echo htmlentities($row['firstname']);?>" class="span8 tip" >
 </div>
 </div>
 
 <div class="control-group">
 <label class="control-label" for="basicinput">Lastname</label>
 <div class="controls">
-<input type="text"    name="lastname"  placeholder="Enter Lastname" class="span8 tip" required>
+<input type="text"    name="lastname"  placeholder="Enter Lastname" value="<?php echo htmlentities($row['lastname']);?>" class="span8 tip" required>
 </div>
 </div>
 <div class="control-group">
 <label class="control-label" for="basicinput">Username</label>
 <div class="controls">
-<input type="text"    name="username"  placeholder="Enter Username" class="span8 tip" required>
+<input type="text"    name="username"  placeholder="Enter Username" value="<?php echo htmlentities($row['username']);?>"  class="span8 tip" required>
 </div>
 </div>
 
-<div class="control-group">
-<label class="control-label" for="basicinput">Password</label>
-<div class="controls">
-<input type="password"    name="password"  placeholder="Enter Password" class="span8 tip" required>
-</div>
-</div>
-
-<div class="control-group">
-<label class="control-label" for="basicinput">Confirm Password</label>
-<div class="controls">
-<input type="password"    name="confirmPassword"  placeholder="Confirm Password" class="span8 tip" required>
-</div>
-</div>
-
+<?php } ?>
 	<div class="control-group">
 											<div class="controls">
-												<button type="submit" name="submit" class="btn">Submit</button>
+												<button type="submit" name="submit" class="btn">Update</button>
 											</div>
 										</div>
 									</form>
