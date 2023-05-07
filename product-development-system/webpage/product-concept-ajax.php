@@ -48,8 +48,8 @@ while( $row = mysqli_fetch_array($result) ){
 <form id="retcon"  method="POST" enctype="multipart/form-data">
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="submit" class="btn btn-success">Retrieve</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> Yes</button>
                     </div>
 </form>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

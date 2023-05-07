@@ -55,7 +55,7 @@ $(document).ready(function () {
     $.ajax({
       url: "archive-product-concept.php",
       type: "post",
-      data: { archiveid: archiveid },
+      data: { archiveid: archiveid, },
       success: function (response) {
         $(".modal-body").html(response);
         $("#archivemodal").modal("show");

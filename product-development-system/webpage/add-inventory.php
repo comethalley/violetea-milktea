@@ -11,7 +11,7 @@ while ($row = mysqli_fetch_array($result)) {
 
                 <h5>Are you sure you want to add this product to inventory?</h5>
                 <label>Product Name</label><br>
-                <input type="text" value="<?php echo $row['name']; ?>" name="name" readonly><br>
+                <input type="text" class="form-control" value="<?php echo $row['name']; ?>" name="name" readonly><br>
 
                 <label for="file">Image 1</label><br>
                 <img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($result)) {
 
                 <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <<button type="button" name="submit" class="btn btn-primary" onclick="addInventory()">Add</button>
+                        <button type="button" name="submit" class="btn btn-primary" onclick="addInventory()"><i class="fa-solid fa-plus" style="color: #ffffff;"></i>Add</button>
 
                 </div>
         </form>

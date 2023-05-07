@@ -4,16 +4,19 @@
 include_once '../webpage/includes/db-connection.php';
 
 $archiveid = $_POST['archiveid'];
-
+ 
 $sql = "select * from tbl_concept where id=" . $archiveid;
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($result)) {
 ?>
 	<h5>Are you sure you want to archive this data?</h5><br><br>
 	<div class="form-group">
+	<label>Ingredient ID:</label>
+	<input type="text" class="form-control" value="<?php echo $row['ingredientID']; ?>" name="ingredientID" readonly>
 	<td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
 			<td>
-				<p>IngredientID : <?php echo $row['ingredientID']; ?></p>
+
+				 
 				 
 			</td>
 	</div>
@@ -22,7 +25,7 @@ while ($row = mysqli_fetch_array($result)) {
 
 		<div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			<button type="button" name="submit" class="btn btn-danger" onclick="archiveData()">Archive</button>
+			<button type="button" name="submit" class="btn btn-primary" onclick="archiveData()"><i class="fa fa-check-circle"></i> Yes</button>
 
 		</div>
 	</form>

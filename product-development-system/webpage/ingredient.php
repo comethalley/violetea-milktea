@@ -216,21 +216,21 @@ if ($_SESSION['username']) {
 
                         <div class="form-group">
                             <label>Product Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Product Name">
+                            <textarea type="text" name="name" id="name" class="form-control"   rows="3" readonly></textarea>
                         </div>
 
                         <div class="form-group">
                             <label> Product Formulation</label>
-                            <textarea type="text" name="product_formulation" id="product_formulation" class="form-control" placeholder="Enter Introduction" rows="3"></textarea>
+                            <textarea type="text" name="product_formulation" id="product_formulation" class="form-control" rows="5"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label> Ingredient Sourcing </label>
-                            <textarea type="text" name="ingredient_sourcing" id="ingredient_sourcing" class="form-control" placeholder="Enter Phone Number" rows="3"></textarea>
+                            <textarea type="text" name="ingredient_sourcing" id="ingredient_sourcing" class="form-control"  rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Pricing Strategy</label>
-                            <textarea type="text" name="pricing_strategy" id="pricing_strategy" class="form-control" placeholder="Enter Pricing Strategy" rows="3"></textarea>
+                            <textarea type="text" name="pricing_strategy" id="pricing_strategy" class="form-control"   rows="5"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -267,27 +267,27 @@ if ($_SESSION['username']) {
                         <h4> Do you want to archive this data?</h4>
                         <div class="form-group">
                             <label>Product Name</label>
-                            <input type="text" name="archive_name" id="archive_name" class="form-control" placeholder="Enter Product Name">
+                            <textarea type="text" name="archive_name" id="archive_name" class="form-control" rows="5" readonly></textarea>
                         </div>
 
                         <div class="form-group">
                             <label>Product Formulation</label>
-                            <textarea type="text" name="archive_product_formulation" id="archive_product_formulation" class="form-control" placeholder="Enter Introduction" rows="3"></textarea>
+                            <textarea type="text" name="archive_product_formulation" id="archive_product_formulation" class="form-control"  rows="5" readonly></textarea>
                         </div>
 
                         <div class="form-group">
                             <label> Ingredient Sourcing </label>
-                            <textarea type="text" name="archive_ingredient_sourcing" id="archive_ingredient_sourcing" class="form-control" placeholder="Enter Ingredient Sourcing" rows="3"></textarea>
+                            <textarea type="text" name="archive_ingredient_sourcing" id="archive_ingredient_sourcing" class="form-control"  rows="5" readonly></textarea>
                         </div>
 
                         <div class="form-group">
                             <label>Pricing Strategy </label>
-                            <textarea type="text" name="archive_pricing_strategy" id="archive_pricing_strategy" class="form-control" placeholder="Enter Pricing Strategy" rows="3"></textarea>
+                            <textarea type="text" name="archive_pricing_strategy" id="archive_pricing_strategy" class="form-control"  rows="5" readonly></textarea>
                         </div>
 
                         <div class="form-group">
                             <label> Research ID </label>
-                            <input type="text" name="archive_researchID" id="archive_researchID" class="form-control" placeholder="Enter Phone Number" readonly>
+                            <input type="text" name="archive_researchID" id="archive_researchID" class="form-control"  readonly>
                         </div>
                     </div>
                     <div class="modal-footer">

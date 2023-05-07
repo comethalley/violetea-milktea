@@ -228,7 +228,7 @@ $counter = 1;
 
                         <div class="form-group">
                             <label> Address </label>
-                            <input type="text" name="address" id="address" class="form-control" placeholder="Address" readonly>
+                            <textarea type="text" name="address" id="address" class="form-control" placeholder="Address" rows="5" readonly></textarea>
                         </div>
 
                         <div class="form-group">
@@ -247,8 +247,8 @@ $counter = 1;
                         </div>
 </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                                        <button type="submit" name="updatedata" class="btn btn-primary">YES</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="submit" name="updatedata" class="btn btn-primary"><i class="fa fa-check-circle"></i> Yes</button>
                                     </div>
                                 </form>
 
