@@ -83,9 +83,36 @@ $st='Delivered';
      while($num=mysqli_fetch_array($rt))
      {
      $currrentSt=$num['orderStatus'];
+     $pid = $num['productId'];
+
+     $sql2 = "SELECT ingredients.quantity, productingredients.quantity AS required_stock
+     FROM ingredients
+     JOIN productingredients ON productingredients.ingredient_id = ingredients.id
+     WHERE productingredients.product_id =  $pid
+     AND productingredients.quantity > ingredients.quantity";
+     $result2 = mysqli_query($con, $sql2);
+
+     if (mysqli_num_rows($result2) > 0) {
+      // The product ingredient stock is not enough
+      $row = mysqli_fetch_assoc($result2);
+      $required_stock = $row['required_stock'];
+      $ingredient_stock = $row['quantity'];
+      echo "<span style='color: red'>The stock of the ingredient is not enough. Required stock: $required_stock. Current stock: $ingredient_stock</span>";
+  } 
+
    }
      if($st==$currrentSt)
-     { ?>
+     { 
+      
+      $sql = "UPDATE ingredients
+      JOIN productingredients ON productingredients.ingredient_id = ingredients.id
+      SET ingredients.quantity = ingredients.quantity - productingredients.quantity
+      WHERE productingredients.product_id = $pid ";
+
+// Execute the query and check for errors
+$result = mysqli_query($con, $sql);
+
+      ?>
    <tr><td colspan="2"><b>
       Product Delivered </b></td>
    <?php }else  {
@@ -105,7 +132,7 @@ $st='Delivered';
      <tr style=''>
       <td class="fontkink1" >Remark:</td>
       <td class="fontkink" align="justify" ><span class="fontkink">
-        <textarea cols="50" rows="7" name="remark"  required="required" ></textarea>
+        <textarea cols="50" rows="7" name="remark" ></textarea>
         </span></td>
     </tr>
     <tr>
