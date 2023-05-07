@@ -37,7 +37,7 @@ while ($row = mysqli_fetch_array($result)) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="submit" class="btn btn-primary">Update Data</button>
+                <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> Save</button>
             </div>
         </form>
     </div>

@@ -158,7 +158,7 @@ session_start();
                                                     <td><?php echo $row['id']; ?></td>
                                                     <td><?php echo $row['question']; ?></td>
                                                     <td>
-                                                        <button type="button" class="btn btn-success retrievebtn3"> RETRIEVE </button>
+                                                        <button type="button" class="btn btn-function btn-success retrievebtn3"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> RETRIEVE </button>
                                                     </td>
                                                 </tr>
                                         <?php
@@ -193,12 +193,12 @@ session_start();
                                         <h4> Do you want to archive this question?</h4>
                                         <div class="form-group">
                                             <label>Question</label>
-                                            <input type="text" name="retrieve_question" id="retrieve_question" class="form-control" placeholder="Enter Product Name">
+                                            <input type="text" name="retrieve_question" id="retrieve_question" class="form-control"  readonly>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                                        <button type="submit" name="updatedata" class="btn btn-primary">YES</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="submit" name="updatedata" class="btn btn-primary"><i class="fa fa-check-circle"></i> Yes</button>
                                     </div>
                                 </form>
 

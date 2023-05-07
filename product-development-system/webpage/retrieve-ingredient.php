@@ -201,31 +201,31 @@ session_start();
                                         <h4> Do you want to retrieve this data?</h4>
                                         <div class="form-group">
                                             <label>Product Name</label>
-                                            <input type="text" name="ingredient_name" id="ingredient_name" class="form-control" placeholder="Enter Product Name">
+                                            <textarea type="text" name="ingredient_name" id="ingredient_name" class="form-control" rows="3" readonly></textarea>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Product Formulation</label>
-                                            <input type="text" name="ingredient_product_formulation" id="ingredient_product_formulation" class="form-control" placeholder="Enter Introduction">
+                                            <textarea type="text" name="ingredient_product_formulation" id="ingredient_product_formulation" class="form-control" rows="5" readonly></textarea>
                                         </div>
 
                                         <div class="form-group">
                                             <label> Ingredient Sourcing</label>
-                                            <input type="text" name="ingredient_ingredient_sourcing" id="ingredient_ingredient_sourcing" class="form-control" placeholder="Enter Phone Number">
+                                            <textarea type="text" name="ingredient_ingredient_sourcing" id="ingredient_ingredient_sourcing" class="form-control" rows="5" readonly></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Pricing Strategy</label>
-                                            <input type="text" name="ingredient_pricing_strategy" id="ingredient_pricing_strategy" class="form-control" placeholder="Enter Phone Number">
+                                            <textarea type="text" name="ingredient_pricing_strategy" id="ingredient_pricing_strategy" class="form-control" rows="5" readonly></textarea >
                                         </div>
 
                                         <div class="form-group">
                                             <label> Research ID </label>
-                                            <input type="text" name="ingredient_researchID" id="ingredient_researchID" class="form-control" placeholder="Enter Phone Number" readonly>
+                                            <input type="text" name="ingredient_researchID" id="ingredient_researchID" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                                        <button type="submit" name="updatedata" class="btn btn-primary">YES</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="submit" name="updatedata" class="btn btn-primary"><i class="fa fa-check-circle"></i> Yes</button>
                                     </div>
                                 </form>
 

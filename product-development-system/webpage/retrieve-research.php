@@ -165,7 +165,7 @@ session_start();
                                                     <td> <?php echo $row['technical']; ?> </td>
                                                     <td> <?php echo $row['conclusion']; ?> </td>
                                                     <td>
-                                                        <button type="button" class="btn btn-function btn-danger retrievebtn2"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> RETRIEVE</button>
+                                                        <button type="button" class="btn btn-function btn-success retrievebtn2"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> RETRIEVE</button>
                                                     </td>
                                                 </tr>
                                         <?php
@@ -201,37 +201,37 @@ session_start();
                                     <h4> Do you want to retrieve this data?</h4>
                                     <div class="form-group">
                                         <label> Title </label>
-                                        <input type="text" name="retrieve_title" id="retrieve_title" class="form-control" placeholder="Enter Title" disabled>
+                                        <textarea type="text" name="retrieve_title" id="retrieve_title" class="form-control"   rows="3" disabled></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label> Introduction </label>
-                                        <input type="text" name="retrieve_introduction" id="retrieve_introduction" class="form-control" placeholder="Enter Introduction" disabled>
+                                        <textarea type="text" name="retrieve_introduction" id="retrieve_introduction" class="form-control" rows="5" disabled>
                                     </div>
 
                                     <div class="form-group">
                                 <label>Market Research</label>
-                                <textarea class="form-control" name="retrieve_market" id="retrieve_market" rows="3"></textarea>
+                                <textarea class="form-control" name="retrieve_market" id="retrieve_market" rows="5"></textarea>
                             </div>
                             
                             <div class="form-group">
                                 <label>User Research</label>
-                                <textarea class="form-control" name="retrieve_user" id="retrieve_user" rows="3"></textarea>
+                                <textarea class="form-control" name="retrieve_user" id="retrieve_user" rows="5" disabled></textarea>
                             </div>
                             
                             <div class="form-group">
                                 <label>Market Research</label>
-                                <textarea class="form-control" name="retrieve_technical" id="retrieve_technical" rows="3"></textarea>
+                                <textarea class="form-control" name="retrieve_technical" id="retrieve_technical" rows="5" disabled></textarea>
                             </div>
 
                                     <div class="form-group">
                                         <label> Conclusion </label>
-                                        <input type="text" name="retrieve_conclusion" id="retrieve_conclusion" class="form-control" placeholder="Enter Phone Number" disabled>
+                                        <textarea type="text" class="form-control" name="retrieve_conclusion" id="retrieve_conclusion" rows="5" disabled></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                                    <button type="submit" name="updatedata" class="btn btn-primary">YES</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    <button type="submit" name="updatedata" class="btn btn-primary"><i class="fa fa-check-circle"></i> Yes</button>
                                 </div>
                             </form>
 

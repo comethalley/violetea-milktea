@@ -168,7 +168,7 @@ session_start();
                                                     <td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" alt="image.jpg" width="100px" height="100px"></td>
                                                     <td><?php echo $row['ingredientID']; ?></td>
                                                     <td>
-                                                        <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-success archivebtn"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> Retrieve </button>
+                                                        <button type="button" data-id='<?php echo $row['id']; ?>' class="btn btn-function btn-success archivebtn"><i class="fa-solid fa-rotate-left" style="color: #ffffff;"></i> Retrieve </button>
                                                     </td>
                                                 </tr>
                                         <?php

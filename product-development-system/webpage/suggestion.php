@@ -29,9 +29,11 @@ if ($_SESSION['username']) {
 
 <body>
     <!--Navbar-->
-    
+
     <div class="navbar navbar-expand-lg navbar-light    ">
-        <a class="navbar-brand" href="#"><h5>Product Development </h5></a>
+        <a class="navbar-brand" href="#">
+            <h5>Product Development </h5>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -126,16 +128,16 @@ if ($_SESSION['username']) {
 
                 <div class="accordion " id="accordionExample">
                     <div class="card">
-                    <div class="card-header" id="headingOne">
-  <h2 class="mb-0">
-    <button class="btn-click btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      Suggestions
-    </button>
-    <button class="btn-click btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      Research
-    </button>
-  </h2>
-</div>
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn-click btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Suggestions
+                                </button>
+                                <button class="btn-click btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Research
+                                </button>
+                            </h2>
+                        </div>
 
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -291,29 +293,29 @@ if ($_SESSION['username']) {
                         <div class="modal-body">
                             <div class="form-group">
                                 <label> Title: </label>
-                                <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                                <textarea type="text" name="title" class="form-control" placeholder="Enter Title " rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label> Introduction </label>
-                                <input type="text" name="introduction" class="form-control" placeholder="Enter Introduction">
+                                <textarea type="text" name="introduction" class="form-control" placeholder="Enter Introduction" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Market Research</label>
-                                <textarea class="form-control" name="market" id="market" rows="3"></textarea>
+                                <textarea class="form-control" name="market" id="market" rows="5" placeholder="Enter Market Research"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>User Research</label>
-                                <textarea class="form-control"name="user" id="user" rows="3"></textarea>
+                                <textarea class="form-control" name="user" id="user" rows="5" placeholder="Enter User Research"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Technical Research</label>
-                                <textarea class="form-control" name="technical" id="technical" rows="3"></textarea>
+                                <textarea class="form-control" name="technical" id="technical" rows="5" placeholder="Enter Technical Research"></textarea>
                             </div>
                             <div class="form-group">
                                 <label> Conclusion </label>
-                                <input type="text" name="conclusion" class="form-control" placeholder="Enter Conclusion">
+                                <textarea type="text" name="conclusion" class="form-control" placeholder="Enter Conclusion" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -346,34 +348,34 @@ if ($_SESSION['username']) {
 
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" name="title" id="edit_title" class="form-control" placeholder="Enter Title">
+                                <textarea type="text" name="title" id="edit_title" class="form-control" rows="3"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label> Introduction </label>
-                                <input type="text" name="introduction" id="edit_introduction" class="form-control" placeholder="Enter Introduction">
+                                <textarea type="text" name="introduction" id="edit_introduction" class="form-control" rows="3"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Market Research</label>
-                                <textarea class="form-control"name="market" id="edit_market" rows="3"></textarea>
+                                <textarea type="text" class="form-control" name="market" id="edit_market" rows="5"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>User Research</label>
-                                <textarea class="form-control"name="user" id="edit_user" rows="3"></textarea>
+                                <textarea type="text" class="form-control" name="user" id="edit_user" rows="5"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>User Research</label>
-                                <textarea class="form-control"name="user" id="edit_technical" rows="3"></textarea>
+                                <textarea type="textarea" class="form-control" name="user" id="edit_technical" rows="5"></textarea>
                             </div>
-                           
+
                             <div class="form-group">
                                 <label> Conclusion </label>
-                                <input type="text" name="conclusion" id="edit_conclusion" class="form-control" placeholder="Enter Phone Number">
+                                <textarea type="text" name="conclusion" id="edit_conclusion" class="form-control" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" name="updatedata" class="btn btn-primary">Update Data</button>
+                            <button type="submit" name="updatedata" class="btn btn-primary"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>Update</button>
                         </div>
                     </form>
 
@@ -400,17 +402,17 @@ if ($_SESSION['username']) {
                             <h4> Do you want to archive this data?</h4>
                             <div class="form-group">
                                 <label> Username </label>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" disabled>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" readonly>
                             </div>
 
                             <div class="form-group">
                                 <label> Subject </label>
-                                <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" disabled>
+                                <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" readonly>
                             </div>
 
                             <div class="form-group">
                                 <label> Body </label>
-                                <input type="text" name="subject" id="body" class="form-control" placeholder="Body" disabled>
+                                <input type="text" name="subject" id="body" class="form-control" placeholder="Body" readonly>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -442,36 +444,36 @@ if ($_SESSION['username']) {
                             <h4> Do you want to archive this data?</h4>
                             <div class="form-group">
                                 <label> Title </label>
-                                <input type="text" name="archive_title" id="archive_title" class="form-control" placeholder="Enter Title" disabled>
+                                <textarea type="text" name="archive_title" id="archive_title" class="form-control" rows="3" readonly></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label> Introduction </label>
-                                <input type="text" name="archive_introduction" id="archive_introduction" class="form-control" placeholder="Enter Introduction" disabled>
+                                <textarea type="text" name="archive_introduction" id="archive_introduction" class="form-control" rows="3" readonly></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Market Research</label>
-                                <textarea class="form-control"name="archive_market" id="archive_market" rows="3"></textarea>
+                                <textarea class="form-control" name="archive_market" id="archive_market" rows="5" readonly></textarea>
                             </div>
                             <div class="form-group">
                                 <label>User Research</label>
-                                <textarea class="form-control"name="archive_user" id="archive_user" rows="3"></textarea>
+                                <textarea class="form-control" name="archive_user" id="archive_user" rows="5" readonly></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Technical Research</label>
-                                <textarea class="form-control"name="archive_technical" id="archive_technical" rows="3"></textarea>
+                                <textarea class="form-control" name="archive_technical" id="archive_technical" rows="5" readonly></textarea>
                             </div>
 
 
                             <div class="form-group">
                                 <label> Conclusion </label>
-                                <input type="text" name="archive_conclusion" id="archive_conclusion" class="form-control" placeholder="Enter Phone Number" disabled>
+                                <textarea type="text" name="archive_conclusion" id="archive_conclusion" class="form-control" rows="5" readonly></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-                            <button type="submit" name="updatedata" class="btn btn-primary">YES</button>
+                            <button type="submit" name="updatedata" class="btn btn-primary"><i class="fa-solid fa-square-check" style="color: #ffffff;"></i> YES</button>
                         </div>
                     </form>
 
@@ -496,9 +498,9 @@ if ($_SESSION['username']) {
         </div>
     </main>
     <div class="footer-cont">
-    <footer>
-    © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
-</footer>
+        <footer>
+            © 2023 Violetea. All rights reserved. Developed by CHO<span style="color: #e69cfb;">BO</span>.
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -508,7 +510,7 @@ if ($_SESSION['username']) {
     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/logoutajax.js"></script>
     <script src="../webpage//js/suggestion.js"></script>
- 
+
 
 
 </body>

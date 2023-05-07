@@ -29,7 +29,7 @@ while( $row = mysqli_fetch_array($result) ){
     <label for="note" class="col-form-label">Pricing_strategy</label>
     <textarea name="pricing_strategy" id="pricing_strategy" rows="5" class="form-control" placeholder="Enter Pricing Strategy" ></textarea>
   </div>
-  <button type="submit" class="btn btn-success"><i class="fa fa-check-circle"></i> Save</button>
+  <button type="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> Save</button>
 </form>
 
  
