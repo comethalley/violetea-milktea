@@ -9,19 +9,15 @@ else{
 	$pid=intval($_GET['id']);// product id
 if(isset($_POST['submit']))
 {
-	$firstName=$_POST['firstname'];
-	$lastName=$_POST['lastname'];
-	$userName=$_POST['username'];
+	$password = $_POST['password'];
+	$confirmPassword = $_POST['confirmPassword'];
 
-    $confirmUser = mysqli_query($con,"SELECT * FROM tbl_employee WHERE username='$userName'");
-    $resultCheck = mysqli_num_rows($confirmUser);
-
-    //verify if the username is already taken
-    if($resultCheck >= 1){
-		echo "<script>alert('Username is already taken')</script>";
+    //verify if the $password and confirm passwrod is same
+    if($password != $confirmPassword){
+		echo "<script>alert('Wrong Password')</script>";
     }
     else{
-        $sql=mysqli_query($con,"update  tbl_employee set firstname ='$firstName',lastname='$lastName',username='$userName' where id='$pid' ");
+        $sql=mysqli_query($con,"update  tbl_employee set password ='$password' where id='$pid' ");
         $_SESSION['msg']="Account Updated Successfully !!";
     }
 	
@@ -75,7 +71,7 @@ $("#suggesstion-box").hide();
 
 						<div class="module">
 							<div class="module-head">
-								<h3>Edit Information</h3>
+								<h3>Change Password</h3>
 							</div>
 							<div class="module-body">
 
@@ -113,31 +109,18 @@ while($row=mysqli_fetch_array($query))
 
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Firstname</label>
+<label class="control-label" for="basicinput">New Password</label>
 <div class="controls">
-<input type="text"    name="firstname"  placeholder="Enter Firstname" value="<?php echo htmlentities($row['firstname']);?>" class="span8 tip" >
+<input type="password"    name="password"  placeholder="Enter New Password" class="span8 tip" required>
 </div>
 </div>
 
 <div class="control-group">
-<label class="control-label" for="basicinput">Lastname</label>
+<label class="control-label" for="basicinput">Cofirm Passsword</label>
 <div class="controls">
-<input type="text"    name="lastname"  placeholder="Enter Lastname" value="<?php echo htmlentities($row['lastname']);?>" class="span8 tip" required>
+<input type="password"    name="confirmPassword"  placeholder="Confirm Password" class="span8 tip" required>
 </div>
 </div>
-<div class="control-group">
-<label class="control-label" for="basicinput">Username</label>
-<div class="controls">
-<input type="text"    name="username"  placeholder="Enter Username" value="<?php echo htmlentities($row['username']);?>"  class="span8 tip" required>
-</div>
-</div>
-<div class="control-group">
-<div class="controls">
-<a href="forgot-password.php?id=<?php echo $row['id']?>" >Forgot password?</a>
-</div>
-
-</div>
-
 
 <?php } ?>
 	<div class="control-group">

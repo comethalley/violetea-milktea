@@ -108,6 +108,7 @@ $con = mysqli_connect('localhost', 'root', '', 'onlineshopping') or die('unable 
     if (is_array($row)) {
       $_SESSION["username"] = $row['username'];
       $_SESSION["password"] = $row['password'];
+      mysqli_query($con, "INSERT INTO employeelog(username) values('$username')");
       echo '<script type="text/javascript">';
       echo 'Swal.fire({
           icon: "success",
