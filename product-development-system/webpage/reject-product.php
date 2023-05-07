@@ -13,10 +13,10 @@ while ($row = mysqli_fetch_array($result)) {
 
                 <h5>Product</h5>
                 <label>Product Name:</label>
-                <input type="text" value="<?php echo $row['name']; ?>" name="name" readonly><br>
+                <input  class="form-control" type="text" value="<?php echo $row['name']; ?>" name="name" readonly><br>
 
                 <label>Ingredient ID:</label>
-                <input type="text" value="<?php echo $row['ingredientID']; ?>" name="ingredientID" readonly><br>
+                <input class="form-control"type="text" value="<?php echo $row['ingredientID']; ?>" name="ingredientID" readonly><br>
 
                 <label for="file">Image 1</label><br>
                 <img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" width="100px" height="100px"><br>
@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_array($result)) {
 
                 <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger" onclick="reject()">Reject</button>
+                        <button type="button" class="btn btn-danger" onclick="reject()"> <i class="fa-solid fa-box-archive" style="color: #ffff;"></i> Reject</button>
 
                 </div>
         </form>

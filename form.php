@@ -14,13 +14,18 @@ header('location:login.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>PDIS | Form</title>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
         *{
             overflow: hidden;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
         }
       body {
         background-color: #f2f2f2;
@@ -67,6 +72,29 @@ header('location:login.php');
         max-width: 600px;
         margin: 0 auto;
       }
+select {
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.my-option {
+    /* Add styles for your options with class "my-option" */
+}
+.back {
+        background-color: #ffff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+   
+
+
     </style>
 </head>
 <body>
@@ -77,6 +105,7 @@ header('location:login.php');
       <h1>We'd Love to Hear From You!</h1>
       <p>Please use the form below to share your feedback or comments with us.</p>
       <form action="includes/form-function.php" method="POST">
+        
     <input type="text" name="user" placeholder="Username" value="<?php echo $_SESSION['username']; ?>"required readonly><br>
     <label>Subject</label>
     <select name="subject" class="span8 tip" onChange="getSubcat(this.value);"  required>
@@ -85,12 +114,15 @@ header('location:login.php');
 while($row=mysqli_fetch_array($query))
 {?>
 
-<option value="<?php echo $row['categoryName'];?>"><?php echo $row['categoryName'];?></option>
+<option value="<?php echo $row['categoryName'];?>" class="my-option"><?php echo $row['categoryName'];?></option>
+
 <?php } ?>
-</select><br>
+</select> 
+<label>Suggestion Box</label>
     <textarea name="body" placeholder="Body" required></textarea><br>
     <button type="submit" name="submit">Submit</button>
-    <a href="index.php">Back</a>
+    <button class="back"><a href="index.php">Back</a></button>
+     
     </form>
     </div>
 

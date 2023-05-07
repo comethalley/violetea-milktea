@@ -58,7 +58,7 @@ if ($_SESSION['username']) {
     <main>
         <div class="container ">
             <div class="cont-left">
-                <nav>
+            <nav>
                     <ul class="">
                         <li class="">
                             <i class="fa-solid fa-clipboard" style="color: #b8b8b8;"></i> <a class="" href="suggestion.php">Suggestion <span class="sr-only">(current)</span></a>
@@ -67,10 +67,7 @@ if ($_SESSION['username']) {
                         <li class="">
                             <i class="fa-solid fa-flask" style="color: #b8b8b8;"></i> <a class="" href="ingredient.php">Ingredients</a>
                         </li>
-                        <div class="line"></div>
-                        <li class="">
-                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="survey.php">Survey</a>
-                        </li>
+                       
                         <div class="line"></div>
                         <li class="">
                             <i class="fa-brands fa-product-hunt" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Concept Products</a>
@@ -78,6 +75,10 @@ if ($_SESSION['username']) {
                         <div class="line"></div>
                         <li class="">
                             <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
+                        </li>
+                        <div class="line"></div>
+                        <li class="">
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="survey.php">Survey</a>
                         </li>
                         <div class="line"></div>
                         <li class="">

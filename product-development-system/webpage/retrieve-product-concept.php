@@ -70,10 +70,7 @@ session_start();
                         <li class="">
                             <i class="fa-solid fa-flask" style="color: #b8b8b8;"></i> <a class="" href="ingredient.php">Ingredients</a>
                         </li>
-                        <div class="line"></div>
-                        <li class="">
-                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="survey.php">Survey</a>
-                        </li>
+                       
                         <div class="line"></div>
                         <li class="">
                             <i class="fa-brands fa-product-hunt" style="color: #b8b8b8;"></i> <a class="" href="product-concept.php">Concept Products</a>
@@ -81,6 +78,10 @@ session_start();
                         <div class="line"></div>
                         <li class="">
                             <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="analysis-report.php">Analysis Report</a>
+                        </li>
+                        <div class="line"></div>
+                        <li class="">
+                            <i class="fa-solid fa-chart-simple" style="color: #b8b8b8;"></i> <a class="" href="survey.php">Survey</a>
                         </li>
                         <div class="line"></div>
                         <li class="">
