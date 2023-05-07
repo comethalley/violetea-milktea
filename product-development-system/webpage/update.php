@@ -6,6 +6,7 @@
     $introduction = mysqli_real_escape_String($conn, $_POST["introduction"]);
     $market = mysqli_real_escape_String($conn, $_POST["market"]);
     $user = mysqli_real_escape_String($conn, $_POST["user"]);
+    $technical = mysqli_real_escape_String($conn, $_POST["technical"]);
     $conclusion = mysqli_real_escape_String($conn, $_POST["conclusion"]);
     
     //check the form if empty
@@ -14,7 +15,7 @@
     }
     
     else{
-        $sql = "UPDATE tbl_research SET title='$title', introduction='$introduction',  market='$market',user='$user', conclusion='$conclusion' WHERE id='$id'";
+        $sql = "UPDATE tbl_research SET title='$title', introduction='$introduction',  market='$market',user='$user', technical='$technical', conclusion='$conclusion' WHERE id='$id'";
         mysqli_query($conn, $sql);
         echo '<script> alert("Data Updated"); </script>';
         header("Location:suggestion.php?upda

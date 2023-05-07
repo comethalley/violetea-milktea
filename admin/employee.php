@@ -31,7 +31,7 @@ if(isset($_POST['submit']))
     }
     
     else{
-        $sql = "INSERT INTO tbl_employee(id, firstname, lastname, username, password) VALUES ('','$firstname','$lastname','$username','$password')";
+        $sql = "INSERT INTO tbl_employee(id, firstname, lastname, username, password, isArchived) VALUES ('','$firstname','$lastname','$username','$password','false')";
         mysqli_query($con, $sql);
 		$_SESSION['msg']="Added Successfully !!";
         header("Location: employee.php?submit=success");

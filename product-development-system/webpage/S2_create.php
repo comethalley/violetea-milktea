@@ -26,7 +26,7 @@ while( $row = mysqli_fetch_array($result) ){
     <textarea name="ingredient_sourcing" id="ingredient_sourcing" rows="5" class="form-control" placeholder="Enter Ingredient Sourcing" ></textarea>
   </div>
   <div class="form-group">
-    <label for="note" class="col-form-label">Pricing_strategy</label>
+    <label for="note" class="col-form-label">Pricing strategy</label>
     <textarea name="pricing_strategy" id="pricing_strategy" rows="5" class="form-control" placeholder="Enter Pricing Strategy" ></textarea>
   </div>
   <button type="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> Save</button>

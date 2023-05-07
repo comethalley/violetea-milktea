@@ -5,23 +5,30 @@ include_once '../webpage/includes/db-connection.php';
 
 $archiveid = $_POST['archiveid'];
  
-$sql = "select * from tbl_concept where id=" . $archiveid;
+$sql = "SELECT * FROM tbl_ingredient INNER JOIN tbl_concept ON tbl_ingredient.id = tbl_concept.ingredientID where tbl_concept.id=" . $archiveid;
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_array($result)) {
 ?>
-	<h5>Are you sure you want to archive this data?</h5><br><br>
-	<div class="form-group">
-	<label>Ingredient ID:</label>
-	<input type="text" class="form-control" value="<?php echo $row['ingredientID']; ?>" name="ingredientID" readonly>
-	<td><img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
-			<td>
-
-				 
-				 
-			</td>
-	</div>
+	<h5>Are you sure you want to archive this data?</h5><br>
 	<form id="archive-form" method="POST" enctype="multipart/form-data">
+	<h5>Product Concept</h5>
+                <label>Product Name:</label><br>
+                <input type="text" class="form-control" value="<?php echo $row['name']; ?>" name="ingredientID" readonly><br>
+                <label>Ingredient ID:</label><br>
+                <input type="text" class="form-control" value="<?php echo $row['ingredientID']; ?>" name="ingredientID" readonly><br>
+                <div class="form-group">
+					<label>Image 1:</label>
+                        <img src="../../admin/productimages/uploads/<?php echo $row['image']; ?>" width="100px" height="100px">
+                </div>
+                <div class="form-group">
+					<label>Image 2:</label>
+                        <img src="../../admin/productimages/uploads/<?php echo $row['image2']; ?>" width="100px" height="100px">
+                </div>
 
+                <div class="form-group">
+					<label>Image 3:</label>
+                        <img src="../../admin/productimages/uploads/<?php echo $row['image3']; ?>" width="100px" height="100px">
+                </div>
 
 		<div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

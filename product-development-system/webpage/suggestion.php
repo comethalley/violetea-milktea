@@ -364,8 +364,8 @@ if ($_SESSION['username']) {
                                 <textarea type="text" class="form-control" name="user" id="edit_user" rows="5"></textarea>
                             </div>
                             <div class="form-group">
-                                <label>User Research</label>
-                                <textarea type="textarea" class="form-control" name="user" id="edit_technical" rows="5"></textarea>
+                                <label>Techinical Research</label>
+                                <textarea type="textarea" class="form-control" name="technical" id="edit_technical" rows="5"></textarea>
                             </div>
 
                             <div class="form-group">
